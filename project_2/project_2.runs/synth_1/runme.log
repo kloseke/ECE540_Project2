@@ -16471,3 +16471,112 @@ INFO: [Synth 8-7053] The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm
 INFO: [Synth 8-7053] The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[2].dccm_bank/ram_core_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7053] The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[2].dccm_bank/ram_core_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Common 17-14] Message 'Synth 8-7053' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3295] tying undriven pin swervolfi_35533:a to constant 0
+CRITICAL WARNING: [Synth 8-4442] BlackBox module world_map_module has unconnected pin addrb[13]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module world_map_module has unconnected pin addrb[12]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module world_map_module has unconnected pin addrb[11]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module world_map_module has unconnected pin addrb[10]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module world_map_module has unconnected pin addrb[9]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module world_map_module has unconnected pin addrb[8]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module world_map_module has unconnected pin addrb[7]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module world_map_module has unconnected pin addrb[6]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module world_map_module has unconnected pin addrb[5]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module world_map_module has unconnected pin addrb[4]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module world_map_module has unconnected pin addrb[3]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module world_map_module has unconnected pin addrb[2]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module world_map_module has unconnected pin addrb[1]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module world_map_module has unconnected pin addrb[0]
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:12:14 ; elapsed = 00:14:52 . Memory (MB): peak = 1667.227 ; gain = 1015.250
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:12:14 ; elapsed = 00:14:53 . Memory (MB): peak = 1667.227 ; gain = 1015.250
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocX_reg[7] with 1st driver pin 'sync[31]_i_1/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocX_reg[7] with 2nd driver pin 'rojobot31_0_module/LocX_reg[7]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocX_reg[6] with 1st driver pin 'sync[30]_i_1/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocX_reg[6] with 2nd driver pin 'rojobot31_0_module/LocX_reg[6]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocX_reg[5] with 1st driver pin 'sync[29]_i_1/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocX_reg[5] with 2nd driver pin 'rojobot31_0_module/LocX_reg[5]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocX_reg[4] with 1st driver pin 'sync[28]_i_1/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocX_reg[4] with 2nd driver pin 'rojobot31_0_module/LocX_reg[4]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocX_reg[3] with 1st driver pin 'sync[27]_i_1/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocX_reg[3] with 2nd driver pin 'rojobot31_0_module/LocX_reg[3]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocX_reg[2] with 1st driver pin 'sync[26]_i_1/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocX_reg[2] with 2nd driver pin 'rojobot31_0_module/LocX_reg[2]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocX_reg[1] with 1st driver pin 'sync[25]_i_1/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocX_reg[1] with 2nd driver pin 'rojobot31_0_module/LocX_reg[1]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocX_reg[0] with 1st driver pin 'sync[24]_i_1/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocX_reg[0] with 2nd driver pin 'rojobot31_0_module/LocX_reg[0]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocY_reg[7] with 1st driver pin 'sync[23]_i_1/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocY_reg[7] with 2nd driver pin 'rojobot31_0_module/LocY_reg[7]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocY_reg[6] with 1st driver pin 'sync[22]_i_1/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocY_reg[6] with 2nd driver pin 'rojobot31_0_module/LocY_reg[6]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocY_reg[5] with 1st driver pin 'sync[21]_i_1/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocY_reg[5] with 2nd driver pin 'rojobot31_0_module/LocY_reg[5]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocY_reg[4] with 1st driver pin 'sync[20]_i_1/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocY_reg[4] with 2nd driver pin 'rojobot31_0_module/LocY_reg[4]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocY_reg[3] with 1st driver pin 'sync[19]_i_1/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocY_reg[3] with 2nd driver pin 'rojobot31_0_module/LocY_reg[3]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocY_reg[2] with 1st driver pin 'sync[18]_i_1/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocY_reg[2] with 2nd driver pin 'rojobot31_0_module/LocY_reg[2]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocY_reg[1] with 1st driver pin 'sync[17]_i_1/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocY_reg[1] with 2nd driver pin 'rojobot31_0_module/LocY_reg[1]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocY_reg[0] with 1st driver pin 'sync[16]_i_1/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin LocY_reg[0] with 2nd driver pin 'rojobot31_0_module/LocY_reg[0]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Sensors_reg[7] with 1st driver pin 'sync[15]_i_1/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Sensors_reg[7] with 2nd driver pin 'rojobot31_0_module/Sensors_reg[7]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Sensors_reg[6] with 1st driver pin 'sync[14]_i_1__0/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Sensors_reg[6] with 2nd driver pin 'rojobot31_0_module/Sensors_reg[6]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Sensors_reg[5] with 1st driver pin 'sync[13]_i_1__0/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Sensors_reg[5] with 2nd driver pin 'rojobot31_0_module/Sensors_reg[5]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Sensors_reg[4] with 1st driver pin 'sync[12]_i_1__0/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Sensors_reg[4] with 2nd driver pin 'rojobot31_0_module/Sensors_reg[4]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Sensors_reg[3] with 1st driver pin 'sync[11]_i_1__0/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Sensors_reg[3] with 2nd driver pin 'rojobot31_0_module/Sensors_reg[3]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Sensors_reg[2] with 1st driver pin 'sync[10]_i_1__0/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Sensors_reg[2] with 2nd driver pin 'rojobot31_0_module/Sensors_reg[2]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Sensors_reg[1] with 1st driver pin 'sync[9]_i_1__0/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Sensors_reg[1] with 2nd driver pin 'rojobot31_0_module/Sensors_reg[1]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Sensors_reg[0] with 1st driver pin 'sync[8]_i_1__0/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Sensors_reg[0] with 2nd driver pin 'rojobot31_0_module/Sensors_reg[0]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin BotInfo_reg[7] with 1st driver pin 'sync[7]_i_1__0/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin BotInfo_reg[7] with 2nd driver pin 'rojobot31_0_module/BotInfo_reg[7]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin BotInfo_reg[6] with 1st driver pin 'sync[6]_i_1__0/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin BotInfo_reg[6] with 2nd driver pin 'rojobot31_0_module/BotInfo_reg[6]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin BotInfo_reg[5] with 1st driver pin 'sync[5]_i_1__0/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin BotInfo_reg[5] with 2nd driver pin 'rojobot31_0_module/BotInfo_reg[5]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin BotInfo_reg[4] with 1st driver pin 'sync[4]_i_1__0/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin BotInfo_reg[4] with 2nd driver pin 'rojobot31_0_module/BotInfo_reg[4]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin BotInfo_reg[3] with 1st driver pin 'sync[3]_i_1__0/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin BotInfo_reg[3] with 2nd driver pin 'rojobot31_0_module/BotInfo_reg[3]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin BotInfo_reg[2] with 1st driver pin 'sync[2]_i_1__0/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin BotInfo_reg[2] with 2nd driver pin 'rojobot31_0_module/BotInfo_reg[2]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin BotInfo_reg[1] with 1st driver pin 'sync[1]_i_1__0/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin BotInfo_reg[1] with 2nd driver pin 'rojobot31_0_module/BotInfo_reg[1]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin BotInfo_reg[0] with 1st driver pin 'sync[0]_i_1__0/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin BotInfo_reg[0] with 2nd driver pin 'rojobot31_0_module/BotInfo_reg[0]' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin clk_75_IBUF with 1st driver pin 'clk_75_IBUF_inst/O' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin clk_75_IBUF with 2nd driver pin 'clk_gen_75hz_module/clk_75' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:287]
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|       33|Failed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
