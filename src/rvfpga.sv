@@ -331,7 +331,7 @@ module rvfpga
 
    assign o_uart_tx = 1'b0 ? litedram_tx : cpu_tx;
     
-   always @ (posedge clk_75) begin
+   always @ (posedge clk_in1) begin
     if (IO_INT_ACK == 1'b1) begin
         IO_BotUpdt_Sync <= 1'b0;
     end
