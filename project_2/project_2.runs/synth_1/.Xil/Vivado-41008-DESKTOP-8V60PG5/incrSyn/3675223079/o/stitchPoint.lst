@@ -1,0 +1,12 @@
+/swervolf/swerv_eh1/swerv/dec/dec__GB0
+/ddr2/litedram_top__GC0
+/swervolf/swerv_eh1/swerv/lsu/lsu__GB0
+/swervolf/swervolf_core__GCB0
+/swervolf/swerv_eh1/swerv/exu
+/swervolf/swerv_eh1/swerv/swerv__GCB0
+/swervolf/swerv_eh1/mem
+/ddr2/ldc/litedram_core__GC0
+/rvfpga__GC0
+/swervolf/swerv_eh1/swerv/lsu/lsu__GB1
+/swervolf/swervolf_core__GCB1
+/swervolf/swerv_eh1/swerv/dec/dec__GB1
