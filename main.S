@@ -756,18 +756,27 @@ next_step:
                 beq     t0, zero, next_step_manual
 ############################################################################################################## 
 next_step_auto: ### It is just given for your reference.
+				# will be using s1 to save a 0 if we just reversed and need to now turn right (will be set when turn is set)
+				beq s1, zero, need_to_turn_now			# we already reversed, need to turn to finish this motion (part 2 of a 2 step motion)
 				jal check_off_black_line		# read sensor to see if we are off of black line, returns a0 = 1 if we are off and 0 if on
 				nop
-				beq a0, zero, on_the_line
+				beq a0, zero, on_the_line		# jump down here if we are on the line
 				
 off_the_line:		# if off the line, reverse then turn right 1X
+				
+				li s1, 1								# flag as having reversed
+				beq zero, zero, set_rojo_motion_auto
+				
+need_to_turn_now:	# we already reversed, need to turn now
+
 
 				beq zero, zero, set_rojo_motion_auto
-
 on_the_line:		# if on the line, move forward
-
-set_rojo_motion_auto:
 				
+set_rojo_motion_auto:
+				li x25, PORT_BOTCTRL			# grab location of rojo control register
+				sw t3, 0(x25)					# write command of which direction
+				beq zero, zero, ret_next_step	
 ##
 ##
 ##       You need to add your code over here to make the icon move automatically. That is to make icon
