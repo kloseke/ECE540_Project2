@@ -17,6 +17,7 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param chipscope.maxJobs 2
 set_param synth.incrementalSynthesisCache C:/Users/sonal/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-27900-DESKTOP-8V60PG5/incrSyn
 set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {Synth 8-256} -limit 10000

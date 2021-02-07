@@ -1,0 +1,107 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Sun Feb  7 00:04:42 2021
+# Process ID: 30704
+# Current directory: C:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.runs/impl_1
+# Command line: vivado.exe -log rvfpga.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source rvfpga.tcl -notrace
+# Log file: C:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.runs/impl_1/rvfpga.vdi
+# Journal file: C:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source rvfpga.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/Additional Files/ece540_ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.2/data/ip'.
+Command: link_design -top rvfpga -part xc7a100tcsg324-1
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0.dcp' for cell 'clk_gen_75hz_module'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.srcs/sources_1/ip/rojobot31_0/rojobot31_0.dcp' for cell 'rojobot31_0_module'
+Netlist sorting complete. Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 836.184 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1719 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2019.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+WARNING: [Opt 31-35] Removing redundant IBUF, clk_gen_75hz_module/inst/clkin1_ibufg, from the path connected to top-level port: clk_in1 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'clk_gen_75hz_module/clk_in1' is not directly connected to top level port. Synthesis is ignored for IBUF_LOW_PWR but preserved for implementation.
+Parsing XDC File [c:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0_board.xdc] for cell 'clk_gen_75hz_module/inst'
+Finished Parsing XDC File [c:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0_board.xdc] for cell 'clk_gen_75hz_module/inst'
+Parsing XDC File [c:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0.xdc] for cell 'clk_gen_75hz_module/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [c:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0.xdc:57]
+INFO: [Timing 38-2] Deriving generated clocks [c:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0.xdc:57]
+get_clocks: Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 1655.711 ; gain = 611.023
+Finished Parsing XDC File [c:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0.xdc] for cell 'clk_gen_75hz_module/inst'
+Parsing XDC File [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/liteDRAM.xdc]
+Finished Parsing XDC File [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/liteDRAM.xdc]
+Parsing XDC File [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.xdc]
+Finished Parsing XDC File [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.051 . Memory (MB): peak = 1655.711 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 147 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 37 instances
+  IOBUFDS => IOBUFDS (IBUFDS, INV, OBUFTDS(x2)): 2 instances
+  LUT6_2 => LUT6_2 (LUT5, LUT6): 50 instances
+  OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS(x2)): 1 instance 
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 55 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 2 instances
+
+14 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:48 ; elapsed = 00:00:48 . Memory (MB): peak = 1655.711 ; gain = 1292.715
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net clk_gen_75hz_module/inst/clk_75 has multiple drivers: clk_75_IBUF_inst/O, and clk_gen_75hz_module/inst/clkout1_buf/O.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[0] has multiple drivers: swervolf/gpio_rojobot/sync[0]_i_1__0/O, and rojobot31_0_module/inst/BOTREGIF/BotInfo_reg[0]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[10] has multiple drivers: swervolf/gpio_rojobot/sync[10]_i_1__0/O, and rojobot31_0_module/inst/BOTREGIF/Sensors_reg[2]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[11] has multiple drivers: swervolf/gpio_rojobot/sync[11]_i_1__0/O, and rojobot31_0_module/inst/BOTREGIF/Sensors_reg[3]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[12] has multiple drivers: swervolf/gpio_rojobot/sync[12]_i_1__0/O, and rojobot31_0_module/inst/BOTREGIF/Sensors_reg[4]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[13] has multiple drivers: swervolf/gpio_rojobot/sync[13]_i_1__0/O, and rojobot31_0_module/inst/BOTREGIF/Sensors_reg[5]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[14] has multiple drivers: swervolf/gpio_rojobot/sync[14]_i_1__0/O, and rojobot31_0_module/inst/BOTREGIF/Sensors_reg[6]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[15] has multiple drivers: swervolf/gpio_rojobot/sync[15]_i_1/O, and rojobot31_0_module/inst/BOTREGIF/Sensors_reg[7]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[16] has multiple drivers: swervolf/gpio_rojobot/sync[16]_i_1/O, and rojobot31_0_module/inst/BOTREGIF/LocY_reg[0]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[17] has multiple drivers: swervolf/gpio_rojobot/sync[17]_i_1/O, and rojobot31_0_module/inst/BOTREGIF/LocY_reg[1]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[18] has multiple drivers: swervolf/gpio_rojobot/sync[18]_i_1/O, and rojobot31_0_module/inst/BOTREGIF/LocY_reg[2]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[19] has multiple drivers: swervolf/gpio_rojobot/sync[19]_i_1/O, and rojobot31_0_module/inst/BOTREGIF/LocY_reg[3]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[1] has multiple drivers: swervolf/gpio_rojobot/sync[1]_i_1__0/O, and rojobot31_0_module/inst/BOTREGIF/BotInfo_reg[1]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[20] has multiple drivers: swervolf/gpio_rojobot/sync[20]_i_1/O, and rojobot31_0_module/inst/BOTREGIF/LocY_reg[4]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[21] has multiple drivers: swervolf/gpio_rojobot/sync[21]_i_1/O, and rojobot31_0_module/inst/BOTREGIF/LocY_reg[5]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[22] has multiple drivers: swervolf/gpio_rojobot/sync[22]_i_1/O, and rojobot31_0_module/inst/BOTREGIF/LocY_reg[6]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[23] has multiple drivers: swervolf/gpio_rojobot/sync[23]_i_1/O, and rojobot31_0_module/inst/BOTREGIF/LocY_reg[7]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[24] has multiple drivers: swervolf/gpio_rojobot/sync[24]_i_1/O, and rojobot31_0_module/inst/BOTREGIF/LocX_reg[0]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[25] has multiple drivers: swervolf/gpio_rojobot/sync[25]_i_1/O, and rojobot31_0_module/inst/BOTREGIF/LocX_reg[1]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[26] has multiple drivers: swervolf/gpio_rojobot/sync[26]_i_1/O, and rojobot31_0_module/inst/BOTREGIF/LocX_reg[2]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[27] has multiple drivers: swervolf/gpio_rojobot/sync[27]_i_1/O, and rojobot31_0_module/inst/BOTREGIF/LocX_reg[3]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[28] has multiple drivers: swervolf/gpio_rojobot/sync[28]_i_1/O, and rojobot31_0_module/inst/BOTREGIF/LocX_reg[4]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[29] has multiple drivers: swervolf/gpio_rojobot/sync[29]_i_1/O, and rojobot31_0_module/inst/BOTREGIF/LocX_reg[5]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[2] has multiple drivers: swervolf/gpio_rojobot/sync[2]_i_1__0/O, and rojobot31_0_module/inst/BOTREGIF/BotInfo_reg[2]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[30] has multiple drivers: swervolf/gpio_rojobot/sync[30]_i_1/O, and rojobot31_0_module/inst/BOTREGIF/LocX_reg[6]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[31] has multiple drivers: swervolf/gpio_rojobot/sync[31]_i_1/O, and rojobot31_0_module/inst/BOTREGIF/LocX_reg[7]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[3] has multiple drivers: swervolf/gpio_rojobot/sync[3]_i_1__0/O, and rojobot31_0_module/inst/BOTREGIF/BotInfo_reg[3]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[4] has multiple drivers: swervolf/gpio_rojobot/sync[4]_i_1__0/O, and rojobot31_0_module/inst/BOTREGIF/BotInfo_reg[4]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[5] has multiple drivers: swervolf/gpio_rojobot/sync[5]_i_1__0/O, and rojobot31_0_module/inst/BOTREGIF/BotInfo_reg[5]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[6] has multiple drivers: swervolf/gpio_rojobot/sync[6]_i_1__0/O, and rojobot31_0_module/inst/BOTREGIF/BotInfo_reg[6]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[7] has multiple drivers: swervolf/gpio_rojobot/sync[7]_i_1__0/O, and rojobot31_0_module/inst/BOTREGIF/BotInfo_reg[7]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[8] has multiple drivers: swervolf/gpio_rojobot/sync[8]_i_1__0/O, and rojobot31_0_module/inst/BOTREGIF/Sensors_reg[0]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net swervolf/gpio_rojobot/sync_reg[31]_0[9] has multiple drivers: swervolf/gpio_rojobot/sync[9]_i_1__0/O, and rojobot31_0_module/inst/BOTREGIF/Sensors_reg[1]/Q.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port IO_BotUpdt expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port IO_INT_ACK expects both input and output buffering but the buffers are incomplete.
+INFO: [Project 1-461] DRC finished with 33 Errors, 2 Warnings
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+ERROR: [Vivado_Tcl 4-78] Error(s) found during DRC. Opt_design not run.
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 1655.711 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+19 Infos, 4 Warnings, 0 Critical Warnings and 34 Errors encountered.
+opt_design failed
+ERROR: [Common 17-39] 'opt_design' failed due to earlier errors.
+
+INFO: [Common 17-206] Exiting Vivado at Sun Feb  7 00:05:39 2021...
