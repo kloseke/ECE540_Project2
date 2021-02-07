@@ -91,23 +91,37 @@ STOP                    = 0x00
 # Port Addresses
 PORT_LEDS           = 0x80001404        # (o) LEDs
 PORT_SLSWTCH        = 0x80001400        # (i) slide switches
-PORT_PBTNS          = 0x80001600        # (i) pushbuttons inputs
+###Changed pushbutton lcation###
+PORT_PBTNS          = 0x80001500        # (i) pushbuttons inputs
+#PORT_PBTNS          = 0x80001600        # (i) pushbuttons inputs
 PORT_GPIO_EN        = 0x80001408        # (o) enable LEDs for output
 
 # ========================================================================
 # Change the following port address, as implemented by you in the hardware
 # ========================================================================
 
-
 PORT_SEVENSEG_EN    = 0x80001038        # (o) 7 Segment enable
 PORT_SEVENSEG_HGH   = 0x8000101c        # (o) 7 Segment Higher Display
 PORT_SEVENSEG_LOW   = 0x8000103c        # (o) 7 Segment Lower Display
 PORT_SEVENSEG_DP    = 0x80001018        # (o) 7 segment Decimal Point Display
 
-PORT_BOTINFO        = 0x8000180c        # (i) Bot Info port - read in, contains sensor info
-PORT_BOTCTRL        = 0x80001810        # (o) Bot Control port - wrtie out, tell bot how to move
+PORT_BOTINFO        = 0x80001600        # (i) Bot Info port - read in, contains sensor info
+PORT_BOTCTRL        = 0x80001800        # (o) Bot Control port - wrtie out, tell bot how to move
+# Still need new address for last two ports 
 PORT_BOTUPDT        = 0x80001814        # (i) Bot Update port (Poll)
 PORT_INTACK         = 0x80001818        # (o) Bot Int Ack
+
+###Old locations###
+#PORT_SEVENSEG_EN    = 0x80001038        # (o) 7 Segment enable
+#PORT_SEVENSEG_HGH   = 0x8000101c        # (o) 7 Segment Higher Display
+#PORT_SEVENSEG_LOW   = 0x8000103c        # (o) 7 Segment Lower Display
+#PORT_SEVENSEG_DP    = 0x80001018        # (o) 7 segment Decimal Point Display
+#
+#PORT_BOTINFO        = 0x8000180c        # (i) Bot Info port - read in, contains sensor info
+#PORT_BOTCTRL        = 0x80001810        # (o) Bot Control port - wrtie out, tell bot how to move
+#PORT_BOTUPDT        = 0x80001814        # (i) Bot Update port (Poll)
+#PORT_INTACK         = 0x80001818        # (o) Bot Int Ack
+######################################## 
 
 # =====================================
 # === Register bit mappings (masks) ===
