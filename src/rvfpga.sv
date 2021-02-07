@@ -274,6 +274,7 @@ module rvfpga
 	  .io_BotCtrl      (MotCtl_in),
 	  .io_BotInfo      ({LocX_reg,LocY_reg,Sensors_reg,BotInfo_reg}),
 	  .io_INT_ACK      (IO_INT_ACK),
+	  .o_Bot_Config_reg (Bot_Config_reg),
 	  .io_BotUpdt_Sync (upd_sysregs),  // bot info reg
       .AN (AN),
       .DP (DP),
@@ -340,5 +341,7 @@ module rvfpga
         IO_BotUpdt_Sync <= IO_BotUpdt_Sync;
     end
   end
+  
+
 
 endmodule

@@ -1,0 +1,18 @@
+xilinx rtfpga
+WARNING: [Synth 8-3917] design lsu__GB1 has port picm_addr[31] driven by constant 1
+WARNING: [Synth 8-3917] design lsu__GB1 has port picm_addr[30] driven by constant 1
+WARNING: [Synth 8-3917] design lsu__GB1 has port picm_addr[29] driven by constant 1
+WARNING: [Synth 8-3917] design lsu__GB1 has port picm_addr[28] driven by constant 1
+WARNING: [Synth 8-3917] design lsu__GB1 has port picm_addr[27] driven by constant 0
+WARNING: [Synth 8-3917] design lsu__GB1 has port picm_addr[26] driven by constant 0
+WARNING: [Synth 8-3917] design lsu__GB1 has port picm_addr[25] driven by constant 0
+WARNING: [Synth 8-3917] design lsu__GB1 has port picm_addr[24] driven by constant 0
+WARNING: [Synth 8-3917] design lsu__GB1 has port picm_addr[23] driven by constant 0
+WARNING: [Synth 8-3917] design lsu__GB1 has port picm_addr[22] driven by constant 0
+WARNING: [Synth 8-3917] design lsu__GB1 has port picm_addr[21] driven by constant 0
+WARNING: [Synth 8-3917] design lsu__GB1 has port picm_addr[20] driven by constant 0
+WARNING: [Synth 8-3917] design lsu__GB1 has port picm_addr[19] driven by constant 1
+WARNING: [Synth 8-3917] design lsu__GB1 has port picm_addr[18] driven by constant 1
+WARNING: [Synth 8-3917] design lsu__GB1 has port picm_addr[17] driven by constant 0
+WARNING: [Synth 8-3917] design lsu__GB1 has port picm_addr[16] driven by constant 0
+WARNING: [Synth 8-3917] design lsu__GB1 has port picm_addr[15] driven by constant 0

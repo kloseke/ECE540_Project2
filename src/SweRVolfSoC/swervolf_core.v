@@ -89,7 +89,8 @@ module swervolf_core
 	inout wire [7 : 0]  io_BotCtrl,
 	inout wire [31 : 0] io_BotInfo,
 	inout wire          io_INT_ACK,
-	inout wire          io_BotUpdt_Sync,	  
+    output wire         o_Bot_Config_reg,
+	inout wire          io_BotUpdt_Sync,	 
     output wire [7:0]   AN,
     output wire         DP,
     output wire [6:0]   Digits_Bits,
@@ -421,15 +422,17 @@ module swervolf_core
    // actual intantiation of GPIO module 
    // do similar as debounce
 	wire		[4:0]	i_dbounce_filter;   
-	
+	wire       [15:0] bot_config_wire;
+	assign o_Bot_Config_reg = bot_config_wire[15];
 
 	debounce debounce_module(
 		.clk	  (clk),
 		.pbtn_in  (i_gpio_pb[4:0]),
-		.switch_in (16'b0),
+		.switch_in (io_data[15:0]),
 		.pbtn_db  (i_dbounce_filter [4:0]),
-		.swtch_db ()
+		.swtch_db (bot_config_wire)
 		);
+		
 		
     	// rojobot31_0_module GPIO interconnect
     gpio_top gpio_rojobot_i(
@@ -446,10 +449,11 @@ module swervolf_core
         .wb_err_o     (wb_s2m_gpio_rojobot_err),
         .wb_inta_o    (gpio_irq_rojobot),
         // External GPIO Interface
-        .ext_pad_i     ({23'b0, i_gpio_i_rojobot[7:0]}),   // need to change
-        .ext_pad_o     (o_gpio_i_rojobot[31:0]),   
+        .ext_pad_i     ({22'b0,io_BotUpdt_Sync,i_gpio_i_rojobot[7:0]}),   // need to change
+        .ext_pad_o     ({o_gpio_i_rojobot[30:1],io_INT_ACK}),   
         .ext_padoe_o   (en_gpio_i_rojobot[31:0]));
-    
+  
+ 
     // rojobot31_0_module GPIO interconnect output
     gpio_top gpio_rojobot(
 		.wb_clk_i     (clk), 

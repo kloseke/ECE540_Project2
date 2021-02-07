@@ -1,0 +1,8 @@
+rvfpga: swervolf_core__GCB1, litedram_core__GC0, lsu__GB1, swerv__GCB0, dec__GB0, exu, lsu__GB0, mem, swervolf_core__GCB0, rvfpga__GC0, litedram_top__GC0, dec__GB1, 
+swervolf_core: swervolf_core__GCB1, swervolf_core__GCB0, mem, swerv__GCB0, lsu__GB1, lsu__GB0, exu, dec__GB1, dec__GB0, 
+swerv_wrapper: mem, swerv__GCB0, lsu__GB1, lsu__GB0, exu, dec__GB1, dec__GB0, 
+swerv: swerv__GCB0, lsu__GB1, lsu__GB0, exu, dec__GB1, dec__GB0, 
+lsu: lsu__GB1, lsu__GB0, 
+dec: dec__GB1, dec__GB0, 
+litedram_top: litedram_top__GC0, litedram_core__GC0, 
+litedram_core: litedram_core__GC0, 
