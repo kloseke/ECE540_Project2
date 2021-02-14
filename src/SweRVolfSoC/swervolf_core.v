@@ -32,7 +32,6 @@ module swervolf_core
     input wire [31:0]  dmi_reg_wdata,
     output wire [31:0] dmi_reg_rdata,
     input wire 	       dmi_hard_reset,
-	
     output wire        o_flash_sclk,
     output wire        o_flash_cs_n,
     output wire        o_flash_mosi,
@@ -86,18 +85,18 @@ module swervolf_core
 	inout wire 			io_BTND,
 	inout wire 			io_BTNL,
 	inout wire 			io_BTNR,
-	inout wire [7 : 0]  io_BotCtrl,
-	inout wire [31 : 0] io_BotInfo,
-	inout wire          io_INT_ACK,
+	output wire [7 : 0]  io_BotCtrl,
+	input wire [31 : 0] io_BotInfo,
+	output wire          io_INT_ACK,
     output wire         o_Bot_Config_reg,
-	inout wire          io_BotUpdt_Sync,	 
+	input wire          io_BotUpdt_Sync,	 
     output wire [7:0]   AN,
     output wire         DP,
     output wire [6:0]   Digits_Bits,
-    output wire        o_accel_sclk,
-    output wire        o_accel_cs_n,
-    output wire        o_accel_mosi,
-    input wire         i_accel_miso);
+    output wire         o_accel_sclk,
+    output wire         o_accel_cs_n,
+    output wire         o_accel_mosi,
+    input wire          i_accel_miso);
 
 
    localparam BOOTROM_SIZE = 32'h1000;
@@ -372,53 +371,56 @@ module swervolf_core
    bidirec gpio_pb4  (.oe(en_gpio_pb[4] ), .inp(o_gpio_pb[4] ), .outp(i_gpio_pb[4] ), .bidir(io_BTNC ));
    
         
-   bidirec gpio_rojobot0  (.oe(en_gpio_rojobot[0] ), .inp(o_gpio_rojobot[0] ), .outp(i_gpio_rojobot[0] ), .bidir(io_BotInfo[0] ));
-   bidirec gpio_rojobot1  (.oe(en_gpio_rojobot[1] ), .inp(o_gpio_rojobot[1] ), .outp(i_gpio_rojobot[1] ), .bidir(io_BotInfo[1] ));
-   bidirec gpio_rojobot2  (.oe(en_gpio_rojobot[2] ), .inp(o_gpio_rojobot[2] ), .outp(i_gpio_rojobot[2] ), .bidir(io_BotInfo[2] ));
-   bidirec gpio_rojobot3  (.oe(en_gpio_rojobot[3] ), .inp(o_gpio_rojobot[3] ), .outp(i_gpio_rojobot[3] ), .bidir(io_BotInfo[3] ));
-   bidirec gpio_rojobot4  (.oe(en_gpio_rojobot[4] ), .inp(o_gpio_rojobot[4] ), .outp(i_gpio_rojobot[4] ), .bidir(io_BotInfo[4] ));
-   bidirec gpio_rojobot5  (.oe(en_gpio_rojobot[5] ), .inp(o_gpio_rojobot[5] ), .outp(i_gpio_rojobot[5] ), .bidir(io_BotInfo[5] ));
-   bidirec gpio_rojobot6  (.oe(en_gpio_rojobot[6] ), .inp(o_gpio_rojobot[6] ), .outp(i_gpio_rojobot[6] ), .bidir(io_BotInfo[6] ));
-   bidirec gpio_rojobot7  (.oe(en_gpio_rojobot[7] ), .inp(o_gpio_rojobot[7] ), .outp(i_gpio_rojobot[7] ), .bidir(io_BotInfo[7] ));
+//   bidirec gpio_rojobot0  (.oe(en_gpio_rojobot[0] ), .inp(o_gpio_rojobot[0] ), .outp(i_gpio_rojobot[0] ), .bidir(io_BotInfo[0] ));
+//   bidirec gpio_rojobot1  (.oe(en_gpio_rojobot[1] ), .inp(o_gpio_rojobot[1] ), .outp(i_gpio_rojobot[1] ), .bidir(io_BotInfo[1] ));
+//   bidirec gpio_rojobot2  (.oe(en_gpio_rojobot[2] ), .inp(o_gpio_rojobot[2] ), .outp(i_gpio_rojobot[2] ), .bidir(io_BotInfo[2] ));
+//   bidirec gpio_rojobot3  (.oe(en_gpio_rojobot[3] ), .inp(o_gpio_rojobot[3] ), .outp(i_gpio_rojobot[3] ), .bidir(io_BotInfo[3] ));
+//   bidirec gpio_rojobot4  (.oe(en_gpio_rojobot[4] ), .inp(o_gpio_rojobot[4] ), .outp(i_gpio_rojobot[4] ), .bidir(io_BotInfo[4] ));
+//   bidirec gpio_rojobot5  (.oe(en_gpio_rojobot[5] ), .inp(o_gpio_rojobot[5] ), .outp(i_gpio_rojobot[5] ), .bidir(io_BotInfo[5] ));
+//   bidirec gpio_rojobot6  (.oe(en_gpio_rojobot[6] ), .inp(o_gpio_rojobot[6] ), .outp(i_gpio_rojobot[6] ), .bidir(io_BotInfo[6] ));
+//   bidirec gpio_rojobot7  (.oe(en_gpio_rojobot[7] ), .inp(o_gpio_rojobot[7] ), .outp(i_gpio_rojobot[7] ), .bidir(io_BotInfo[7] ));
 
-   bidirec gpio_rojobot8  (.oe(en_gpio_rojobot[8] ), .inp(o_gpio_rojobot[8] ), .outp(i_gpio_rojobot[8] ), .bidir(io_BotInfo[8]));
-   bidirec gpio_rojobot9  (.oe(en_gpio_rojobot[9] ), .inp(o_gpio_rojobot[9] ), .outp(i_gpio_rojobot[9] ), .bidir(io_BotInfo[9] ));
-   bidirec gpio_rojobot10  (.oe(en_gpio_rojobot[10] ), .inp(o_gpio_rojobot[10] ), .outp(i_gpio_rojobot[10] ), .bidir(io_BotInfo[10] ));
-   bidirec gpio_rojobot11  (.oe(en_gpio_rojobot[11] ), .inp(o_gpio_rojobot[11] ), .outp(i_gpio_rojobot[11] ), .bidir(io_BotInfo[11] ));
-   bidirec gpio_rojobot12  (.oe(en_gpio_rojobot[12] ), .inp(o_gpio_rojobot[12] ), .outp(i_gpio_rojobot[12] ), .bidir(io_BotInfo[12] ));
-   bidirec gpio_rojobot13  (.oe(en_gpio_rojobot[13] ), .inp(o_gpio_rojobot[13] ), .outp(i_gpio_rojobot[13] ), .bidir(io_BotInfo[13] ));
-   bidirec gpio_rojobot14  (.oe(en_gpio_rojobot[14] ), .inp(o_gpio_rojobot[14] ), .outp(i_gpio_rojobot[14] ), .bidir(io_BotInfo[14] ));
-   bidirec gpio_rojobot15  (.oe(en_gpio_rojobot[15] ), .inp(o_gpio_rojobot[15] ), .outp(i_gpio_rojobot[15] ), .bidir(io_BotInfo[15] ));
+//   bidirec gpio_rojobot8  (.oe(en_gpio_rojobot[8] ), .inp(o_gpio_rojobot[8] ), .outp(i_gpio_rojobot[8] ), .bidir(io_BotInfo[8]));
+//   bidirec gpio_rojobot10  (.oe(en_gpio_rojobot[10] ), .inp(o_gpio_rojobot[10] ), .outp(i_gpio_rojobot[10] ), .bidir(io_BotInfo[10] ));
+//  bidirec gpio_rojobot9  (.oe(en_gpio_rojobot[9] ), .inp(o_gpio_rojobot[9] ), .outp(i_gpio_rojobot[9] ), .bidir(io_BotInfo[9] ));
+//  bidirec gpio_rojobot9  (.oe(en_gpio_rojobot[9] ), .inp(o_gpio_rojobot[9] ), .outp(i_gpio_rojobot[9] ), .bidir(io_BotInfo[9] ));
+//  bidirec gpio_rojobot9  (.oe(en_gpio_rojobot[9] ), .inp(o_gpio_rojobot[9] ), .outp(i_gpio_rojobot[9] ), .bidir(io_BotInfo[9] ));
+//   bidirec gpio_rojobot11  (.oe(en_gpio_rojobot[11] ), .inp(o_gpio_rojobot[11] ), .outp(i_gpio_rojobot[11] ), .bidir(io_BotInfo[11] ));
+//   bidirec gpio_rojobot12  (.oe(en_gpio_rojobot[12] ), .inp(o_gpio_rojobot[12] ), .outp(i_gpio_rojobot[12] ), .bidir(io_BotInfo[12] ));
+//   bidirec gpio_rojobot13  (.oe(en_gpio_rojobot[13] ), .inp(o_gpio_rojobot[13] ), .outp(i_gpio_rojobot[13] ), .bidir(io_BotInfo[13] ));
+//   bidirec gpio_rojobot14  (.oe(en_gpio_rojobot[14] ), .inp(o_gpio_rojobot[14] ), .outp(i_gpio_rojobot[14] ), .bidir(io_BotInfo[14] ));
+//   bidirec gpio_rojobot15  (.oe(en_gpio_rojobot[15] ), .inp(o_gpio_rojobot[15] ), .outp(i_gpio_rojobot[15] ), .bidir(io_BotInfo[15] ));
    
-   bidirec gpio_rojobot16  (.oe(en_gpio_rojobot[16] ), .inp(o_gpio_rojobot[16] ), .outp(i_gpio_rojobot[16] ), .bidir(io_BotInfo[16]));
-   bidirec gpio_rojobot17  (.oe(en_gpio_rojobot[17] ), .inp(o_gpio_rojobot[17] ), .outp(i_gpio_rojobot[17] ), .bidir(io_BotInfo[17]));
-   bidirec gpio_rojobot18  (.oe(en_gpio_rojobot[18] ), .inp(o_gpio_rojobot[18] ), .outp(i_gpio_rojobot[18] ), .bidir(io_BotInfo[18]));
-   bidirec gpio_rojobot19  (.oe(en_gpio_rojobot[19] ), .inp(o_gpio_rojobot[19] ), .outp(i_gpio_rojobot[19] ), .bidir(io_BotInfo[19]));
-   bidirec gpio_rojobot20  (.oe(en_gpio_rojobot[20] ), .inp(o_gpio_rojobot[20] ), .outp(i_gpio_rojobot[20] ), .bidir(io_BotInfo[20]));
-   bidirec gpio_rojobot21  (.oe(en_gpio_rojobot[21] ), .inp(o_gpio_rojobot[21] ), .outp(i_gpio_rojobot[21] ), .bidir(io_BotInfo[21]));
-   bidirec gpio_rojobot22  (.oe(en_gpio_rojobot[22] ), .inp(o_gpio_rojobot[22] ), .outp(i_gpio_rojobot[22] ), .bidir(io_BotInfo[22]));
-   bidirec gpio_rojobot23  (.oe(en_gpio_rojobot[23] ), .inp(o_gpio_rojobot[23] ), .outp(i_gpio_rojobot[23] ), .bidir(io_BotInfo[23]));
+//   bidirec gpio_rojobot16  (.oe(en_gpio_rojobot[16] ), .inp(o_gpio_rojobot[16] ), .outp(i_gpio_rojobot[16] ), .bidir(io_BotInfo[16]));
+//   bidirec gpio_rojobot17  (.oe(en_gpio_rojobot[17] ), .inp(o_gpio_rojobot[17] ), .outp(i_gpio_rojobot[17] ), .bidir(io_BotInfo[17]));
+//   bidirec gpio_rojobot18  (.oe(en_gpio_rojobot[18] ), .inp(o_gpio_rojobot[18] ), .outp(i_gpio_rojobot[18] ), .bidir(io_BotInfo[18]));
+//   bidirec gpio_rojobot19  (.oe(en_gpio_rojobot[19] ), .inp(o_gpio_rojobot[19] ), .outp(i_gpio_rojobot[19] ), .bidir(io_BotInfo[19]));
+//   bidirec gpio_rojobot20  (.oe(en_gpio_rojobot[20] ), .inp(o_gpio_rojobot[20] ), .outp(i_gpio_rojobot[20] ), .bidir(io_BotInfo[20]));
+//   bidirec gpio_rojobot21  (.oe(en_gpio_rojobot[21] ), .inp(o_gpio_rojobot[21] ), .outp(i_gpio_rojobot[21] ), .bidir(io_BotInfo[21]));
+//   bidirec gpio_rojobot22  (.oe(en_gpio_rojobot[22] ), .inp(o_gpio_rojobot[22] ), .outp(i_gpio_rojobot[22] ), .bidir(io_BotInfo[22]));
+//   bidirec gpio_rojobot23  (.oe(en_gpio_rojobot[23] ), .inp(o_gpio_rojobot[23] ), .outp(i_gpio_rojobot[23] ), .bidir(io_BotInfo[23]));
    
-   bidirec gpio_rojobot24  (.oe(en_gpio_rojobot[24] ), .inp(o_gpio_rojobot[24] ), .outp(i_gpio_rojobot[24] ), .bidir(io_BotInfo[24]));
-   bidirec gpio_rojobot25  (.oe(en_gpio_rojobot[25] ), .inp(o_gpio_rojobot[25] ), .outp(i_gpio_rojobot[25] ), .bidir(io_BotInfo[25]));
-   bidirec gpio_rojobot26  (.oe(en_gpio_rojobot[26] ), .inp(o_gpio_rojobot[26] ), .outp(i_gpio_rojobot[26] ), .bidir(io_BotInfo[26]));
-   bidirec gpio_rojobot27  (.oe(en_gpio_rojobot[27] ), .inp(o_gpio_rojobot[27] ), .outp(i_gpio_rojobot[27] ), .bidir(io_BotInfo[27]));
-   bidirec gpio_rojobot28  (.oe(en_gpio_rojobot[28] ), .inp(o_gpio_rojobot[28] ), .outp(i_gpio_rojobot[28] ), .bidir(io_BotInfo[28]));
-   bidirec gpio_rojobot29  (.oe(en_gpio_rojobot[29] ), .inp(o_gpio_rojobot[29] ), .outp(i_gpio_rojobot[29] ), .bidir(io_BotInfo[29]));
-   bidirec gpio_rojobot30  (.oe(en_gpio_rojobot[30] ), .inp(o_gpio_rojobot[30] ), .outp(i_gpio_rojobot[30] ), .bidir(io_BotInfo[30]));
-   bidirec gpio_rojobot31  (.oe(en_gpio_rojobot[31] ), .inp(o_gpio_rojobot[31] ), .outp(i_gpio_rojobot[31] ), .bidir(io_BotInfo[31]));
+//   bidirec gpio_rojobot24  (.oe(en_gpio_rojobot[24] ), .inp(o_gpio_rojobot[24] ), .outp(i_gpio_rojobot[24] ), .bidir(io_BotInfo[24]));
+//   bidirec gpio_rojobot25  (.oe(en_gpio_rojobot[25] ), .inp(o_gpio_rojobot[25] ), .outp(i_gpio_rojobot[25] ), .bidir(io_BotInfo[25]));
+//   bidirec gpio_rojobot26  (.oe(en_gpio_rojobot[26] ), .inp(o_gpio_rojobot[26] ), .outp(i_gpio_rojobot[26] ), .bidir(io_BotInfo[26]));
+//   bidirec gpio_rojobot27  (.oe(en_gpio_rojobot[27] ), .inp(o_gpio_rojobot[27] ), .outp(i_gpio_rojobot[27] ), .bidir(io_BotInfo[27]));
+//   bidirec gpio_rojobot28  (.oe(en_gpio_rojobot[28] ), .inp(o_gpio_rojobot[28] ), .outp(i_gpio_rojobot[28] ), .bidir(io_BotInfo[28]));
+//   bidirec gpio_rojobot29  (.oe(en_gpio_rojobot[29] ), .inp(o_gpio_rojobot[29] ), .outp(i_gpio_rojobot[29] ), .bidir(io_BotInfo[29]));
+//   bidirec gpio_rojobot30  (.oe(en_gpio_rojobot[30] ), .inp(o_gpio_rojobot[30] ), .outp(i_gpio_rojobot[30] ), .bidir(io_BotInfo[30]));
+//   bidirec gpio_rojobot31  (.oe(en_gpio_rojobot[31] ), .inp(o_gpio_rojobot[31] ), .outp(i_gpio_rojobot[31] ), .bidir(io_BotInfo[31]));
    
    
- // gpio rojobot input
-   bidirec gpio_rojobot_i0 (.oe(en_gpio_i_rojobot[0] ), .inp(o_gpio_i_rojobot[0] ), .outp(i_gpio_i_rojobot[0] ), .bidir(io_BotCtrl[0] ));
-   bidirec gpio_rojobot_i1  (.oe(en_gpio_i_rojobot[1] ), .inp(o_gpio_i_rojobot[1] ), .outp(i_gpio_i_rojobot[1] ), .bidir(io_BotCtrl[1] ));
-   bidirec gpio_rojobot_i2  (.oe(en_gpio_i_rojobot[2] ), .inp(o_gpio_i_rojobot[2] ), .outp(i_gpio_i_rojobot[2] ), .bidir(io_BotCtrl[2] ));
-   bidirec gpio_rojobot_i3  (.oe(en_gpio_i_rojobot[3] ), .inp(o_gpio_i_rojobot[3] ), .outp(i_gpio_i_rojobot[3] ), .bidir(io_BotCtrl[3] ));
-   bidirec gpio_rojobot_i4  (.oe(en_gpio_i_rojobot[4] ), .inp(o_gpio_i_rojobot[4] ), .outp(i_gpio_i_rojobot[4] ), .bidir(io_BotCtrl[4] ));
-   bidirec gpio_rojobot_i5  (.oe(en_gpio_i_rojobot[5] ), .inp(o_gpio_i_rojobot[5] ), .outp(i_gpio_i_rojobot[5] ), .bidir(io_BotCtrl[5] ));
-   bidirec gpio_rojobot_i6  (.oe(en_gpio_i_rojobot[6] ), .inp(o_gpio_i_rojobot[6] ), .outp(i_gpio_i_rojobot[6] ), .bidir(io_BotCtrl[6] ));
-   bidirec gpio_rojobot_i7  (.oe(en_gpio_i_rojobot[7] ), .inp(o_gpio_i_rojobot[7] ), .outp(i_gpio_i_rojobot[7] ), .bidir(io_BotCtrl[7] ));
-            
+// gpio rojobot input
+//   bidirec gpio_rojobot_i0 (.oe(en_gpio_i_rojobot[0] ), .inp(o_gpio_i_rojobot[0] ), .outp(i_gpio_i_rojobot[0] ), .bidir(io_BotCtrl[0] ));
+//   bidirec gpio_rojobot_i1  (.oe(en_gpio_i_rojobot[1] ), .inp(o_gpio_i_rojobot[1] ), .outp(i_gpio_i_rojobot[1] ), .bidir(io_BotCtrl[1] ));
+//   bidirec gpio_rojobot_i2  (.oe(en_gpio_i_rojobot[2] ), .inp(o_gpio_i_rojobot[2] ), .outp(i_gpio_i_rojobot[2] ), .bidir(io_BotCtrl[2] ));
+//   bidirec gpio_rojobot_i3  (.oe(en_gpio_i_rojobot[3] ), .inp(o_gpio_i_rojobot[3] ), .outp(i_gpio_i_rojobot[3] ), .bidir(io_BotCtrl[3] ));
+//   bidirec gpio_rojobot_i4  (.oe(en_gpio_i_rojobot[4] ), .inp(o_gpio_i_rojobot[4] ), .outp(i_gpio_i_rojobot[4] ), .bidir(io_BotCtrl[4] ));
+//   bidirec gpio_rojobot_i5  (.oe(en_gpio_i_rojobot[5] ), .inp(o_gpio_i_rojobot[5] ), .outp(i_gpio_i_rojobot[5] ), .bidir(io_BotCtrl[5] ));
+//   bidirec gpio_rojobot_i6  (.oe(en_gpio_i_rojobot[6] ), .inp(o_gpio_i_rojobot[6] ), .outp(i_gpio_i_rojobot[6] ), .bidir(io_BotCtrl[6] ));
+//   bidirec gpio_rojobot_i7  (.oe(en_gpio_i_rojobot[7] ), .inp(o_gpio_i_rojobot[7] ), .outp(i_gpio_i_rojobot[7] ), .bidir(io_BotCtrl[7] ));
+         
+   
    // actual intantiation of GPIO module 
    // do similar as debounce
 	wire		[4:0]	i_dbounce_filter;   
@@ -469,9 +471,10 @@ module swervolf_core
         .wb_err_o     (wb_s2m_gpio_rojobot_i_err),
         .wb_inta_o    (gpio_irq_i_rojobot),
         // External GPIO Interface
-        .ext_pad_i     (i_gpio_rojobot[31:0]), 
-        .ext_pad_o     (o_gpio_rojobot[31:0]),   
-        .ext_padoe_o   (en_gpio_rojobot));
+        .ext_pad_i     (i_gpio_rojobot), 
+        .ext_pad_o     (o_gpio_rojobot),   
+        .ext_padoe_o   ());
+        //.ext_padoe_o   (en_gpio_rojobot));
 
    // pushbutton GPIO interconnect
     gpio_top gpio_pushbutton(

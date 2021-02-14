@@ -25,8 +25,6 @@
 module rvfpga
   #(parameter bootrom_file  = "")
    (input wire 	       clk,
-    input wire         clk_75,
-    input wire         clk_in1,
     input wire 	       rstn,
     output wire [12:0] ddram_a,
     output wire [2:0]  ddram_ba,
@@ -53,11 +51,6 @@ module rvfpga
 	inout wire		   BTND,    //input		
 	inout wire		   BTNL,	//input
 	inout wire		   BTNR,	//input
-	inout wire [7:0]   BotCtrl,
-	inout wire [32:0]  BotInfo,
-	inout wire         IO_INT_ACK,
-	output reg         IO_BotUpdt_Sync,
-	inout wire         IO_BotUpdt,
     output reg [15:0]  o_led,
     output reg [7:0]   AN,
     output reg         CA, CB, CC, CD, CE, CF, CG, DP,
@@ -272,7 +265,7 @@ module rvfpga
 	  .io_BTNL		  (BTNL),
 	  .io_BTNR		  (BTNR),
 	  .io_BotCtrl      (MotCtl_in),
-	  .io_BotInfo      ({LocX_reg,LocY_reg,Sensors_reg,BotInfo_reg}),
+	  .io_BotInfo      (io_BotInfo [31:0]),
 	  .io_INT_ACK      (IO_INT_ACK),
 	  .o_Bot_Config_reg (Bot_Config_reg),
 	  .io_BotUpdt_Sync (upd_sysregs),  // bot info reg
@@ -284,24 +277,33 @@ module rvfpga
       .o_accel_mosi   (o_accel_mosi),
       .i_accel_miso   (i_accel_miso));
       
+      wire 	 clk_75;
+
  clk_wiz_0 clk_gen_75hz_module (   // Clock out ports
     .clk_75(clk_75),        // output clk_75
                             // Status and control signals
     .reset(reset),          // input reset
                             // Clock in ports
-    .clk_in1(clk_in1));
+    .clk_in1(clk));
       
     wire        [7 : 0]     MotCtl_in;			
-    wire        [7 : 0]     LocX_reg;
-    wire        [7 : 0]     LocY_reg;
-    wire        [7 : 0]     Sensors_reg;
-    wire        [7 : 0]     BotInfo_reg;
     wire        [13 : 0]    worldmap_addr;
     wire        [1 : 0]     worldmap_data;
     wire                    clk_in;
     wire                    reset;
     wire                    upd_sysregs;
     wire        [7 : 0]     Bot_Config_reg;
+		
+	wire         IO_INT_ACK;
+	reg          IO_BotUpdt_Sync;
+	wire         IO_BotUpdt;
+	wire [31:0]  io_BotInfo;
+	wire [7 : 0] LocX_reg; 
+	wire [7 : 0] LocY_reg; 
+	wire [7 : 0] Sensors_reg; 
+	wire [7 : 0] BotInfo_reg; 
+	
+	assign io_BotInfo = {LocX_reg, LocY_reg, Sensors_reg, BotInfo_reg};
 	
 	rojobot31_0 rojobot31_0_module (
       .MotCtl_in        (MotCtl_in),            
@@ -331,7 +333,7 @@ module rvfpga
 
    assign o_uart_tx = 1'b0 ? litedram_tx : cpu_tx;
     
-   always @ (posedge clk_in1) begin
+   always @ (posedge clk_75) begin
     if (IO_INT_ACK == 1'b1) begin
         IO_BotUpdt_Sync <= 1'b0;
     end
