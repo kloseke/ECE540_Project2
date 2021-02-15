@@ -26,7 +26,7 @@
 module debounce
 #(
 	// parameters
-	parameter integer	CLK_FREQUENCY_HZ		= 50_000000, 
+	parameter integer	CLK_FREQUENCY_HZ		= 100_000000,
 	parameter integer	DEBOUNCE_FREQUENCY_HZ	= 250,
 	parameter integer	RESET_POLARITY_LOW		= 1,
 	parameter integer 	CNTR_WIDTH 				= 32,

@@ -50,6 +50,7 @@ module swervolf_syscon
 
    reg [63:0] 	     mtime;
    reg [63:0] 	     mtimecmp;
+   reg [7:0]        Extended_Reg;
 
    reg 		 sw_irq3;
    reg 		 sw_irq3_edge;
@@ -193,6 +194,9 @@ module swervolf_syscon
 	     if (i_wb_sel[2]) o_nmi_vec[23:16] <= i_wb_dat[23:16];
 	     if (i_wb_sel[3]) o_nmi_vec[31:24] <= i_wb_dat[31:24];
 	  end
+	  9: begin
+	     if (i_wb_sel[0]) Extended_Reg[7:0] <= i_wb_dat[7:0];
+	     end
 	  10 : begin //0x28-0x2B
 	     if (i_wb_sel[0]) mtimecmp[7:0]   <= i_wb_dat[7:0];
 	     if (i_wb_sel[1]) mtimecmp[15:8]  <= i_wb_dat[15:8];
@@ -259,6 +263,7 @@ module swervolf_syscon
 	12 : o_wb_rdt <= irq_timer_cnt;
 	//0x34-0x37
 	13 : o_wb_rdt <= {31'd0, irq_timer_en};
+	15 : o_wb_rdt <= {24'b0, timerOutput[29:22]}; 
       endcase
 
       mtime <= mtime + 64'd1;
@@ -306,8 +311,15 @@ module SevSegDisplays_Controller(
   wire [(COUNT_MAX-1):0] countSelection;
   wire [ 7:0] DecNumber;		// changed from 3:0 to 7:0
   wire overflow_o_count;
+  
+  wire Extended_bit;
 
-  SevenSegDecoder SevSegDec(.data(DecNumber), .seg(Digits_Bits));
+  parameter TIMER_MAX = 30;
+  wire timer_overflow;
+  wire [(TIMER_MAX-1):0] timerOutput;
+  counter #(TIMER_MAX)  counter30(clk, ~rst_n, 1'b0, 1'b1, 1'b0, 1'b0, 16'b0, timerOutput, timer_overflow);
+  
+  SevenSegDecoder SevSegDec(.data(DecNumber), .extended_bit(Extended_bit), .seg(Digits_Bits));
 
   counter #(COUNT_MAX)  counter20(clk, ~rst_n, 1'b0, 1'b1, 1'b0, 1'b0, 16'b0, countSelection, overflow_o_count);
 
@@ -360,42 +372,67 @@ module SevSegDisplays_Controller(
 
 endmodule
 
-
+  SevSegMux     
+  #(
+    .DATA_WIDTH(1),
+    .N_IN(8)                                             // Enable
+  )
+  Select_Extended                                        // Extended value 
+  (
+    .IN_DATA(Extended_Reg),                             // enable in
+    .OUT_DATA(Extended_bit),                            // output as segment
+    .SEL(countSelection[(COUNT_MAX-1):(COUNT_MAX-3)])
+  );
 
 module SevenSegDecoder(input wire     [7:0] data,
-                           output reg [6:0] seg);
+                       input wire     extended_bit,
+                       output reg [6:0] seg);
   always @(*)
+  if(extended_bit==1'b0) begin
     case(data) 	
                   // abc_defg
-      8'h0: seg = 7'b000_0001;
-      8'h1: seg = 7'b100_1111;
-      8'h2: seg = 7'b001_0010;
-      8'h3: seg = 7'b000_0110;
-      8'h4: seg = 7'b100_1100;
-      8'h5: seg = 7'b010_0100;
-      8'h6: seg = 7'b010_0000;
-      8'h7: seg = 7'b000_1111;
-      8'h8: seg = 7'b000_0000;
-      8'h9: seg = 7'b000_1100;
-                   // abc_defg
-      8'ha: seg = 7'b000_1000;
-      8'hb: seg = 7'b110_0000;
-      8'hc: seg = 7'b111_0010;
-      8'hd: seg = 7'b100_0010;
-      8'he: seg = 7'b011_0000;
-      8'hf: seg = 7'b011_1000;
-	  
-	               // abc_defg
-      8'h10: seg = 7'b011_1111; //a
-      8'h11: seg = 7'b101_1111; //b
-      8'h12: seg = 7'b110_1111; //c
-      8'h13: seg = 7'b111_0111; //d
-      8'h14: seg = 7'b111_1011; //e
-      8'h15: seg = 7'b111_1101; //f
-      8'h16: seg = 7'b111_1110; //g
+      4'h0: seg = 7'b000_0001; // 0
+      4'h1: seg = 7'b100_1111; // 1
+      4'h2: seg = 7'b001_0010; // 2
+      4'h3: seg = 7'b000_0110; // 3
+      4'h4: seg = 7'b100_1100; // 4
+      4'h5: seg = 7'b010_0100; // 5
+      4'h6: seg = 7'b010_0000; // 6
+      4'h7: seg = 7'b000_1111; // 7
+      4'h8: seg = 7'b000_0000; // 8
+      4'h9: seg = 7'b000_1100; // 9
+      4'ha: seg = 7'b000_1000; // A
+      4'hb: seg = 7'b110_0000; // B
+      4'hc: seg = 7'b111_0010; // C
+      4'hd: seg = 7'b100_0010; // D
+      4'he: seg = 7'b011_0000; // E
+      4'hf: seg = 7'b011_1000; // F
       default: 
             seg = 7'b111_1111;
     endcase
+    end else begin
+    case(data)     // extended display range
+	               // abc_defg
+      4'h0: seg = 7'b011_1111; // Single segment a
+      4'h1: seg = 7'b101_1111; // Single segment b
+      4'h2: seg = 7'b110_1111; // Single segment c
+      4'h3: seg = 7'b111_0111; // Single segment d
+      4'h4: seg = 7'b111_1011; // Single segment e
+      4'h5: seg = 7'b111_1101; // Single segment f
+      4'h6: seg = 7'b111_1110; // Single segment g
+      4'h7: seg = 7'b111_1110; // Single segment g
+      4'h8: seg = 7'b100_1000; // H
+      4'h9: seg = 7'b111_0001; // L
+      4'ha: seg = 7'b000_1000; // R
+      4'hb: seg = 7'b111_1001; // l
+      4'hc: seg = 7'b111_1010; // r
+      4'hd: seg = 7'b111_1111; // blank
+      4'he: seg = 7'b111_1111; // blank
+      4'hf: seg = 7'b111_1111; // blank
+      default: 
+            seg = 7'b111_1111;
+    endcase
+    end
 endmodule
 
 

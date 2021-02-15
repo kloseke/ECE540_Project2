@@ -148,7 +148,7 @@ module wb_intercon
 
 
 wb_mux
-  #(.num_slaves (10),
+  #(.num_slaves (10),//wb_rom_,     wb_sys,    wb_spi_Flash, wb_spi_accel,  wb_ptc,    wb_gpio_SW_LED, wb_pb_adr_o, wb_gpio_rojobot, wb_rojobot_i, wb_uart
     .MATCH_ADDR ({32'h00000000, 32'h00001000, 32'h00001040, 32'h00001100, 32'h00001200, 32'h00001400, 32'h00001500, 32'h00001600, 32'h00001800, 32'h00002000}), // 32'h00001600, 32'h00001800, 32'h00002000}),
     .MATCH_MASK ({32'hfffff000, 32'hffffffc0, 32'hffffffc0, 32'hffffffc0, 32'hffffffc0, 32'hffffffc0, 32'hffffffc0, 32'hffffffc0, 32'hffffffc0, 32'hfffff000})) // 32'hffffffc0, 32'hffffffc0, 32'hfffff000}))
  wb_mux_io
