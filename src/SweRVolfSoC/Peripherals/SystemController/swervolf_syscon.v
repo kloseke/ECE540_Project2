@@ -62,6 +62,7 @@ module swervolf_syscon
    reg 		 sw_irq4_timer;
 
    reg 		 irq_timer_en;
+   reg [31:0]timerOutput;
    reg [31:0]irq_timer_cnt;
    reg     irq_gpio_enable;
    reg     irq_ptc_enable;
@@ -294,10 +295,8 @@ module swervolf_syscon
 
 endmodule
 
-
-
-
 parameter COUNT_MAX = 20;
+parameter TIMER_MAX = 30;
 
 module SevSegDisplays_Controller(
                      input wire           clk,
@@ -311,18 +310,16 @@ module SevSegDisplays_Controller(
   wire [(COUNT_MAX-1):0] countSelection;
   wire [ 7:0] DecNumber;		// changed from 3:0 to 7:0
   wire overflow_o_count;
-  
-  wire Extended_bit;
+  counter #(COUNT_MAX)  counter20(clk, ~rst_n, 1'b0, 1'b1, 1'b0, 1'b0, 16'b0, countSelection, overflow_o_count);
 
-  parameter TIMER_MAX = 30;
+  wire Extended_bit;  
   wire timer_overflow;
   wire [(TIMER_MAX-1):0] timerOutput;
   counter #(TIMER_MAX)  counter30(clk, ~rst_n, 1'b0, 1'b1, 1'b0, 1'b0, 16'b0, timerOutput, timer_overflow);
   
   SevenSegDecoder SevSegDec(.data(DecNumber), .extended_bit(Extended_bit), .seg(Digits_Bits));
 
-  counter #(COUNT_MAX)  counter20(clk, ~rst_n, 1'b0, 1'b1, 1'b0, 1'b0, 16'b0, countSelection, overflow_o_count);
-
+  
   wire [ 7:0] [7:0] enable;
 
   assign enable[0] = (Enables_Reg | 8'hfe);
