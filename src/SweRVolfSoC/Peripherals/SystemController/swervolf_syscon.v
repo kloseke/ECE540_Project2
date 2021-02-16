@@ -44,7 +44,7 @@ module swervolf_syscon
    input wire 	     i_wb_stb,
    output reg [31:0] o_wb_rdt,
    output reg 	     o_wb_ack,
-   
+   output wire                  DP,
    output wire [ 7          :0] AN,
    output wire [ 6          :0] Digits_Bits);
 
@@ -190,14 +190,14 @@ module swervolf_syscon
       	     if (i_wb_sel[2]) o_nmi_vec[23:16] <= i_wb_dat[23:16];
       	     if (i_wb_sel[3]) o_nmi_vec[31:24] <= i_wb_dat[31:24];
       	  end
-        //  4: begin
-	        // if (i_wb_sel[0]) Extended_Reg[7:0] <= i_wb_dat[7:0];
-	   //   end
           6: begin //0x18-0x1B
              if (i_wb_sel[0])
 	           irq_gpio_enable <= i_wb_dat[0];
 	           irq_ptc_enable <=  i_wb_dat[1];
           end
+          9: begin
+	         if (i_wb_sel[0]) Extended_Reg[7:0] <= i_wb_dat[7:0];
+	      end
       	  10 : begin //0x28-0x2B
       	     if (i_wb_sel[0]) mtimecmp[7:0]   <= i_wb_dat[7:0];
       	     if (i_wb_sel[1]) mtimecmp[15:8]  <= i_wb_dat[15:8];
@@ -264,7 +264,7 @@ module swervolf_syscon
       	12 : o_wb_rdt <= irq_timer_cnt;
       	//0x34-0x37
       	13 : o_wb_rdt <= {31'd0, irq_timer_en};
-	15 : o_wb_rdt <= {24'b0, timerOutput[29:22]}; 
+	    15 : o_wb_rdt <= {24'b0, timerOutput[29:22]}; 
       endcase
 
       mtime <= mtime + 64'd1;
@@ -292,6 +292,7 @@ module swervolf_syscon
 	    .Digits_Reg        (Digits_Reg),
 	    .Extended_Reg      (Extended_Reg), 
 	    .AN                (AN),
+	    .DP                (DP),
 	    .Digits_Bits       (Digits_Bits)
 	  );
 endmodule
@@ -306,8 +307,9 @@ module SevSegDisplays_Controller(
                      input wire    [31:0] Digits_Reg,
                      input wire    [ 7:0] Extended_Reg,
                      output wire   [ 7:0] AN,
+                     output wire          DP,
                      output wire   [ 6:0] Digits_Bits);
-
+  assign DP = AN[3];
   wire [(COUNT_MAX-1):0] countSelection;
   wire [ 3:0] DecNumber;
   wire overflow_o_count;
@@ -347,16 +349,16 @@ module SevSegDisplays_Controller(
   );
 
 
-  wire [ 7:0] [3:0] digits_concat;
+    wire [ 7:0] [3:0] digits_concat;
 
-  assign digits_concat[0] = Digits_Reg[3:0];
-  assign digits_concat[1] = Digits_Reg[7:4];
-  assign digits_concat[2] = Digits_Reg[11:8];
-  assign digits_concat[3] = Digits_Reg[15:12];
-  assign digits_concat[4] = Digits_Reg[19:16];
-  assign digits_concat[5] = Digits_Reg[23:20];
-  assign digits_concat[6] = Digits_Reg[27:24];
-  assign digits_concat[7] = Digits_Reg[31:28];
+    assign digits_concat[0] = Digits_Reg[3:0];
+    assign digits_concat[1] = Digits_Reg[7:4];
+    assign digits_concat[2] = Digits_Reg[11:8];
+    assign digits_concat[3] = Digits_Reg[15:12];
+    assign digits_concat[4] = Digits_Reg[19:16];
+    assign digits_concat[5] = Digits_Reg[23:20];
+    assign digits_concat[6] = Digits_Reg[27:24];
+    assign digits_concat[7] = Digits_Reg[31:28];
 
   SevSegMux
   #(
@@ -371,16 +373,16 @@ module SevSegDisplays_Controller(
   );
 
 
-   // wire [ 7:0] [3:0] Extended_Reg;
-   
-  // assign Extended_Reg[0] = Digits_Reg[3:0];
-  // assign Extended_Reg[1] = Digits_Reg[7:4];
-  // assign Extended_Reg[2] = Digits_Reg[11:8];
-  // assign Extended_Reg[3] = Digits_Reg[15:12];
-  // assign Extended_Reg[4] = Digits_Reg[19:16];
-  // assign Extended_Reg[5] = Digits_Reg[23:20];
-  // assign Extended_Reg[6] = Digits_Reg[27:24];
-  // assign Extended_Reg[7] = Digits_Reg[31:28];
+ //    wire [ 7:0] [1:0] Extendeds_bit;
+  
+ //   assign Extendeds_bit[0] = Digits_Reg[3:0];
+//    assign Extendeds_bit[1] = Digits_Reg[7:4];
+ //   assign Extendeds_bit[2] = Digits_Reg[11:8];
+ //   assign Extendeds_bit[3] = Digits_Reg[15:12];
+ //   assign Extendeds_bit[4] = Digits_Reg[19:16];
+//    assign Extendeds_bit[5] = Digits_Reg[23:20];
+//    assign Extendeds_bit[6] = Digits_Reg[27:24];
+//    assign Extendeds_bit[7] = Digits_Reg[31:28];
  
   SevSegMux     
   #(
@@ -461,5 +463,4 @@ module SevSegMux
 
 
   assign OUT_DATA = IN_DATA[SEL];
-
 endmodule

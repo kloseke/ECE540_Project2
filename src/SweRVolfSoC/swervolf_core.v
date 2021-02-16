@@ -254,6 +254,7 @@ module swervolf_core
       .o_wb_rdt         (wb_s2m_sys_dat),
       .o_wb_ack         (wb_s2m_sys_ack),
       .AN (AN),
+      .DP (DP),
       .Digits_Bits (Digits_Bits));
 
    wire [7:0] 		       spi_rdt;

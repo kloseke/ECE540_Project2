@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Mon Feb 15 18:26:58 2021
+| Date         : Tue Feb 16 13:23:44 2021
 | Host         : DESKTOP-8V60PG5 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file rvfpga_utilization_synth.rpt -pb rvfpga_utilization_synth.pb
 | Design       : rvfpga
@@ -30,8 +30,8 @@ Table of Contents
 +----------------------------+-------+-------+-----------+-------+
 |          Site Type         |  Used | Fixed | Available | Util% |
 +----------------------------+-------+-------+-----------+-------+
-| Slice LUTs*                | 35031 |     0 |     63400 | 55.25 |
-|   LUT as Logic             | 34824 |     0 |     63400 | 54.93 |
+| Slice LUTs*                | 35032 |     0 |     63400 | 55.26 |
+|   LUT as Logic             | 34825 |     0 |     63400 | 54.93 |
 |   LUT as Memory            |   207 |     0 |     19000 |  1.09 |
 |     LUT as Distributed RAM |   204 |     0 |           |       |
 |     LUT as Shift Register  |     3 |     0 |           |       |
@@ -156,11 +156,11 @@ Table of Contents
 +------------+-------+---------------------+
 | LUT6       | 17436 |                 LUT |
 | FDCE       | 16692 |        Flop & Latch |
-| LUT5       |  7777 |                 LUT |
-| LUT4       |  6534 |                 LUT |
+| LUT5       |  7778 |                 LUT |
+| LUT4       |  6533 |                 LUT |
 | LUT3       |  4816 |                 LUT |
 | FDRE       |  3119 |        Flop & Latch |
-| LUT2       |  2322 |                 LUT |
+| LUT2       |  2324 |                 LUT |
 | CARRY4     |   842 |          CarryLogic |
 | MUXF7      |   597 |               MuxFx |
 | LUT1       |   483 |                 LUT |
@@ -168,12 +168,12 @@ Table of Contents
 | FDSE       |   137 |        Flop & Latch |
 | RAMS32     |   102 |  Distributed Memory |
 | MUXF8      |    66 |               MuxFx |
-| OBUF       |    61 |                  IO |
+| OBUF       |    62 |                  IO |
 | FDPE       |    54 |        Flop & Latch |
 | LDCE       |    49 |        Flop & Latch |
 | OSERDESE2  |    44 |                  IO |
 | IBUF       |    42 |                  IO |
-| OBUFT      |    38 |                  IO |
+| OBUFT      |    37 |                  IO |
 | RAMB18E1   |    30 |        Block Memory |
 | RAMB36E1   |    29 |        Block Memory |
 | IDELAYE2   |    18 |                  IO |

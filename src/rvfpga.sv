@@ -53,7 +53,8 @@ module rvfpga
 	inout wire		   BTNR,	//input
     output reg [15:0]  o_led,
     output reg [7:0]   AN,
-    output reg         CA, CB, CC, CD, CE, CF, CG, DP,
+    output reg         DP,
+    output reg         CA, CB, CC, CD, CE, CF, CG,
     output wire        o_accel_cs_n,
     output wire        o_accel_mosi,
     input wire         i_accel_miso,
