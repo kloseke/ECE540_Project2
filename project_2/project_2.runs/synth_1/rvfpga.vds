@@ -2,8 +2,8 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Mon Feb 15 16:33:06 2021
-# Process ID: 70068
+# Start of session at: Mon Feb 15 18:08:35 2021
+# Process ID: 56312
 # Current directory: C:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.runs/synth_1
 # Command line: vivado.exe -log rvfpga.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source rvfpga.tcl
 # Log file: C:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.runs/synth_1/rvfpga.vds
@@ -19,7 +19,7 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 67724 
+INFO: Helper process launched with PID 54812 
 WARNING: [Synth 8-1921] elaboration system task error violates IEEE 1800 syntax [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/lib/beh_lib.sv:162]
 WARNING: [Synth 8-2507] parameter declaration becomes local in axi2wb with formal parameter declaration list [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Interconnect/AxiToWb/axi2wb.v:71]
 WARNING: [Synth 8-2507] parameter declaration becomes local in axi2wb with formal parameter declaration list [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Interconnect/AxiToWb/axi2wb.v:81]
@@ -38,7 +38,7 @@ WARNING: [Synth 8-2369] multiple packed dimensions are not allowed in this mode 
 WARNING: [Synth 8-2369] multiple packed dimensions are not allowed in this mode of verilog [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/SystemController/swervolf_syscon.v:350]
 WARNING: [Synth 8-2507] parameter declaration becomes local in wb_mux with formal parameter declaration list [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Interconnect/WishboneInterconnect/wb_intercon_1.2.2/wb_mux.v:87]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 894.313 ; gain = 241.141
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 894.281 ; gain = 241.711
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'rvfpga' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
 	Parameter bootrom_file bound to: (null) - type: string 
@@ -969,14 +969,6 @@ INFO: [Synth 8-6155] done synthesizing module 'SevSegMux' (61#1) [C:/Users/sonal
 	Parameter N_IN bound to: 8 - type: integer 
 	Parameter SEL_WIDTH bound to: 3 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'SevSegMux__parameterized0' (61#1) [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/SystemController/swervolf_syscon.v:450]
-WARNING: [Synth 8-6104] Input port 'Extended_Reg' has an internal driver [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/SystemController/swervolf_syscon.v:376]
-WARNING: [Synth 8-6104] Input port 'Extended_Reg' has an internal driver [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/SystemController/swervolf_syscon.v:377]
-WARNING: [Synth 8-6104] Input port 'Extended_Reg' has an internal driver [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/SystemController/swervolf_syscon.v:378]
-WARNING: [Synth 8-6104] Input port 'Extended_Reg' has an internal driver [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/SystemController/swervolf_syscon.v:379]
-WARNING: [Synth 8-6104] Input port 'Extended_Reg' has an internal driver [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/SystemController/swervolf_syscon.v:380]
-WARNING: [Synth 8-6104] Input port 'Extended_Reg' has an internal driver [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/SystemController/swervolf_syscon.v:381]
-WARNING: [Synth 8-6104] Input port 'Extended_Reg' has an internal driver [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/SystemController/swervolf_syscon.v:382]
-WARNING: [Synth 8-6104] Input port 'Extended_Reg' has an internal driver [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/SystemController/swervolf_syscon.v:383]
 	Parameter DATA_WIDTH bound to: 1 - type: integer 
 	Parameter N_IN bound to: 8 - type: integer 
 	Parameter SEL_WIDTH bound to: 3 - type: integer 
@@ -984,7 +976,6 @@ INFO: [Synth 8-6155] done synthesizing module 'SevSegMux__parameterized1' (61#1)
 INFO: [Synth 8-6155] done synthesizing module 'SevSegDisplays_Controller' (62#1) [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/SystemController/swervolf_syscon.v:302]
 INFO: [Common 17-14] Message 'Synth 8-6155' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 WARNING: [Synth 8-3848] Net timerOutput in module/entity swervolf_syscon does not have driver. [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/SystemController/swervolf_syscon.v:65]
-WARNING: [Synth 8-3848] Net Extended_Reg in module/entity swervolf_syscon does not have driver. [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/SystemController/swervolf_syscon.v:53]
 	Parameter SS_WIDTH bound to: 1 - type: integer 
 INFO: [Synth 8-3536] HDL ADVISOR - Pragma parallel_case detected. Simulation mismatch may occur [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/spi/simple_spi_top.v:147]
 INFO: [Synth 8-3536] HDL ADVISOR - Pragma full_case detected. Simulation mismatch may occur [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/spi/simple_spi_top.v:147]
@@ -1907,7 +1898,7 @@ WARNING: [Synth 8-3331] design lsu_bus_buffer has unconnected port lsu_pkt_dc1[b
 WARNING: [Synth 8-3331] design lsu_bus_buffer has unconnected port lsu_pkt_dc1[half]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1386.738 ; gain = 733.566
+Finished RTL Elaboration : Time (s): cpu = 00:00:52 ; elapsed = 00:00:56 . Memory (MB): peak = 1388.973 ; gain = 736.402
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1920,12 +1911,12 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1386.738 ; gain = 733.566
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:02 ; elapsed = 00:01:06 . Memory (MB): peak = 1412.816 ; gain = 760.246
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1386.738 ; gain = 733.566
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:02 ; elapsed = 00:01:06 . Memory (MB): peak = 1412.816 ; gain = 760.246
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1386.738 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1412.816 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 57 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -1947,7 +1938,7 @@ Resolution: To avoid this warning, move constraints listed in [.Xil/rvfpga_propI
 INFO: [Timing 38-2] Deriving generated clocks
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.043 . Memory (MB): peak = 1674.602 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.069 . Memory (MB): peak = 1666.836 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 20 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 16 instances
@@ -1955,9 +1946,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS(x2)): 1 instance 
   PLLE2_BASE => PLLE2_ADV: 1 instance 
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.388 . Memory (MB): peak = 1674.602 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.663 . Memory (MB): peak = 1666.836 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:01:10 ; elapsed = 00:01:08 . Memory (MB): peak = 1674.602 ; gain = 1021.430
+Finished Constraint Validation : Time (s): cpu = 00:02:02 ; elapsed = 00:02:02 . Memory (MB): peak = 1666.836 ; gain = 1014.266
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 2 processes.
 ---------------------------------------------------------------------------------
@@ -1965,7 +1956,7 @@ Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:01:10 ; elapsed = 00:01:08 . Memory (MB): peak = 1674.602 ; gain = 1021.430
+Finished Loading Part and Timing Information : Time (s): cpu = 00:02:02 ; elapsed = 00:02:02 . Memory (MB): peak = 1666.836 ; gain = 1014.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -1975,7 +1966,7 @@ Applied set_property CLOCK_BUFFER_TYPE = NONE for clk. (constraint file  c:/User
 Applied set_property DONT_TOUCH = true for rojobot31_0_module. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for clk_gen_75hz_module. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:10 ; elapsed = 00:01:08 . Memory (MB): peak = 1674.602 ; gain = 1021.430
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:02:02 ; elapsed = 00:02:03 . Memory (MB): peak = 1666.836 ; gain = 1014.266
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/LiteDRAM/litedram_core.v:4591]
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/LiteDRAM/litedram_core.v:7071]
@@ -2113,7 +2104,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'tstate_reg' using encoding
 INFO: [Synth 8-3354] encoded FSM with state register 'rstate_reg' using encoding 'sequential' in module 'uart_receiver'
 WARNING: [Synth 8-327] inferring latch for variable 'en_ff_reg' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/lib/beh_lib.sv:94]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:51 ; elapsed = 00:01:52 . Memory (MB): peak = 1674.602 ; gain = 1021.430
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:03:18 ; elapsed = 00:03:40 . Memory (MB): peak = 1666.836 ; gain = 1014.266
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-223] decloning instance 'swervolf/swerv_eh1/swerv/dbg/axi_bready_ff' (rvdffs) to 'swervolf/swerv_eh1/swerv/dbg/axi_rready_ff'
 INFO: [Synth 8-223] decloning instance 'swervolf/swerv_eh1/swerv/exu/div_e1/dividend_c' (rvtwoscomp) to 'swervolf/swerv_eh1/swerv/exu/div_e1/q_ff_c'
@@ -2133,7 +2124,7 @@ Report RTL Partitions:
 |7     |swerv__GCB0         |           1|     40572|
 |8     |exu                 |           1|     22017|
 |9     |mem                 |           1|      3303|
-|10    |swervolf_core__GCB0 |           1|     34100|
+|10    |swervolf_core__GCB0 |           1|     34314|
 |11    |swervolf_core__GCB1 |           1|     23464|
 |12    |rvfpga__GC0         |           1|      3031|
 +------+--------------------+------------+----------+
@@ -2233,7 +2224,7 @@ Detailed RTL Component Info :
 	               11 Bit    Registers := 5     
 	               10 Bit    Registers := 20    
 	                9 Bit    Registers := 13    
-	                8 Bit    Registers := 92    
+	                8 Bit    Registers := 93    
 	                7 Bit    Registers := 3     
 	                6 Bit    Registers := 37    
 	                5 Bit    Registers := 143   
@@ -2264,7 +2255,7 @@ Detailed RTL Component Info :
 	   5 Input     64 Bit        Muxes := 1     
 	   3 Input     64 Bit        Muxes := 6     
 	   4 Input     64 Bit        Muxes := 2     
-	  10 Input     64 Bit        Muxes := 1     
+	  11 Input     64 Bit        Muxes := 1     
 	   2 Input     63 Bit        Muxes := 2     
 	   2 Input     53 Bit        Muxes := 3     
 	   2 Input     48 Bit        Muxes := 3     
@@ -2277,7 +2268,7 @@ Detailed RTL Component Info :
 	   5 Input     32 Bit        Muxes := 1     
 	   6 Input     32 Bit        Muxes := 8     
 	   4 Input     32 Bit        Muxes := 3     
-	  10 Input     32 Bit        Muxes := 4     
+	  11 Input     32 Bit        Muxes := 4     
 	   2 Input     31 Bit        Muxes := 60    
 	   2 Input     30 Bit        Muxes := 1     
 	   2 Input     28 Bit        Muxes := 2     
@@ -2302,12 +2293,11 @@ Detailed RTL Component Info :
 	   2 Input     10 Bit        Muxes := 5     
 	   8 Input     10 Bit        Muxes := 1     
 	   2 Input      9 Bit        Muxes := 20    
-	   2 Input      8 Bit        Muxes := 181   
+	   2 Input      8 Bit        Muxes := 182   
 	   4 Input      8 Bit        Muxes := 6     
 	   5 Input      8 Bit        Muxes := 2     
 	   3 Input      8 Bit        Muxes := 8     
-	  10 Input      8 Bit        Muxes := 1     
-	  11 Input      8 Bit        Muxes := 2     
+	  11 Input      8 Bit        Muxes := 4     
 	   9 Input      8 Bit        Muxes := 1     
 	   2 Input      7 Bit        Muxes := 5     
 	  32 Input      7 Bit        Muxes := 1     
@@ -2341,13 +2331,12 @@ Detailed RTL Component Info :
 	   7 Input      2 Bit        Muxes := 3     
 	   2 Input      1 Bit        Muxes := 2030  
 	   4 Input      1 Bit        Muxes := 39    
-	  11 Input      1 Bit        Muxes := 20    
+	  11 Input      1 Bit        Muxes := 29    
 	   3 Input      1 Bit        Muxes := 72    
 	   5 Input      1 Bit        Muxes := 9     
 	   7 Input      1 Bit        Muxes := 134   
 	   6 Input      1 Bit        Muxes := 245   
 	   8 Input      1 Bit        Muxes := 35    
-	  10 Input      1 Bit        Muxes := 9     
 	  12 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -13592,16 +13581,16 @@ Detailed RTL Component Info :
 +---Registers : 
 	               64 Bit    Registers := 1     
 	               32 Bit    Registers := 4     
-	                8 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
 	                1 Bit    Registers := 15    
 +---Muxes : 
 	   2 Input     64 Bit        Muxes := 1     
-	  10 Input     64 Bit        Muxes := 1     
+	  11 Input     64 Bit        Muxes := 1     
 	   2 Input     32 Bit        Muxes := 4     
-	  10 Input     32 Bit        Muxes := 4     
-	   2 Input      8 Bit        Muxes := 9     
-	  10 Input      8 Bit        Muxes := 1     
-	  10 Input      1 Bit        Muxes := 9     
+	  11 Input     32 Bit        Muxes := 4     
+	   2 Input      8 Bit        Muxes := 10    
+	  11 Input      8 Bit        Muxes := 2     
+	  11 Input      1 Bit        Muxes := 9     
 	   2 Input      1 Bit        Muxes := 27    
 	  12 Input      1 Bit        Muxes := 1     
 Module fifo4__3 
@@ -16151,7 +16140,7 @@ WARNING: [Synth 8-3332] Sequential element (i_atop_filter/FSM_sequential_w_state
 WARNING: [Synth 8-3332] Sequential element (i_atop_filter/FSM_sequential_w_state_q_reg[1]) is unused and will be removed from module axi_err_slv__1.
 WARNING: [Synth 8-3332] Sequential element (i_atop_filter/FSM_sequential_w_state_q_reg[0]) is unused and will be removed from module axi_err_slv__1.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:06:03 ; elapsed = 00:07:17 . Memory (MB): peak = 1674.602 ; gain = 1021.430
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:09:30 ; elapsed = 00:12:40 . Memory (MB): peak = 1666.836 ; gain = 1014.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -16261,7 +16250,7 @@ Report RTL Partitions:
 |7     |swerv__GCB0         |           1|     35285|
 |8     |exu                 |           1|     18127|
 |9     |mem                 |           1|      3266|
-|10    |swervolf_core__GCB0 |           1|      8298|
+|10    |swervolf_core__GCB0 |           1|      8284|
 |11    |swervolf_core__GCB1 |           1|     10209|
 |12    |rvfpga__GC0         |           1|      3010|
 +------+--------------------+------------+----------+
@@ -16270,7 +16259,7 @@ Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-3321] set_false_path : Empty from list for constraint at line 8 of C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.xdc. [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.xdc:8]
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:06:23 ; elapsed = 00:07:37 . Memory (MB): peak = 1674.602 ; gain = 1021.430
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:09:57 ; elapsed = 00:13:07 . Memory (MB): peak = 1666.836 ; gain = 1014.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
@@ -16278,7 +16267,7 @@ Start Timing Optimization
 WARNING: [Synth 8-3332] Sequential element (axi_clk/clkhdr/en_ff_reg) is unused and will be removed from module ifu_mem_ctl.
 WARNING: [Synth 8-3332] Sequential element (dma_bus_cgc/clkhdr/en_ff_reg) is unused and will be removed from module dma_ctrl.
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:07:45 ; elapsed = 00:09:00 . Memory (MB): peak = 1674.602 ; gain = 1021.430
+Finished Timing Optimization : Time (s): cpu = 00:11:39 ; elapsed = 00:14:51 . Memory (MB): peak = 1666.836 ; gain = 1014.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -16365,7 +16354,7 @@ Report RTL Partitions:
 |7     |swerv__GCB0         |           1|     34210|
 |8     |exu                 |           1|     17849|
 |9     |mem                 |           1|      3266|
-|10    |swervolf_core__GCB0 |           1|      8296|
+|10    |swervolf_core__GCB0 |           1|      8282|
 |11    |swervolf_core__GCB1 |           1|      8447|
 |12    |rvfpga__GC0         |           1|      2810|
 +------+--------------------+------------+----------+
@@ -16462,7 +16451,7 @@ INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM bloc
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/lib/beh_lib.sv:37]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/lib/beh_lib.sv:37]
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:08:29 ; elapsed = 00:09:58 . Memory (MB): peak = 1674.602 ; gain = 1021.430
+Finished Technology Mapping : Time (s): cpu = 00:12:37 ; elapsed = 00:16:11 . Memory (MB): peak = 1666.836 ; gain = 1014.266
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -16478,7 +16467,7 @@ Report RTL Partitions:
 |7     |swerv__GCB0         |           1|     11407|
 |8     |exu                 |           1|      6412|
 |9     |mem                 |           1|      1059|
-|10    |swervolf_core__GCB0 |           1|      4423|
+|10    |swervolf_core__GCB0 |           1|      4434|
 |11    |swervolf_core__GCB1 |           1|      4181|
 |12    |rvfpga__GC0         |           1|      1713|
 +------+--------------------+------------+----------+
@@ -16542,13 +16531,13 @@ CRITICAL WARNING: [Synth 8-4442] BlackBox module world_map_module has unconnecte
 CRITICAL WARNING: [Synth 8-4442] BlackBox module world_map_module has unconnected pin addrb[1]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module world_map_module has unconnected pin addrb[0]
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:08:45 ; elapsed = 00:10:15 . Memory (MB): peak = 1674.602 ; gain = 1021.430
+Finished IO Insertion : Time (s): cpu = 00:12:57 ; elapsed = 00:16:32 . Memory (MB): peak = 1666.836 ; gain = 1014.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:08:45 ; elapsed = 00:10:15 . Memory (MB): peak = 1674.602 ; gain = 1021.430
+Finished Renaming Generated Instances : Time (s): cpu = 00:12:57 ; elapsed = 00:16:32 . Memory (MB): peak = 1666.836 ; gain = 1014.266
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -16567,25 +16556,25 @@ Report Check Netlist:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:09:03 ; elapsed = 00:10:33 . Memory (MB): peak = 1674.602 ; gain = 1021.430
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:13:19 ; elapsed = 00:16:55 . Memory (MB): peak = 1666.836 ; gain = 1014.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:09:04 ; elapsed = 00:10:35 . Memory (MB): peak = 1674.602 ; gain = 1021.430
+Finished Renaming Generated Ports : Time (s): cpu = 00:13:21 ; elapsed = 00:16:57 . Memory (MB): peak = 1666.836 ; gain = 1014.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:09:06 ; elapsed = 00:10:37 . Memory (MB): peak = 1674.602 ; gain = 1021.430
+Finished Handling Custom Attributes : Time (s): cpu = 00:13:24 ; elapsed = 00:17:00 . Memory (MB): peak = 1666.836 ; gain = 1014.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:09:07 ; elapsed = 00:10:37 . Memory (MB): peak = 1674.602 ; gain = 1021.430
+Finished Renaming Generated Nets : Time (s): cpu = 00:13:24 ; elapsed = 00:17:00 . Memory (MB): peak = 1666.836 ; gain = 1014.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -16632,12 +16621,12 @@ Report Cell Usage:
 |10    |IDELAYE2_1  |    16|
 |11    |ISERDESE2   |    16|
 |12    |LUT1        |   487|
-|13    |LUT2        |  2320|
-|14    |LUT3        |  4794|
-|15    |LUT4        |  6565|
-|16    |LUT5        |  7764|
-|17    |LUT6        | 17441|
-|18    |MUXF7       |   595|
+|13    |LUT2        |  2322|
+|14    |LUT3        |  4816|
+|15    |LUT4        |  6534|
+|16    |LUT5        |  7777|
+|17    |LUT6        | 17436|
+|18    |MUXF7       |   597|
 |19    |MUXF8       |    66|
 |20    |OSERDESE2   |    44|
 |21    |PLLE2_ADV   |     1|
@@ -16664,7 +16653,7 @@ Report Cell Usage:
 |42    |STARTUPE2   |     1|
 |43    |FDCE        | 16692|
 |44    |FDPE        |    54|
-|45    |FDRE        |  3111|
+|45    |FDRE        |  3119|
 |46    |FDSE        |   137|
 |47    |LD          |    49|
 |48    |IBUF        |     4|
@@ -16679,7 +16668,7 @@ Report Instance Areas:
 +------+----------------------------------------------------------------------+------------------------------------+------+
 |      |Instance                                                              |Module                              |Cells |
 +------+----------------------------------------------------------------------+------------------------------------+------+
-|1     |top                                                                   |                                    | 61289|
+|1     |top                                                                   |                                    | 61300|
 |2     |  cdc                                                                 |axi_cdc_intf                        |  1536|
 |3     |    i_axi_cdc                                                         |axi_cdc                             |  1536|
 |4     |      i_cdc_fifo_gray_ar                                              |cdc_fifo_gray__parameterized1       |   239|
@@ -16737,8 +16726,8 @@ Report Instance Areas:
 |56    |          state                                                       |serv_state                          |    72|
 |57    |        rf_ram                                                        |serv_rf_ram                         |     1|
 |58    |        rf_ram_if                                                     |serv_rf_ram_if                      |    46|
-|59    |  swervolf                                                            |swervolf_core                       | 54168|
-|60    |    axi2wb                                                            |axi2wb                              |   722|
+|59    |  swervolf                                                            |swervolf_core                       | 54179|
+|60    |    axi2wb                                                            |axi2wb                              |   721|
 |61    |    axi_intercon                                                      |axi_intercon                        |  3484|
 |62    |      axi_xbar                                                        |axi_xbar                            |  3364|
 |63    |        \gen_mst_port_mux[0].i_axi_mux                                |axi_mux                             |   317|
@@ -19777,10 +19766,10 @@ Report Instance Areas:
 |3096  |            sync_ff1                                                  |rvdff__parameterized14_39           |     4|
 |3097  |            sync_ff2                                                  |rvdff__parameterized14_40           |     4|
 |3098  |          wake_up_ff                                                  |rvdff_38                            |     1|
-|3099  |    syscon                                                            |swervolf_syscon                     |   517|
-|3100  |      SegDispl_Ctr                                                    |SevSegDisplays_Controller           |    53|
-|3101  |        counter20                                                     |counter__parameterized0             |    53|
-|3102  |          i_counter                                                   |delta_counter__parameterized1       |    53|
+|3099  |    syscon                                                            |swervolf_syscon                     |   529|
+|3100  |      SegDispl_Ctr                                                    |SevSegDisplays_Controller           |    56|
+|3101  |        counter20                                                     |counter__parameterized0             |    56|
+|3102  |          i_counter                                                   |delta_counter__parameterized1       |    56|
 |3103  |    timer_ptc                                                         |ptc_top                             |   214|
 |3104  |    uart16550_0                                                       |uart_top                            |   728|
 |3105  |      regs                                                            |uart_regs                           |   674|
@@ -19797,11 +19786,11 @@ Report Instance Areas:
 |3116  |  tap                                                                 |bscan_tap                           |   229|
 +------+----------------------------------------------------------------------+------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:09:07 ; elapsed = 00:10:37 . Memory (MB): peak = 1674.602 ; gain = 1021.430
+Finished Writing Synthesis Report : Time (s): cpu = 00:13:25 ; elapsed = 00:17:01 . Memory (MB): peak = 1666.836 ; gain = 1014.266
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 14 critical warnings and 234 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:08:04 ; elapsed = 00:10:11 . Memory (MB): peak = 1674.602 ; gain = 733.566
-Synthesis Optimization Complete : Time (s): cpu = 00:09:07 ; elapsed = 00:10:39 . Memory (MB): peak = 1674.602 ; gain = 1021.430
+Synthesis Optimization Runtime : Time (s): cpu = 00:11:35 ; elapsed = 00:16:20 . Memory (MB): peak = 1666.836 ; gain = 760.246
+Synthesis Optimization Complete : Time (s): cpu = 00:13:25 ; elapsed = 00:17:04 . Memory (MB): peak = 1666.836 ; gain = 1014.266
 INFO: [Project 1-571] Translating synthesized netlist
 Release 14.7 - ngc2edif P_INT.20190617 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
@@ -19812,19 +19801,19 @@ Processing design ...
    Preping design's macros ...
   finished :Prep
 Writing EDIF netlist file world_map.edif ...
-ngc2edif: Total memory usage is 4320596 kilobytes
+ngc2edif: Total memory usage is 4321172 kilobytes
 
 Reading core file 'C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/Additional Files/world_maps_partA/world_map.ngc' for (cell view 'world_map', library 'work')
 Parsing EDIF File [./.ngc2edfcache/world_map_ngc_9a894e65.edif]
 Finished Parsing EDIF File [./.ngc2edfcache/world_map_ngc_9a894e65.edif]
-Netlist sorting complete. Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1674.602 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 1744 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 1666.836 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1746 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Xilinx ngc2edif P_INT.20190617
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 4 inverter(s) to 83 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.052 . Memory (MB): peak = 1674.602 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.076 . Memory (MB): peak = 1666.836 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 141 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 37 instances
@@ -19835,13 +19824,13 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 51 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-718 Infos, 395 Warnings, 14 Critical Warnings and 0 Errors encountered.
+718 Infos, 386 Warnings, 14 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:09:37 ; elapsed = 00:11:10 . Memory (MB): peak = 1674.602 ; gain = 1311.699
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 1674.602 ; gain = 0.000
+synth_design: Time (s): cpu = 00:14:10 ; elapsed = 00:17:52 . Memory (MB): peak = 1666.836 ; gain = 1304.414
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.053 . Memory (MB): peak = 1666.836 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.runs/synth_1/rvfpga.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:23 ; elapsed = 00:00:16 . Memory (MB): peak = 1674.602 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:29 ; elapsed = 00:00:20 . Memory (MB): peak = 1666.836 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file rvfpga_utilization_synth.rpt -pb rvfpga_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Feb 15 16:44:38 2021...
+INFO: [Common 17-206] Exiting Vivado at Mon Feb 15 18:26:58 2021...
