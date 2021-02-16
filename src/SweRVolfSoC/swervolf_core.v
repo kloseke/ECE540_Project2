@@ -492,11 +492,8 @@ module swervolf_core
         .wb_inta_o    (gpio_irq_pb),
         // External GPIO Interface
         .ext_pad_i     ({26'b0, i_dbounce_filter[4:0]}),
-        .ext_pad_o     (),
-        .ext_padoe_o   (),
-        //.ext_pad_o     (o_gpio_pb[4:0]),
-
-        //.ext_padoe_o   (en_gpio_pb));      
+        .ext_pad_o     (o_gpio_pb[4:0]),
+        .ext_padoe_o   (en_gpio_pb));      
          
    gpio_top gpio_module(
 		.wb_clk_i     (clk), 

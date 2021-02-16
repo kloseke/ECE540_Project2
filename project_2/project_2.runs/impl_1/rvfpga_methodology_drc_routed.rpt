@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Sun Feb 14 13:08:57 2021
+| Date         : Mon Feb 15 17:02:09 2021
 | Host         : DESKTOP-8V60PG5 running 64-bit major release  (build 9200)
 | Command      : report_methodology -file rvfpga_methodology_drc_routed.rpt -pb rvfpga_methodology_drc_routed.pb -rpx rvfpga_methodology_drc_routed.rpx
 | Design       : rvfpga
@@ -23,7 +23,7 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 272
+             Violations found: 270
 +-----------+------------------+--------------------------------------------------------------------+------------+
 | Rule      | Severity         | Description                                                        | Violations |
 +-----------+------------------+--------------------------------------------------------------------+------------+
@@ -35,10 +35,10 @@ Table of Contents
 | TIMING-51 | Critical Warning | No common phase between related clocks from parallel MMCMs or PLLs | 2          |
 | DPIR-1    | Warning          | Asynchronous driver check                                          | 152        |
 | LUTAR-1   | Warning          | LUT drives async reset alert                                       | 5          |
-| SYNTH-6   | Warning          | Timing of a block RAM might be sub-optimal                         | 25         |
+| SYNTH-6   | Warning          | Timing of a block RAM might be sub-optimal                         | 21         |
 | SYNTH-10  | Warning          | Wide multiplier                                                    | 4          |
 | TIMING-9  | Warning          | Unknown CDC Logic                                                  | 1          |
-| TIMING-16 | Warning          | Large setup violation                                              | 1          |
+| TIMING-16 | Warning          | Large setup violation                                              | 3          |
 | TIMING-18 | Warning          | Missing input or output delay                                      | 22         |
 +-----------+------------------+--------------------------------------------------------------------+------------+
 
@@ -1216,50 +1216,30 @@ Related violations: <none>
 
 SYNTH-6#16 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[4].dccm_bank/ram_core_reg_2, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[5].dccm_bank/ram_core_reg_0, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#17 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[5].dccm_bank/ram_core_reg_0, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[5].dccm_bank/ram_core_reg_1, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#18 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[5].dccm_bank/ram_core_reg_1, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[5].dccm_bank/ram_core_reg_2, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#19 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[5].dccm_bank/ram_core_reg_2, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[7].dccm_bank/ram_core_reg_0, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#20 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[6].dccm_bank/ram_core_reg_0, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
-Related violations: <none>
-
-SYNTH-6#21 Warning
-Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[6].dccm_bank/ram_core_reg_1, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
-Related violations: <none>
-
-SYNTH-6#22 Warning
-Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[6].dccm_bank/ram_core_reg_2, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
-Related violations: <none>
-
-SYNTH-6#23 Warning
-Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[7].dccm_bank/ram_core_reg_0, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
-Related violations: <none>
-
-SYNTH-6#24 Warning
-Timing of a block RAM might be sub-optimal  
 The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[7].dccm_bank/ram_core_reg_1, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
-SYNTH-6#25 Warning
+SYNTH-6#21 Warning
 Timing of a block RAM might be sub-optimal  
 The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[7].dccm_bank/ram_core_reg_2, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
@@ -1291,7 +1271,17 @@ Related violations: <none>
 
 TIMING-16#1 Warning
 Large setup violation  
-There is a large setup violation of -7.390 ns between swervolf/debounce_module/swtch_db_reg[15]_replica/C (clocked by clk_core) and rojobot31_0_module/inst/BOTREGIF/DataOut_reg[0]/D (clocked by clk_75_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.099 ns between swervolf/swerv_eh1/swerv/lsu/dccm_ctl/Gen_dccm_enable.dccm_data_lo_ff/dout_reg[8]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/dma_ctrl/GenFifo[1].fifo_done_dff/dffsc/dout_reg[0]/D (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#2 Warning
+Large setup violation  
+There is a large setup violation of -1.495 ns between rojobot31_0_module/inst/BOTREGIF/upd_sysregs_reg/C (clocked by clk_75_clk_wiz_0) and swervolf/gpio_rojobot_i/sync_reg[8]/D (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#3 Warning
+Large setup violation  
+There is a large setup violation of -7.608 ns between swervolf/debounce_module/swtch_db_reg[15]/C (clocked by clk_core) and rojobot31_0_module/inst/BOTREGIF/DataOut_reg[0]/D (clocked by clk_75_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-18#1 Warning
