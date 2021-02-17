@@ -330,6 +330,10 @@ module swervolf_core
    wire [31:0] o_gpio_i_rojobot; 
    wire [31:0] i_gpio_i_rojobot; // rojobot_in
 
+   assign io_BotCtrl = o_gpio_rojobot;
+   assign i_gpio_rojobot = io_BotInfo;
+   
+   
    bidirec gpio0  (.oe(en_gpio[0] ), .inp(o_gpio[0] ), .outp(i_gpio[0] ), .bidir(io_data[0] ));
    bidirec gpio1  (.oe(en_gpio[1] ), .inp(o_gpio[1] ), .outp(i_gpio[1] ), .bidir(io_data[1] ));
    bidirec gpio2  (.oe(en_gpio[2] ), .inp(o_gpio[2] ), .outp(i_gpio[2] ), .bidir(io_data[2] ));
@@ -453,7 +457,7 @@ module swervolf_core
         .wb_inta_o    (gpio_irq_rojobot),
         // External GPIO Interface
         .ext_pad_i     ({22'b0,io_BotUpdt_Sync,i_gpio_i_rojobot[7:0]}),   // need to change
-        .ext_pad_o     ({o_gpio_i_rojobot[30:1],io_INT_ACK}),   
+        .ext_pad_o     ({29'b0, o_Bot_Config_reg, io_BotUpdt_Sync,io_INT_ACK}),  // o_Bot_Config_reg = db_sw(15), 
         .ext_padoe_o   (en_gpio_i_rojobot[31:0]));
   
  

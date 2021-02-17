@@ -295,8 +295,8 @@ module rvfpga
     wire                    upd_sysregs;
     wire        [7 : 0]     Bot_Config_reg;
 		
-	wire         IO_INT_ACK;
-	reg          IO_BotUpdt_Sync;
+	wire         IO_INT_ACK;       // seperate GPIO
+	reg          IO_BotUpdt_Sync;  // Seperate GPIO
 	wire         IO_BotUpdt;
 	wire [31:0]  io_BotInfo;
 	wire [7 : 0] LocX_reg; 
