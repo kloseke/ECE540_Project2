@@ -39,7 +39,7 @@
  *  and should be driven in the same order.
  *  
  *  Also an acknowledgement bit has to be set and cleared for updating the handshaking flipflop
- * which synchronises between the 75Mhz Rojobot clock domain and the 50Mhz MIPSfpga clock domain.
+ * which synchronises between the 75Mhz Rojobot clock domain and the 100Mhz MIPSfpga clock domain.
  * 
  *  NOTE:  NOT ALL THE CODE IN THIS EXAMPLE IS USED.  THE EXAMPLE WAS CREATED TO GIVE YOU, THE
  *  STUDENT, AN EXAMPLE OF HOW TO CONTROL THE ROJOBOT AND NEXYS4 PERIPHERALS FROM AN EMBEDDED MIPS
@@ -55,12 +55,22 @@
  */
 
 # Masks for Pushbuttons
+BTN_U_MASK              = 0x1
+BTN_D_MASK              = 0x2
+BTN_L_MASK              = 0x4
+BTN_R_MASK              = 0x8
+BTN_C_MASK              = 0x10
+PUSHBUTTON_MASK         = 0x1F
+
+/* # Masks for Pushbuttons -- OLD --
 BTN_R_MASK              = 0x2
 BTN_C_MASK              = 0x10
 BTN_L_MASK              = 0x8
 BTN_D_MASK              = 0x1
 BTN_U_MASK              = 0x4
-PUSHBUTTON_MASK         = 0x1F
+PUSHBUTTON_MASK         = 0x1F 
+*/
+
 
 # Values to display specific segments on the display
 DISPLAY_SEGMENT_A       = 16
@@ -91,9 +101,9 @@ STOP                    = 0x00
 # Port Addresses
 PORT_LEDS           = 0x80001404        # (o) LEDs
 PORT_SLSWTCH        = 0x80001400        # (i) slide switches
-###Changed pushbutton lcation###
+# ##Changed pushbutton lcation###
 PORT_PBTNS          = 0x80001500        # (i) pushbuttons inputs
-#PORT_PBTNS          = 0x80001600        # (i) pushbuttons inputs
+# PORT_PBTNS          = 0x80001600        # (i) pushbuttons inputs
 PORT_GPIO_EN        = 0x80001408        # (o) enable LEDs for output
 
 # ========================================================================
@@ -101,27 +111,29 @@ PORT_GPIO_EN        = 0x80001408        # (o) enable LEDs for output
 # ========================================================================
 
 PORT_SEVENSEG_EN    = 0x80001038        # (o) 7 Segment enable
-PORT_SEVENSEG_HGH   = 0x8000101c        # (o) 7 Segment Higher Display
-PORT_SEVENSEG_LOW   = 0x8000103c        # (o) 7 Segment Lower Display
-PORT_SEVENSEG_DP    = 0x80001018        # (o) 7 segment Decimal Point Display
+PORT_EXTENDED       = 0X80001024        # EXTENDED BIT xxxxx
+# PORT_SEVENSEG_HGH   = 0x8000101c        # (o) 7 Segment Higher Display
+ PORT_SEVENSEG_LOW   = 0x80001024        # (o) 7 Segment Lower Display
+# PORT_SEVENSEG_DP    = 0x80001018        # (o) 7 segment Decimal Point Display
 
-PORT_BOTINFO        = 0x80001600        # (i) Bot Info port - read in, contains sensor info
-PORT_BOTCTRL        = 0x80001800        # (o) Bot Control port - wrtie out, tell bot how to move
+PORT_BOTINFO        = 0x8000160C        # (i) Bot Info port - read in, contains sensor info
+PORT_BOTCTRL        = 0x80001810        # (o) Bot Control port - write out, tell bot how to move
 # Still need new address for last two ports 
-PORT_BOTUPDT        = 0x80001814        # (i) Bot Update port (Poll)
-PORT_INTACK         = 0x80001818        # (o) Bot Int Ack
+PORT_BOTUPDT        = 0x80001800        # (i) Bot Update port (Poll)
+PORT_INTACK         = 0x80001804        # verified
+# PORT_INTACK       = 0x80001818        # (o) Bot Int Ack
 
-###Old locations###
-#PORT_SEVENSEG_EN    = 0x80001038        # (o) 7 Segment enable
-#PORT_SEVENSEG_HGH   = 0x8000101c        # (o) 7 Segment Higher Display
-#PORT_SEVENSEG_LOW   = 0x8000103c        # (o) 7 Segment Lower Display
-#PORT_SEVENSEG_DP    = 0x80001018        # (o) 7 segment Decimal Point Display
+# ##Old locations###
+# PORT_SEVENSEG_EN    = 0x80001038        # (o) 7 Segment enable
+# PORT_SEVENSEG_HGH   = 0x8000101c        # (o) 7 Segment Higher Display
+# PORT_SEVENSEG_LOW   = 0x8000103c        # (o) 7 Segment Lower Display
+# PORT_SEVENSEG_DP    = 0x80001018        # (o) 7 segment Decimal Point Display
 #
-#PORT_BOTINFO        = 0x8000180c        # (i) Bot Info port - read in, contains sensor info
-#PORT_BOTCTRL        = 0x80001810        # (o) Bot Control port - wrtie out, tell bot how to move
-#PORT_BOTUPDT        = 0x80001814        # (i) Bot Update port (Poll)
-#PORT_INTACK         = 0x80001818        # (o) Bot Int Ack
-######################################## 
+# PORT_BOTINFO        = 0x8000180c        # (i) Bot Info port - read in, contains sensor info
+# PORT_BOTCTRL        = 0x80001810        # (o) Bot Control port - wrtie out, tell bot how to move
+# PORT_BOTUPDT        = 0x80001814        # (i) Bot Update port (Poll)
+# PORT_INTACK         = 0x80001818        # (o) Bot Int Ack
+# ####################################### 
 
 # =====================================
 # === Register bit mappings (masks) ===
@@ -419,9 +431,9 @@ ret_next_step:
 
 
 
-#**************************************************************************************
+# **************************************************************************************
 # Support functions
-#**************************************************************************************
+# **************************************************************************************
 
 # ===============================================================================
 # === wr_alldigits() - Writes all 8 display digits from the global locations  ===
@@ -434,17 +446,17 @@ wr_alldigits:
                 li  t3, PORT_SEVENSEG_LOW
                 sw  x25, 0(t3)                  # Write to the lower 7 segment displays
                 lw  x25, (SP_DIG4)              # Load the higher 7 segment displays
-                li  t3, PORT_SEVENSEG_HGH
-                sw  x25, 0(t3)                  # Write to the higher 7 segment displays
+                li  t3, PORT_EXTENDED
+                sw  x25, 4(t3)                  # Write to the higher 7 segment displays
                 li  x25, 0x00                   # Enable all the display segments
                 li  t3, PORT_SEVENSEG_EN
                 sw  x25, 0(t3)
                 jr  ra
                 nop
 
-#*******
+# *******
 # Functions to convert pushbutton presses to Motor Control input
-#*******
+# *******
 
 # ===============================================================================
 # === init_btnluptbl() - initialize button translation lookup table in SP RAM ===
@@ -590,9 +602,9 @@ mvmt2cc:        la  t0,     (SP_MVTBAS1)        # t0 gets base of movment conver
                 nop
 
 
-##########################################
+# #########################################
 # Modify this function for Project 2 #####
-##########################################
+# #########################################
 
 # ========================================================================
 # === next_mvmt() - Calculate  digit for motion indicator              ===
@@ -753,9 +765,9 @@ next_loc:       lb      x25,    (LOCx_REG)              # Dig[3:2] gets X-coordi
                 nop
 
 
-##########################################
+# #########################################
 # Modify this function for Project 2 #####
-##########################################
+# #########################################
 
 # ==============================================================================
 # === next_step() - Tells rojobot what to do next                            ===
@@ -768,8 +780,8 @@ next_step:
                 # determine MANUAL or AUTO mode
                 lb      t0, (SP_ROBOT_MODE)
                 beq     t0, zero, next_step_manual
-############################################################################################################## 
-next_step_auto: ### It is just given for your reference.
+# ############################################################################################################# 
+next_step_auto: # ## It is just given for your reference.
 				# will be using s1 to save a 0 if we just reversed and need to now turn right (will be set when turn is set)
 				beq s1, zero, need_to_turn_now			# we already reversed, need to turn to finish this motion (part 2 of a 2 step motion)
 				jal check_off_black_line				# read sensor to see if we are off of black line, returns a0 = 1 if we are off and 0 if on
@@ -793,14 +805,14 @@ set_rojo_motion_auto:
 				li x25, PORT_BOTCTRL					# grab location of rojo control register
 				sw t3, 0(x25)							# write command of which direction
 				beq zero, zero, ret_next_step	
-##
-##
-##       You need to add your code over here to make the icon move automatically. That is to make icon
-##		 follow black line when you  turn on the SW[15].	
-##
-##
-##                
-#########################################################################################################
+# #
+# #
+# #       You need to add your code over here to make the icon move automatically. That is to make icon
+# #		 follow black line when you  turn on the SW[15].	
+# #
+# #
+# #                
+# ########################################################################################################
 
 next_step_manual:
                 lb      x25,(SENSOR_REG)
@@ -819,17 +831,17 @@ next_step_manual:
                 beq     zero, zero, ret_next_step
                 nop
 
-#*************************
+# *************************
 # Nexyx5 I/O Functions
-#*************************
+# *************************
 
-#---------------------
+# ---------------------
 # check_off_black_line() - Check if the robot is off black line
 #
 # Return: a0 = 1 (off black line) / 0 (on black line)
 #
 # Registers affected: a0
-#---------------------
+# ---------------------
 check_off_black_line:
                 # lb      v0, (SENSOR_REG)           # read sensor contents
                 la t2, SENSOR_REG
@@ -839,14 +851,14 @@ check_off_black_line:
                 jr      ra
                 nop
 
-#---------------------
+# ---------------------
 # reorder_btns() - Rearrange read bits of the push buttons
 #
 # Original order is stored in x25
 # Reorder from xxxU-DLCR --> xxxC-LURD
 #
 # Registers affected: x25, x21, a1
-#---------------------
+# ---------------------
 reorder_btns:
                 add     x25, zero, zero             # init x25 to zero
 
@@ -881,7 +893,7 @@ reorder_btns:
                 jr      ra
                 nop
 
-#---------------------
+# ---------------------
 # DEB_rdbtns() - Reads the debounced pushbuttons
 #
 # Returns the 5 pushbuttons. The buttons are returned as follows
@@ -894,9 +906,9 @@ reorder_btns:
 # A 0 indicates that the button is not pressed.
 #
 # Registers used x25
-#---------------------
-DEB_rdbtns:     li      x25,        PORT_PBTNS          # read the buttons
-                lw      a1,     0(x25)
+# ---------------------
+DEB_rdbtns:     li      x25,        PORT_PBTNS    # read the buttons
+                lw      a1,     0(x25)            # 0x0002 BTN_D, 0x0004 BTN_L, 0x0008 BTN_R, 0x0001 BTN_U
 
                 # reorder the button positions, according to the Nexys4 DDR
                 /*
@@ -916,13 +928,13 @@ DEB_rdbtns:     li      x25,        PORT_PBTNS          # read the buttons
                 nop
 
 
-#---------------------
+# ---------------------
 # LED_wrleds() - Write the low order 8 LEDs
 #
 # Writes the pattern in t3 to the rightmost 8 LEDs on the Nexyx5
 #
 # Registers used x25, t3
-#---------------------
+# ---------------------
 LED_wrleds:     
                 add     x25,    t3, 0               # Copy LEDs to x25 to preserve them
                 and     x25, x25,   MSK_LEDS_LO     # mask out unused bits
@@ -933,7 +945,7 @@ LED_wrleds:
 
 
 
-#---------------------
+# ---------------------
 # SS_wrdpts() - Write the decimal points for digit 3 to 0 to the display
 #
 # Writes the decimal points specified in t3 to the display.
@@ -945,12 +957,13 @@ LED_wrleds:
 # lights the decimal point. A 0 in the position turns off the decimal point
 #
 # Registers used x25,t3
-#---------------------
-SS_wrdpts:      lb      x25,    SP_OLDDP                # Copy the decimal points to x25 to leave t3 unchanged
-                li      t3,     PORT_SEVENSEG_DP
-                sw      x25,        0(t3)   # write the decimal points to the display
-                jr    ra
-                nop
+# ---------------------
+SS_wrdpts:      # lb      x25,    SP_OLDDP                # Copy the decimal points to x25 to leave t3 unchanged
+#                li      t3,     PORT_SEVENSEG_DP
+#                sw      x25,        0(t3)   # write the decimal points to the display
+              nop
+              jr    ra
+              nop
 
 # Different variables for lookup table, BotInfo register, LOCx_REG, LOCy_REG, Old_Heading register,
 # 7 segment displays, and other variables required. All are byte wides except SP_TEMP which is word
@@ -968,13 +981,13 @@ SP_DIG5:    .byte   0
 SP_DIG6:    .byte   0
 SP_DIG7:    .byte   0
 
-#Location x variable
+# Location x variable
 LOCx_REG:   .byte   0
-#Location y variable
+# Location y variable
 LOCy_REG:   .byte   0
-#Bot sensors variable
+# Bot sensors variable
 SENSOR_REG: .byte   0
-#Botinfo variable
+# Botinfo variable
 BOTINF_REG: .byte   0
 
 # Intermediate variables can be used for implementing the algorithm
@@ -1027,7 +1040,7 @@ SP_RGTC0NT: .byte   0
 SP_TEMP:    .word   0x00
 
 
-###### Delete this also 
+# ##### Delete this also 
 # ====================================================================================================
 # Variables for running the algorithm
 # ====================================================================================================

@@ -1,0 +1,16 @@
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
+|       Launch Clock       |      Capture Clock       |                                                 Pin                                                      |
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
+|                 clk_core |         clk_75_clk_wiz_0 |                                                         rojobot31_0_module/inst/BOTREGIF/DataOut_reg[2]/D|
+|                 clk_core |              sys_clk_pin |                                                                                     IO_BotUpdt_Sync_reg/D|
+|                 clk_core |                 clk_core |                                    swervolf/swerv_eh1/swerv/lsu/clkdomain/lsu_free_cgc/clkhdr/en_ff_reg/D|
+|                 clk_core |                 clk_core |                      swervolf/swerv_eh1/swerv/lsu/stbuf/GenStBuf[5].stbuf_drain_vldff/dffsc/dout_reg[0]/D|
+|                 clk_core |                 clk_core |                      swervolf/swerv_eh1/swerv/lsu/stbuf/GenStBuf[7].stbuf_drain_vldff/dffsc/dout_reg[0]/D|
+|                 clk_core |                 clk_core |                      swervolf/swerv_eh1/swerv/lsu/stbuf/GenStBuf[5].stbuf_flush_vldff/dffsc/dout_reg[0]/D|
+|                 clk_core |                 clk_core |                      swervolf/swerv_eh1/swerv/lsu/stbuf/GenStBuf[7].stbuf_flush_vldff/dffsc/dout_reg[0]/D|
+|                 clk_core |                 clk_core |                      swervolf/swerv_eh1/swerv/lsu/stbuf/GenStBuf[3].stbuf_drain_vldff/dffsc/dout_reg[0]/D|
+|                 clk_core |                 clk_core |                      swervolf/swerv_eh1/swerv/lsu/stbuf/GenStBuf[1].stbuf_drain_vldff/dffsc/dout_reg[0]/D|
+|                 clk_core |                 clk_core |                      swervolf/swerv_eh1/swerv/lsu/stbuf/GenStBuf[0].stbuf_flush_vldff/dffsc/dout_reg[0]/D|
+|                 clk_core |                 clk_core |                      swervolf/swerv_eh1/swerv/lsu/stbuf/GenStBuf[2].stbuf_flush_vldff/dffsc/dout_reg[0]/D|
+|                 clk_core |                 clk_core |                      swervolf/swerv_eh1/swerv/lsu/stbuf/GenStBuf[4].stbuf_flush_vldff/dffsc/dout_reg[0]/D|
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+

@@ -269,7 +269,7 @@ module rvfpga
 	  .io_BotInfo      (io_BotInfo [31:0]),
 	  .io_INT_ACK      (IO_INT_ACK),
 	  .o_Bot_Config_reg (Bot_Config_reg),
-	  .io_BotUpdt_Sync (upd_sysregs),  // bot info reg
+	  .io_BotUpdt_Sync (IO_BotUpdt_Sync),  // bot info reg
       .AN (AN),
       .DP (DP),
       .Digits_Bits ({CA,CB,CC,CD,CE,CF,CG}),
@@ -316,7 +316,7 @@ module rvfpga
       .worldmap_data    (worldmap_data),     
       .clk_in           (clk_75),            
       .reset            (reset),             
-      .upd_sysregs      (upd_sysregs),   // IO_BOtUpdt    
+      .upd_sysregs      (IO_BotUpdt),   // IO_BOtUpdt    
       .Bot_Config_reg   (Bot_Config_reg) // db_sw  
     );
     
@@ -333,8 +333,9 @@ module rvfpga
    end
 
    assign o_uart_tx = 1'b0 ? litedram_tx : cpu_tx;
-    
-   always @ (posedge clk_75) begin
+ //  assign  IO_BotUpdt_Sync = IO_BotUpdt;
+   
+   always @ (posedge clk) begin
     if (IO_INT_ACK == 1'b1) begin
         IO_BotUpdt_Sync <= 1'b0;
     end
