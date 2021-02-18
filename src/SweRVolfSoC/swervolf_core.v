@@ -322,7 +322,7 @@ module swervolf_core
    
    wire        gpio_irq_rojobot;
   // wire [31:0] en_gpio_rojobot;
-   wire [31:0] o_gpio_rojobot; 
+   wire [7:0] o_gpio_rojobot; 
    wire [31:0] i_gpio_rojobot; // rojobot_out 
    
    wire        gpio_irq_i_rojobot;
@@ -407,8 +407,8 @@ module swervolf_core
         .wb_err_o     (wb_s2m_gpio_rojobot_err),
         .wb_inta_o    (gpio_irq_rojobot),
         // External GPIO Interface
-        .ext_pad_i     ({21'b0,io_BotUpdt_Sync,o_Bot_Config_reg}),   // o_Bot_Config_reg = db_sw(15),
-        .ext_pad_o     ({29'b0,io_INT_ACK}),   
+        .ext_pad_i     ({28'b0,io_BotUpdt_Sync, o_Bot_Config_reg,io_INT_ACK}),   // o_Bot_Config_reg = db_sw(15),
+        .ext_pad_o     (),   
         .ext_padoe_o   ());
   
  

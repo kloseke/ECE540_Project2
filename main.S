@@ -112,15 +112,20 @@ PORT_GPIO_EN        = 0x80001408        # (o) enable LEDs for output
 
 PORT_SEVENSEG_EN    = 0x80001038        # (o) 7 Segment enable
 PORT_EXTENDED       = 0X80001024        # EXTENDED BIT xxxxx
-# PORT_SEVENSEG_HGH   = 0x8000101c        # (o) 7 Segment Higher Display
- PORT_SEVENSEG_LOW   = 0x80001024        # (o) 7 Segment Lower Display
-# PORT_SEVENSEG_DP    = 0x80001018        # (o) 7 segment Decimal Point Display
+# PORT_SEVENSEG_HGH   = 0x8000101c      # (o) 7 Segment Higher Display
+ PORT_SEVENSEG_LOW   = 0x80001024       # (o) 7 Segment Lower Display
+# PORT_SEVENSEG_DP    = 0x80001018      # (o) 7 segment Decimal Point Display
+/*
+   rojobot_i = extended_i = io_BotUpdt_Sync, o_Bot_Config_reg,io_INT_ACK = h00001800
+   gpio_rojobot = .ext_pad_i = io_BotInfo = h00001600
+   gpio_rojobot = .ext_pad_o = io_BotCtrl = h00001600
+*/
 
-PORT_BOTINFO        = 0x8000160C        # (i) Bot Info port - read in, contains sensor info
-PORT_BOTCTRL        = 0x80001810        # (o) Bot Control port - write out, tell bot how to move
+PORT_BOTINFO        = 0x80001600        # (i) Bot Info port - read in, contains sensor info
+PORT_BOTCTRL        = 0x80001604        # (o) Bot Control port - write out, tell bot how to move
 # Still need new address for last two ports 
 PORT_BOTUPDT        = 0x80001800        # (i) Bot Update port (Poll)
-PORT_INTACK         = 0x80001804        # verified
+PORT_INTACK         = 0x80001804        # (O) verified
 # PORT_INTACK       = 0x80001818        # (o) Bot Int Ack
 
 # ##Old locations###
@@ -316,7 +321,8 @@ SP_MVMTF    = 0x1B      # Fast right turn - display lower case R
 
 .globl _start
 _start:
-
+                la  t0, PORT_BOTINFO
+                lw  t1, 0(t0)
                 // enable LEDs & SWs
                 li  t0, PORT_GPIO_EN
                 li  t1, 0x0000FFFF

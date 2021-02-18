@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1613545921">
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1613606599">
   <File Type="BITSTR-BMM" Name="rvfpga_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="rvfpga_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="rvfpga_timing_summary_init.rpt"/>
@@ -848,23 +848,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/lib/axi4_to_ahb.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/cf_math_pkg.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/cb_filter.sv">
+    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/OtherSources/verilog-arbiter_0-r3/src/arbiter.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -968,11 +952,33 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/lib/axi4_to_ahb.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__axi_0.23.0-r1/src/axi_burst_splitter.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__axi_0.23.0-r1/include/axi/axi/typedef.svh">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__axi_0.23.0-r1/include/axi/axi/assign.svh">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
@@ -1064,6 +1070,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/cf_math_pkg.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__axi_0.23.0-r1/src/axi_lite_regs.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
@@ -1121,6 +1135,14 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__axi_0.23.0-r1/src/axi_to_axi_lite.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/cb_filter.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -1503,25 +1525,10 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__axi_0.23.0-r1/include/axi/axi/typedef.svh">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/include/common_cells/registers.svh">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/OtherSources/verilog-arbiter_0-r3/src/arbiter.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
@@ -1540,13 +1547,6 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/BootROM/sw/bootloader.vh">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__axi_0.23.0-r1/include/axi/axi/assign.svh">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>

@@ -161,9 +161,9 @@ wb_mux
     .wbm_cyc_i (wb_io_cyc_i),
     .wbm_stb_i (wb_io_stb_i),
     .wbm_cti_i (wb_io_cti_i),
-    .wbm_bte_i (wb_io_bte_i),
-    .wbm_dat_o (wb_io_dat_o),
-    .wbm_ack_o (wb_io_ack_o),
+    .wbm_bte_i (wb_io_bte_i),                                       // rojobot_i = extended_i = io_BotUpdt_Sync, o_Bot_Config_reg,io_INT_ACK = h00001800
+    .wbm_dat_o (wb_io_dat_o),                                       // gpio_rojobot = .ext_pad_i = io_BotInfo = h00001600
+    .wbm_ack_o (wb_io_ack_o),                                       // gpio_rojobot = .ext_pad_o = io_BotCtrl = h00001600
     .wbm_err_o (wb_io_err_o),
     .wbm_rty_o (wb_io_rty_o),
     .wbs_adr_o ({wb_rom_adr_o, wb_sys_adr_o, wb_spi_flash_adr_o, wb_spi_accel_adr_o, wb_ptc_adr_o, wb_gpio_adr_o, wb_gpio_pb_adr_o, wb_gpio_rojobot_adr_o,  wb_gpio_rojobot_i_adr_o,wb_uart_adr_o}), 
@@ -178,5 +178,4 @@ wb_mux
     .wbs_ack_i ({wb_rom_ack_i, wb_sys_ack_i, wb_spi_flash_ack_i, wb_spi_accel_ack_i, wb_ptc_ack_i, wb_gpio_ack_i, wb_gpio_pb_ack_i, wb_gpio_rojobot_ack_i, wb_gpio_rojobot_i_ack_i, wb_uart_ack_i}), 
     .wbs_err_i ({wb_rom_err_i, wb_sys_err_i, wb_spi_flash_err_i, wb_spi_accel_err_i, wb_ptc_err_i, wb_gpio_err_i, wb_gpio_pb_err_i, wb_gpio_rojobot_err_i, wb_gpio_rojobot_i_err_i, wb_uart_err_i}), 
     .wbs_rty_i ({wb_rom_rty_i, wb_sys_rty_i, wb_spi_flash_rty_i, wb_spi_accel_rty_i, wb_ptc_rty_i, wb_gpio_rty_i, wb_gpio_pb_rty_i, wb_gpio_rojobot_rty_i, wb_gpio_rojobot_i_rty_i, wb_uart_rty_i}));
-
 endmodule

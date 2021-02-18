@@ -19,6 +19,11 @@
 // Function: SweRVolf toplevel for Nexys A7 board
 // Comments:
 //
+/*
+   rojobot_i = extended_i = io_BotUpdt_Sync, o_Bot_Config_reg,io_INT_ACK = h00001800
+   gpio_rojobot = .ext_pad_i = io_BotInfo = h00001600
+   gpio_rojobot = .ext_pad_o = io_BotCtrl = h00001600
+*/
 //********************************************************************************
 
 `default_nettype none
@@ -59,7 +64,7 @@ module rvfpga
     output wire        o_accel_mosi,
     input wire         i_accel_miso,
     output wire        accel_sclk);
-    
+
    wire [15:0] 	       gpio_out;
    wire 	           cpu_tx,litedram_tx;
    wire 	           litedram_init_done;
@@ -265,7 +270,7 @@ module rvfpga
 	  .io_BTND		  (BTND),
 	  .io_BTNL		  (BTNL),
 	  .io_BTNR		  (BTNR),
-	  .io_BotCtrl      (MotCtl_in),
+	  .io_BotCtrl      (IO_BotCtrl),
 	  .io_BotInfo      (io_BotInfo [31:0]),
 	  .io_INT_ACK      (IO_INT_ACK),
 	  .o_Bot_Config_reg (Bot_Config_reg),
@@ -283,15 +288,13 @@ module rvfpga
  clk_wiz_0 clk_gen_75hz_module (   // Clock out ports
     .clk_75(clk_75),        // output clk_75
                             // Status and control signals
-    .reset(reset),          // input reset
+    .reset(rstn),          // input reset
                             // Clock in ports
     .clk_in1(clk));
       
     wire        [7 : 0]     MotCtl_in;			
     wire        [13 : 0]    worldmap_addr;
     wire        [1 : 0]     worldmap_data;
-    wire                    clk_in;
-    wire                    reset;
     wire                    upd_sysregs;
     wire        [7 : 0]     Bot_Config_reg;
 		
@@ -303,9 +306,10 @@ module rvfpga
 	wire [7 : 0] LocY_reg; 
 	wire [7 : 0] Sensors_reg; 
 	wire [7 : 0] BotInfo_reg; 
+	wire [7 : 0] IO_BotCtrl;
 	
 	assign io_BotInfo = {LocX_reg, LocY_reg, Sensors_reg, BotInfo_reg};
-	
+	assign MotCtl_in = IO_BotCtrl;
 	rojobot31_0 rojobot31_0_module (
       .MotCtl_in        (MotCtl_in),            
       .LocX_reg         (LocX_reg),             
@@ -315,7 +319,7 @@ module rvfpga
       .worldmap_addr    (worldmap_addr),     
       .worldmap_data    (worldmap_data),     
       .clk_in           (clk_75),            
-      .reset            (reset),             
+      .reset            (~rstn),             
       .upd_sysregs      (IO_BotUpdt),   // IO_BOtUpdt    
       .Bot_Config_reg   (Bot_Config_reg) // db_sw  
     );
@@ -333,7 +337,7 @@ module rvfpga
    end
 
    assign o_uart_tx = 1'b0 ? litedram_tx : cpu_tx;
- //  assign  IO_BotUpdt_Sync = IO_BotUpdt;
+   // assign  IO_BotUpdt_Sync = IO_BotUpdt;
    
    always @ (posedge clk) begin
     if (IO_INT_ACK == 1'b1) begin

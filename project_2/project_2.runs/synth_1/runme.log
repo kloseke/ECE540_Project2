@@ -18,7 +18,7 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 63888 
+INFO: Helper process launched with PID 67540 
 WARNING: [Synth 8-1921] elaboration system task error violates IEEE 1800 syntax [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/lib/beh_lib.sv:162]
 WARNING: [Synth 8-2507] parameter declaration becomes local in axi2wb with formal parameter declaration list [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Interconnect/AxiToWb/axi2wb.v:71]
 WARNING: [Synth 8-2507] parameter declaration becomes local in axi2wb with formal parameter declaration list [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Interconnect/AxiToWb/axi2wb.v:81]
@@ -37,7 +37,7 @@ WARNING: [Synth 8-2369] multiple packed dimensions are not allowed in this mode 
 WARNING: [Synth 8-2369] multiple packed dimensions are not allowed in this mode of verilog [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/SystemController/swervolf_syscon.v:352]
 WARNING: [Synth 8-2507] parameter declaration becomes local in wb_mux with formal parameter declaration list [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Interconnect/WishboneInterconnect/wb_intercon_1.2.2/wb_mux.v:87]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 893.969 ; gain = 240.984
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 893.684 ; gain = 240.129
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'rvfpga' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:25]
 	Parameter bootrom_file bound to: (null) - type: string 
@@ -624,7 +624,7 @@ WARNING: [Synth 8-6014] Unused sequential element soc_a7ddrphy_dfi_p1_rddata_val
 WARNING: [Synth 8-6014] Unused sequential element soc_sdram_dfi_p1_cs_n_reg was removed.  [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/LiteDRAM/litedram_core.v:3665]
 INFO: [Synth 8-6155] done synthesizing module 'litedram_core' (35#1) [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/LiteDRAM/litedram_core.v:4]
 INFO: [Synth 8-6155] done synthesizing module 'litedram_top' (36#1) [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/LiteDRAM/litedram_top.v:27]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:173]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:178]
 INFO: [Synth 8-6157] synthesizing module 'STARTUPE2' [C:/Xilinx/Vivado/2019.2/scripts/rt/data/unisim_comp.v:78135]
 	Parameter PROG_USR bound to: FALSE - type: string 
 	Parameter SIM_CCLK_FREQ bound to: 0.000000 - type: double 
@@ -1052,9 +1052,8 @@ WARNING: [Synth 8-689] width (5) of port connection 'pbtn_db' does not match por
 	Parameter gw bound to: 32 - type: integer 
 INFO: [Synth 8-3536] HDL ADVISOR - Pragma parallel_case detected. Simulation mismatch may occur [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/gpio/gpio_top.v:987]
 INFO: [Synth 8-3536] HDL ADVISOR - Pragma full_case detected. Simulation mismatch may occur [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/gpio/gpio_top.v:987]
-WARNING: [Synth 8-689] width (30) of port connection 'ext_pad_o' does not match port width (32) of module 'gpio_top' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/swervolf_core.v:411]
-WARNING: [Synth 8-2900] ignoring illegal expression in output port connection [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/swervolf_core.v:411]
 WARNING: [Synth 8-7023] instance 'gpio_rojobot_i' of module 'gpio_top' has 17 connections declared, but only 15 given [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/swervolf_core.v:396]
+WARNING: [Synth 8-689] width (8) of port connection 'ext_pad_o' does not match port width (32) of module 'gpio_top' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/swervolf_core.v:431]
 WARNING: [Synth 8-7023] instance 'gpio_rojobot' of module 'gpio_top' has 17 connections declared, but only 15 given [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/swervolf_core.v:416]
 WARNING: [Synth 8-689] width (5) of port connection 'ext_pad_o' does not match port width (32) of module 'gpio_top' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/swervolf_core.v:450]
 WARNING: [Synth 8-7023] instance 'gpio_pushbutton' of module 'gpio_top' has 17 connections declared, but only 15 given [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/swervolf_core.v:435]
@@ -1770,6 +1769,7 @@ WARNING: [Synth 8-3848] Net exu_mp_pkt[prett] in module/entity exu does not have
 	Parameter ICACHE_IC_DEPTH bound to: 8 - type: integer 
 	Parameter NUM_WAYS bound to: 4 - type: integer 
 	Parameter NUM_SUBBANKS bound to: 4 - type: integer 
+WARNING: [Synth 8-3848] Net io_INT_ACK in module/entity swervolf_core does not have driver. [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/swervolf_core.v:90]
 WARNING: [Synth 8-3848] Net io_bresp in module/entity swervolf_core does not have driver. [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Interconnect/AxiInterconnect/axi_intercon.vh:129]
 WARNING: [Synth 8-3848] Net io_rresp in module/entity swervolf_core does not have driver. [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Interconnect/AxiInterconnect/axi_intercon.vh:134]
 WARNING: [Synth 8-3848] Net wb_m2s_io_cti in module/entity swervolf_core does not have driver. [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Interconnect/WishboneInterconnect/wb_intercon.vh:7]
@@ -1789,8 +1789,7 @@ WARNING: [Synth 8-3848] Net wb_s2m_gpio_pb_rty in module/entity swervolf_core do
 WARNING: [Synth 8-3848] Net wb_s2m_ptc_rty in module/entity swervolf_core does not have driver. [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Interconnect/WishboneInterconnect/wb_intercon.vh:130]
 WARNING: [Synth 8-3848] Net wb_s2m_spi_accel_err in module/entity swervolf_core does not have driver. [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Interconnect/WishboneInterconnect/wb_intercon.vh:143]
 WARNING: [Synth 8-3848] Net wb_s2m_spi_accel_rty in module/entity swervolf_core does not have driver. [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Interconnect/WishboneInterconnect/wb_intercon.vh:144]
-WARNING: [Synth 8-689] width (8) of port connection 'o_Bot_Config_reg' does not match port width (1) of module 'swervolf_core' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:271]
-WARNING: [Synth 8-3848] Net reset in module/entity rvfpga does not have driver. [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:294]
+WARNING: [Synth 8-689] width (8) of port connection 'o_Bot_Config_reg' does not match port width (1) of module 'swervolf_core' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:276]
 WARNING: [Synth 8-3331] design rvoclkhdr has unconnected port en
 WARNING: [Synth 8-3331] design rvoclkhdr has unconnected port scan_mode
 WARNING: [Synth 8-3331] design IC_TAG has unconnected port dec_tlu_core_ecc_disable
@@ -1893,7 +1892,7 @@ WARNING: [Synth 8-3331] design lsu_bus_buffer has unconnected port lsu_pkt_dc1[b
 WARNING: [Synth 8-3331] design lsu_bus_buffer has unconnected port lsu_pkt_dc1[half]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1389.766 ; gain = 736.781
+Finished RTL Elaboration : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1388.906 ; gain = 735.352
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1906,12 +1905,12 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1389.766 ; gain = 736.781
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 1412.148 ; gain = 758.594
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1389.766 ; gain = 736.781
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 1412.148 ; gain = 758.594
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1389.766 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1412.148 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 57 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -1933,7 +1932,7 @@ Resolution: To avoid this warning, move constraints listed in [.Xil/rvfpga_propI
 INFO: [Timing 38-2] Deriving generated clocks
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.040 . Memory (MB): peak = 1665.965 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.055 . Memory (MB): peak = 1667.113 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 20 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 16 instances
@@ -1941,16 +1940,15 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS(x2)): 1 instance 
   PLLE2_BASE => PLLE2_ADV: 1 instance 
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.358 . Memory (MB): peak = 1665.965 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.500 . Memory (MB): peak = 1667.113 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:55 ; elapsed = 00:00:55 . Memory (MB): peak = 1665.965 ; gain = 1012.980
+Finished Constraint Validation : Time (s): cpu = 00:01:22 ; elapsed = 00:01:20 . Memory (MB): peak = 1667.113 ; gain = 1013.559
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 2 processes.
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
----------------------------------------------------------------------------------
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/LiteDRAM/litedram_core.v:4591]
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/LiteDRAM/litedram_core.v:7071]
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/LiteDRAM/litedram_core.v:7691]
@@ -2087,7 +2085,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'tstate_reg' using encoding
 INFO: [Synth 8-3354] encoded FSM with state register 'rstate_reg' using encoding 'sequential' in module 'uart_receiver'
 WARNING: [Synth 8-327] inferring latch for variable 'en_ff_reg' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/lib/beh_lib.sv:94]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:24 ; elapsed = 00:01:24 . Memory (MB): peak = 1665.965 ; gain = 1012.980
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:07 ; elapsed = 00:02:08 . Memory (MB): peak = 1667.113 ; gain = 1013.559
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-223] decloning instance 'swervolf/swerv_eh1/swerv/dbg/axi_bready_ff' (rvdffs) to 'swervolf/swerv_eh1/swerv/dbg/axi_rready_ff'
 INFO: [Synth 8-223] decloning instance 'swervolf/swerv_eh1/swerv/exu/div_e1/dividend_c' (rvtwoscomp) to 'swervolf/swerv_eh1/swerv/exu/div_e1/q_ff_c'
@@ -2109,7 +2107,7 @@ Report RTL Partitions:
 |9     |mem                 |           1|      3303|
 |10    |swervolf_core__GCB0 |           1|     34314|
 |11    |swervolf_core__GCB1 |           1|     23464|
-|12    |rvfpga__GC0         |           1|      3034|
+|12    |rvfpga__GC0         |           1|      3035|
 +------+--------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -15868,6 +15866,9 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'i_0/IO_BotUpdt_Sync_reg/Q' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:277]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:277]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv:277]
 INFO: [Synth 8-3886] merging instance 'i_0/cdc/i_axi_cdc/i_cdc_fifo_gray_r/i_src/gen_word[1].data_q_reg[1][2]' (FDE) to 'i_0/cdc/i_axi_cdc/i_cdc_fifo_gray_r/i_src/gen_word[1].data_q_reg[1][3]'
 INFO: [Synth 8-3886] merging instance 'i_0/cdc/i_axi_cdc/i_cdc_fifo_gray_r/i_src/gen_word[0].data_q_reg[0][2]' (FDE) to 'i_0/cdc/i_axi_cdc/i_cdc_fifo_gray_r/i_src/gen_word[0].data_q_reg[0][3]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cdc/i_axi_cdc/i_cdc_fifo_gray_r/i_src/gen_word[1].data_q_reg[1][3] )
@@ -15976,7 +15977,6 @@ INFO: [Synth 8-3886] merging instance 'gpio_rojobot_i/sync_reg[10]' (FDC) to 'gp
 INFO: [Synth 8-3886] merging instance 'gpio_pushbutton/sync_reg[10]' (FDC) to 'gpio_pushbutton/sync_reg[31]'
 INFO: [Synth 8-3886] merging instance 'gpio_rojobot_i/sync_reg[18]' (FDC) to 'gpio_rojobot_i/sync_reg[31]'
 INFO: [Synth 8-3886] merging instance 'gpio_pushbutton/sync_reg[18]' (FDC) to 'gpio_pushbutton/sync_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gpio_rojobot_i/sync_reg[2]' (FDC) to 'gpio_rojobot_i/sync_reg[31]'
 INFO: [Synth 8-3886] merging instance 'gpio_rojobot_i/sync_reg[28]' (FDC) to 'gpio_rojobot_i/sync_reg[31]'
 INFO: [Synth 8-3886] merging instance 'gpio_pushbutton/sync_reg[28]' (FDC) to 'gpio_pushbutton/sync_reg[31]'
 INFO: [Synth 8-3886] merging instance 'gpio_rojobot_i/sync_reg[12]' (FDC) to 'gpio_rojobot_i/sync_reg[31]'
@@ -16038,7 +16038,6 @@ INFO: [Synth 8-3886] merging instance 'gpio_rojobot_i/ext_pad_s_reg[10]' (FDC) t
 INFO: [Synth 8-3886] merging instance 'gpio_pushbutton/ext_pad_s_reg[10]' (FDC) to 'gpio_pushbutton/ext_pad_s_reg[31]'
 INFO: [Synth 8-3886] merging instance 'gpio_rojobot_i/ext_pad_s_reg[18]' (FDC) to 'gpio_rojobot_i/ext_pad_s_reg[31]'
 INFO: [Synth 8-3886] merging instance 'gpio_pushbutton/ext_pad_s_reg[18]' (FDC) to 'gpio_pushbutton/ext_pad_s_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gpio_rojobot_i/ext_pad_s_reg[2]' (FDC) to 'gpio_rojobot_i/ext_pad_s_reg[31]'
 INFO: [Synth 8-3886] merging instance 'gpio_rojobot_i/ext_pad_s_reg[28]' (FDC) to 'gpio_rojobot_i/ext_pad_s_reg[31]'
 INFO: [Synth 8-3886] merging instance 'gpio_pushbutton/ext_pad_s_reg[28]' (FDC) to 'gpio_pushbutton/ext_pad_s_reg[31]'
 INFO: [Synth 8-3886] merging instance 'gpio_rojobot_i/ext_pad_s_reg[12]' (FDC) to 'gpio_rojobot_i/ext_pad_s_reg[31]'
@@ -16047,6 +16046,8 @@ INFO: [Synth 8-3886] merging instance 'gpio_rojobot_i/ext_pad_s_reg[20]' (FDC) t
 INFO: [Synth 8-3886] merging instance 'gpio_pushbutton/ext_pad_s_reg[20]' (FDC) to 'gpio_pushbutton/ext_pad_s_reg[31]'
 INFO: [Synth 8-3886] merging instance 'gpio_rojobot_i/ext_pad_s_reg[4]' (FDC) to 'gpio_rojobot_i/ext_pad_s_reg[31]'
 INFO: [Synth 8-3886] merging instance 'gpio_rojobot_i/ext_pad_s_reg[24]' (FDC) to 'gpio_rojobot_i/ext_pad_s_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gpio_pushbutton/ext_pad_s_reg[24]' (FDC) to 'gpio_pushbutton/ext_pad_s_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gpio_rojobot_i/ext_pad_s_reg[8]' (FDC) to 'gpio_rojobot_i/ext_pad_s_reg[31]'
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (gpio_module/wb_err_o_reg)
@@ -16124,7 +16125,7 @@ WARNING: [Synth 8-3332] Sequential element (i_atop_filter/FSM_sequential_w_state
 WARNING: [Synth 8-3332] Sequential element (i_atop_filter/FSM_sequential_w_state_q_reg[1]) is unused and will be removed from module axi_err_slv__1.
 WARNING: [Synth 8-3332] Sequential element (i_atop_filter/FSM_sequential_w_state_q_reg[0]) is unused and will be removed from module axi_err_slv__1.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:04:50 ; elapsed = 00:05:45 . Memory (MB): peak = 1665.965 ; gain = 1012.980
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:06:58 ; elapsed = 00:08:25 . Memory (MB): peak = 1667.113 ; gain = 1013.559
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -16234,16 +16235,16 @@ Report RTL Partitions:
 |7     |swerv__GCB0         |           1|     35285|
 |8     |exu                 |           1|     18127|
 |9     |mem                 |           1|      3266|
-|10    |swervolf_core__GCB0 |           1|      8607|
+|10    |swervolf_core__GCB0 |           1|      8614|
 |11    |swervolf_core__GCB1 |           1|     10209|
-|12    |rvfpga__GC0         |           1|      3013|
+|12    |rvfpga__GC0         |           1|      3011|
 +------+--------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-3321] set_false_path : Empty from list for constraint at line 8 of C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.xdc. [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.xdc:8]
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:05:06 ; elapsed = 00:06:01 . Memory (MB): peak = 1665.965 ; gain = 1012.980
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:07:19 ; elapsed = 00:08:46 . Memory (MB): peak = 1667.113 ; gain = 1013.559
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
@@ -16251,7 +16252,7 @@ Start Timing Optimization
 WARNING: [Synth 8-3332] Sequential element (axi_clk/clkhdr/en_ff_reg) is unused and will be removed from module ifu_mem_ctl.
 WARNING: [Synth 8-3332] Sequential element (dma_bus_cgc/clkhdr/en_ff_reg) is unused and will be removed from module dma_ctrl.
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:06:08 ; elapsed = 00:07:03 . Memory (MB): peak = 1665.965 ; gain = 1012.980
+Finished Timing Optimization : Time (s): cpu = 00:08:48 ; elapsed = 00:10:15 . Memory (MB): peak = 1667.113 ; gain = 1013.559
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -16338,9 +16339,9 @@ Report RTL Partitions:
 |7     |swerv__GCB0         |           1|     34210|
 |8     |exu                 |           1|     17849|
 |9     |mem                 |           1|      3266|
-|10    |swervolf_core__GCB0 |           1|      8607|
+|10    |swervolf_core__GCB0 |           1|      8596|
 |11    |swervolf_core__GCB1 |           1|      8447|
-|12    |rvfpga__GC0         |           1|      2813|
+|12    |rvfpga__GC0         |           1|      2811|
 +------+--------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
@@ -16435,7 +16436,7 @@ INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM bloc
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/lib/beh_lib.sv:37]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/lib/beh_lib.sv:37]
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:06:37 ; elapsed = 00:07:43 . Memory (MB): peak = 1665.965 ; gain = 1012.980
+Finished Technology Mapping : Time (s): cpu = 00:09:39 ; elapsed = 00:11:24 . Memory (MB): peak = 1667.113 ; gain = 1013.559
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -16451,9 +16452,9 @@ Report RTL Partitions:
 |7     |swerv__GCB0         |           1|     11407|
 |8     |exu                 |           1|      6412|
 |9     |mem                 |           1|      1059|
-|10    |swervolf_core__GCB0 |           1|      4619|
+|10    |swervolf_core__GCB0 |           1|      4612|
 |11    |swervolf_core__GCB1 |           1|      4181|
-|12    |rvfpga__GC0         |           1|      1715|
+|12    |rvfpga__GC0         |           1|      1714|
 +------+--------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -16515,13 +16516,13 @@ CRITICAL WARNING: [Synth 8-4442] BlackBox module world_map_module has unconnecte
 CRITICAL WARNING: [Synth 8-4442] BlackBox module world_map_module has unconnected pin addrb[1]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module world_map_module has unconnected pin addrb[0]
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:06:50 ; elapsed = 00:07:57 . Memory (MB): peak = 1665.965 ; gain = 1012.980
+Finished IO Insertion : Time (s): cpu = 00:09:57 ; elapsed = 00:11:43 . Memory (MB): peak = 1667.113 ; gain = 1013.559
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:06:50 ; elapsed = 00:07:57 . Memory (MB): peak = 1665.965 ; gain = 1012.980
+Finished Renaming Generated Instances : Time (s): cpu = 00:09:57 ; elapsed = 00:11:44 . Memory (MB): peak = 1667.113 ; gain = 1013.559
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -16540,25 +16541,25 @@ Report Check Netlist:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:07:04 ; elapsed = 00:08:11 . Memory (MB): peak = 1665.965 ; gain = 1012.980
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:10:17 ; elapsed = 00:12:03 . Memory (MB): peak = 1667.113 ; gain = 1013.559
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:07:05 ; elapsed = 00:08:13 . Memory (MB): peak = 1665.965 ; gain = 1012.980
+Finished Renaming Generated Ports : Time (s): cpu = 00:10:18 ; elapsed = 00:12:05 . Memory (MB): peak = 1667.113 ; gain = 1013.559
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:07:07 ; elapsed = 00:08:14 . Memory (MB): peak = 1665.965 ; gain = 1012.980
+Finished Handling Custom Attributes : Time (s): cpu = 00:10:21 ; elapsed = 00:12:07 . Memory (MB): peak = 1667.113 ; gain = 1013.559
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:07:08 ; elapsed = 00:08:15 . Memory (MB): peak = 1665.965 ; gain = 1012.980
+Finished Renaming Generated Nets : Time (s): cpu = 00:10:21 ; elapsed = 00:12:08 . Memory (MB): peak = 1667.113 ; gain = 1013.559
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -16605,12 +16606,12 @@ Report Cell Usage:
 |10    |IDELAYE2_1  |    16|
 |11    |ISERDESE2   |    16|
 |12    |LUT1        |   487|
-|13    |LUT2        |  2366|
-|14    |LUT3        |  4818|
+|13    |LUT2        |  2364|
+|14    |LUT3        |  4817|
 |15    |LUT4        |  6533|
 |16    |LUT5        |  7778|
-|17    |LUT6        | 17503|
-|18    |MUXF7       |   564|
+|17    |LUT6        | 17501|
+|18    |MUXF7       |   565|
 |19    |MUXF8       |    66|
 |20    |OSERDESE2   |    44|
 |21    |PLLE2_ADV   |     1|
@@ -16635,9 +16636,9 @@ Report Cell Usage:
 |40    |RAMB36E1_9  |     1|
 |41    |SRL16E      |     3|
 |42    |STARTUPE2   |     1|
-|43    |FDCE        | 16800|
+|43    |FDCE        | 16796|
 |44    |FDPE        |    54|
-|45    |FDRE        |  3122|
+|45    |FDRE        |  3121|
 |46    |FDSE        |   137|
 |47    |LD          |    49|
 |48    |IBUF        |     4|
@@ -16651,7 +16652,7 @@ Report Instance Areas:
 +------+----------------------------------------------------------------------+------------------------------------+------+
 |      |Instance                                                              |Module                              |Cells |
 +------+----------------------------------------------------------------------+------------------------------------+------+
-|1     |top                                                                   |                                    | 61491|
+|1     |top                                                                   |                                    | 61482|
 |2     |  cdc                                                                 |axi_cdc_intf                        |  1536|
 |3     |    i_axi_cdc                                                         |axi_cdc                             |  1536|
 |4     |      i_cdc_fifo_gray_ar                                              |cdc_fifo_gray__parameterized1       |   239|
@@ -16709,7 +16710,7 @@ Report Instance Areas:
 |56    |          state                                                       |serv_state                          |    72|
 |57    |        rf_ram                                                        |serv_rf_ram                         |     1|
 |58    |        rf_ram_if                                                     |serv_rf_ram_if                      |    46|
-|59    |  swervolf                                                            |swervolf_core                       | 54369|
+|59    |  swervolf                                                            |swervolf_core                       | 54361|
 |60    |    axi2wb                                                            |axi2wb                              |   726|
 |61    |    axi_intercon                                                      |axi_intercon                        |  3485|
 |62    |      axi_xbar                                                        |axi_xbar                            |  3365|
@@ -16859,7 +16860,7 @@ Report Instance Areas:
 |206   |    gpio_module                                                       |gpio_top                            |   686|
 |207   |    gpio_pushbutton                                                   |gpio_top_0                          |   469|
 |208   |    gpio_rojobot                                                      |gpio_top_1                          |   605|
-|209   |    gpio_rojobot_i                                                    |gpio_top_2                          |   443|
+|209   |    gpio_rojobot_i                                                    |gpio_top_2                          |   435|
 |210   |    spi                                                               |simple_spi                          |   139|
 |211   |      rfifo                                                           |fifo4_2748                          |    21|
 |212   |      wfifo                                                           |fifo4_2749                          |    28|
@@ -19769,11 +19770,11 @@ Report Instance Areas:
 |3116  |  tap                                                                 |bscan_tap                           |   229|
 +------+----------------------------------------------------------------------+------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:07:08 ; elapsed = 00:08:15 . Memory (MB): peak = 1665.965 ; gain = 1012.980
+Finished Writing Synthesis Report : Time (s): cpu = 00:10:22 ; elapsed = 00:12:08 . Memory (MB): peak = 1667.113 ; gain = 1013.559
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 14 critical warnings and 233 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:06:19 ; elapsed = 00:07:54 . Memory (MB): peak = 1665.965 ; gain = 736.781
-Synthesis Optimization Complete : Time (s): cpu = 00:07:08 ; elapsed = 00:08:16 . Memory (MB): peak = 1665.965 ; gain = 1012.980
+Synthesis finished with 0 errors, 17 critical warnings and 233 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:09:09 ; elapsed = 00:11:36 . Memory (MB): peak = 1667.113 ; gain = 758.594
+Synthesis Optimization Complete : Time (s): cpu = 00:10:22 ; elapsed = 00:12:10 . Memory (MB): peak = 1667.113 ; gain = 1013.559
 INFO: [Project 1-571] Translating synthesized netlist
 Release 14.7 - ngc2edif P_INT.20190617 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
@@ -19784,19 +19785,19 @@ Processing design ...
    Preping design's macros ...
   finished :Prep
 Writing EDIF netlist file world_map.edif ...
-ngc2edif: Total memory usage is 4321300 kilobytes
+ngc2edif: Total memory usage is 4320916 kilobytes
 
 Reading core file 'C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/Additional Files/world_maps_partA/world_map.ngc' for (cell view 'world_map', library 'work')
 Parsing EDIF File [./.ngc2edfcache/world_map_ngc_9a894e65.edif]
 Finished Parsing EDIF File [./.ngc2edfcache/world_map_ngc_9a894e65.edif]
-Netlist sorting complete. Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1665.965 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 1713 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Netlist sorting complete. Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1667.113 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1714 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-479] Netlist was created with Xilinx ngc2edif P_INT.20190617
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 4 inverter(s) to 83 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.044 . Memory (MB): peak = 1665.965 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.069 . Memory (MB): peak = 1667.113 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 141 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 37 instances
@@ -19807,13 +19808,13 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 51 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-718 Infos, 382 Warnings, 14 Critical Warnings and 0 Errors encountered.
+718 Infos, 381 Warnings, 17 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:07:34 ; elapsed = 00:08:44 . Memory (MB): peak = 1665.965 ; gain = 1303.480
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 1665.965 ; gain = 0.000
+synth_design: Time (s): cpu = 00:10:56 ; elapsed = 00:12:46 . Memory (MB): peak = 1667.113 ; gain = 1305.441
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.046 . Memory (MB): peak = 1667.113 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.runs/synth_1/rvfpga.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:17 ; elapsed = 00:00:13 . Memory (MB): peak = 1665.965 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:25 ; elapsed = 00:00:18 . Memory (MB): peak = 1667.113 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file rvfpga_utilization_synth.rpt -pb rvfpga_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Feb 16 23:21:04 2021...
+INFO: [Common 17-206] Exiting Vivado at Wed Feb 17 16:16:32 2021...
