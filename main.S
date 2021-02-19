@@ -110,10 +110,11 @@ PORT_GPIO_EN        = 0x80001408        # (o) enable LEDs for output
 # Change the following port address, as implemented by you in the hardware
 # ========================================================================
 
-PORT_SEVENSEG_EN    = 0x80001038        # (o) 7 Segment enable
-PORT_EXTENDED       = 0X80001024        # EXTENDED BIT xxxxx
-# PORT_SEVENSEG_HGH   = 0x8000101c      # (o) 7 Segment Higher Display
- PORT_SEVENSEG_LOW   = 0x80001024       # (o) 7 Segment Lower Display
+PORT_SEVENSEG_EN      = 0x80001038        # (o) 7 Segment enable
+PORT_EXTENDED         = 0X80001024        # EXTENDED BIT write to the 8th bit to be 1 or zero
+PORT_SEVENSEG_SegDig  = 0x8000103C
+PORT_SEVENSEG_HGH     = 0x8000101c        # (o) 7 Segment Higher Display
+PORT_SEVENSEG_LOW     = 0x8000103c        # (o) 7 Segment Lower Display
 # PORT_SEVENSEG_DP    = 0x80001018      # (o) 7 segment Decimal Point Display
 /*
    rojobot_i = extended_i = io_BotUpdt_Sync, o_Bot_Config_reg,io_INT_ACK = h00001800
