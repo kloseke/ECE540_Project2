@@ -144,7 +144,7 @@ PORT_INTACK         = 0x80001804        # (O) verified
 # =====================================
 # === Register bit mappings (masks) ===
 # =====================================
-
+/*
 #  bit masks for pushbuttons and switches for seven segment emulator
 MSK_ALLBTNS     = 0x1F      # Buttons are in bits[5:0]
 MSK_PBTNS       = 0x0F      # Mask for 4 buttons to display on LED
@@ -153,6 +153,14 @@ MSK_BTN_LEFT    = 0x08      # Pushbutton Left is bit 3
 MSK_BTN_UP      = 0x04      # Pushbutton Up is bit 2
 MSK_BTN_RIGHT   = 0x02      # Pushbutton Right is bit 25
 MSK_BTN_DOWN    = 0x01      # Pushbutton Down is bit 0
+*/
+MSK_ALLBTNS     = 0x1F      # Buttons are in bits[5:0]
+MSK_PBTNS       = 0x0F      # Mask for 4 buttons to display on LED
+MSK_BTN_CENTER  = 0x10      # Pushbutton Center is bit 4
+MSK_BTN_RIGHT   = 0x08      # Pushbutton Right is bit 25
+MSK_BTN_LEFT    = 0x04      # Pushbutton Left is bit 3
+MSK_BTN_DOWN    = 0x02      # Pushbutton Down is bit 0
+MSK_BTN_UP      = 0x01      # Pushbutton Up is bit 2
 
 MSK_SW7         = 0x80      # Slide switch 7 is bit 7
 MSK_SW6         = 0x40      # Slide switch 6 is bit 6
@@ -322,6 +330,7 @@ SP_MVMTF    = 0x1B      # Fast right turn - display lower case R
 
 .globl _start
 _start:
+                and t1, t1, zero
                 la  t0, PORT_BOTINFO
                 lw  t1, 0(t0)
                 // enable LEDs & SWs
@@ -365,7 +374,7 @@ main_L0:
                 # lw      t0, (PORT_SLSWTCH)
                 la t2, PORT_SLSWTCH
                 lw t0, 0(t2)
-                srl     t0, t0, 16              # shift right 16 bits, due to arrangement in RVfpga
+                srl t0, t0, 16              # shift right 16 bits, due to arrangement in RVfpga
                 # and     t0, t0, 0x8000        # mask out all switches except [15]
                 li t2, 0x8000
                 and t0, t0, t2
@@ -386,16 +395,16 @@ main_L0:
 
 main_L1:
                 li    x13, PORT_BOTINFO         #   Load the BotInfo port address
-                lw    x21, 0(x13)               #   Read the BotInfo Register
+                lw    x21, 0(x13)               #   Read the BotInfo Register x21 = s5 and x13 = a3
 
-                and   x22, x21, MSKBOTINFO      #   Mask out the unwanted bits
-                # sb    x22, BOTINF_REG           #   Update the BotInfo memory location
+                and   x22, x21, MSKBOTINFO      #   Mask out the unwanted bits x22 = s6, and x21 = s5
+                # sb    x22, BOTINF_REG         #   Update the BotInfo memory location
                 la t2, BOTINF_REG
                 sb x22, 0(t2)
 
                 srl   x21, x21, 8               #   Move the original data to extract the Sensor info
                 and   x22, x21, MSKBOTINFO      #   Mask out the unwanted bits
-                # sb    x22, SENSOR_REG           #   Store the sensor information in the Sensor register memory location
+                # sb    x22, SENSOR_REG         #   Store the sensor information in the Sensor register memory location
                 la t2, SENSOR_REG
                 sb x22, 0(t2)
 
@@ -530,7 +539,7 @@ init_btnluptbl: la  t3,     (SP_BTNBAS1)        # t3 gets base of button transla
 # =============================================================================
 btn2mot:        la  t0,     (SP_BTNBAS1)        # t0 gets base of button conversion table
                 add t3,     a0, 0               # mask out upper nibble of buttons
-                AND t3, t3, MSKLOWNIB           #
+                and t3, t3, MSKLOWNIB           #
                 add t0, t0, t3                  # t0 = Base + offset into table
                 lb  t3,     0(t0)               # and fetch the entry
                 jr  ra
@@ -602,8 +611,8 @@ init_mvmttbl:   la  t3,     (SP_MVTBAS1)        # t3 gets base of movement trans
 # =============================================================================
 mvmt2cc:        la  t0,     (SP_MVTBAS1)        # t0 gets base of movment conversion table
                 add t3,     x25, 0              # mask out upper nibble of movment
-                AND t3, t3, MSKLOWNIB           #
-                ADD t0, t0, t3                  # t0 = Base + offset into table
+                and t3, t3, MSKLOWNIB           #
+                and t0, t0, t3                  # t0 = Base + offset into table
                 lb  t3,     0(t0)               # and fetch the entry
                 beq zero, zero, back_mvmt2cc
                 nop
@@ -825,15 +834,15 @@ next_step_manual:
                 lb      x25,(SENSOR_REG)
                 lb      t3, (SENSOR_REG)
                 lb      t0, (SENSOR_REG)
-                AND     x25,    x25,MSKPROXL
-                AND     t3, t3,MSKPROXR
-                AND     t0, t0,MSKBLKL
+                and     x25,    x25,MSKPROXL
+                and     t3, t3,MSKPROXR
+                and     t0, t0,MSKBLKL
 
                 jal     DEB_rdbtns                  # Read the pushbuttons. buttons returned in a0
                 nop
                 jal     btn2mot                     # and calculate new MotCtl - returned in t3
                 nop
-                li      x25,    PORT_BOTCTRL
+                li      x25,    PORT_BOTCTRL        # x25 = s9 
                 sw      t3,     0(x25)              # tell Rojobot what to do
                 beq     zero, zero, ret_next_step
                 nop
@@ -862,40 +871,50 @@ check_off_black_line:
 # reorder_btns() - Rearrange read bits of the push buttons
 #
 # Original order is stored in x25
-# Reorder from xxxU-DLCR --> xxxC-LURD
-#
+# old way: Reorder from xxxU-DLCR --> xxxC-LURD
+# New way: Reorder from xxU-DLCR --> XXC-RLDU
 # Registers affected: x25, x21, a1
+# ---------------------New-----------------------------------------------
+#    bit  7    6      5        4        3        2         1         0
+#         r    r      r    btn_cntr  btn_right  btn_left  btn_down  btn_up
+# ---------------------New-----------------------------------------------
+# ---------------------old-----------------------------------------------
+#    bit  7    6      5        4        3        2         1         0
+#         r    r      r    btn_cntr  btn_left  btn_up  btn_right  btn_down
+# ---------------------old-----------------------------------------------
 # ---------------------
 reorder_btns:
                 add     x25, zero, zero             # init x25 to zero
 
-                # set D to bit[0]
-                srl     x21, a1, 3              # move D to bit 0 by shift right 3 positions
+                # set U to bit[0]
+U:              srl     x21, a1, 4              # move D to bit 0 by shift right 3 positions
                 and     x21, x21, 0x00000001    # mask out the unused bits
                 and     x25, x25, 0xFFFFFFFE    # clear the target bit
                 or      x25, x25, x21           # assign bit[0] from x21 to x25, w/o changing the other bits
-
-                # set R to bit[1]
-                sll     x21, a1, 1              # move R to bit 1 by shift left 1 position
+                # set D to bit[1]
+D:              srl     x21, a1, 2              # move U to bit 2 by shift right 2 positions
                 and     x21, x21, 0x00000002    # mask out the unused bits
                 and     x25, x25, 0xFFFFFFFD    # clear the target bit
-                or      x25, x25, x21           # assign bit[1] from x21 to x25, w/o changing the other bits
-
-                # set U to bit[2]
-                srl     x21, a1, 2              # move U to bit 2 by shift right 2 positions
-                and     x21, x21, 0x00000004    # mask out the unused bits
-                and     x25, x25, 0xFFFFFFFB    # clear the target bit
                 or      x25, x25, x21           # assign bit[2] from x21 to x25, w/o changing the other bits
 
-                # set L to bit[3]
-                sll     x21, a1, 1              # move L to bit 3 by shift left 1 position
+L:               # set L to bit[2]
+                and     x21, x21, zero          # clear x21= S5 register
+                and     x21, a1, 0xFFFFFFFF     # store pressed button value to S5
+                # sll     x21, a1, 0            # move L to bit 3 by shift left 1 position
+                and     x21, x21, 0x00000004    # mask out the unused bits
+                and     x25, x25, 0xFFFFFFFB    # clear the target bit
+                or      x25, x25, x21           # assign bit[3] from x21 to x25, w/o changing the other bits
+
+                # set R to bit[3]
+                # xxU-DLCR --> XXC-RLDU
+R:              sll     x21, a1, 3              # move R to bit 1 by shift left 1 position
                 and     x21, x21, 0x00000008    # mask out the unused bits
                 and     x25, x25, 0xFFFFFFF7    # clear the target bit
-                or      x25, x25, x21           # assign bit[3] from x21 to x25, w/o changing the other bits
+                or      x25, x25, x21           # assign bit[1] from x21 to x25, w/o changing the other bits
 
                 # set C to bit [4]..., but we don't need it after all, so skip!
 
-                # assign result to a1 and return
+RTN:            # assign result to a1 and return
                 add     a1, x25, zero
                 jr      ra
                 nop
@@ -906,8 +925,14 @@ reorder_btns:
 # Returns the 5 pushbuttons. The buttons are returned as follows
 # (assuming the inputs to the I/O interface matches this order)
 # example:
+# ---------------------New-----------------------------------------------
+#    bit  7    6      5        4        3        2         1         0
+#         r    r      r    btn_cntr  btn_right  btn_left  btn_down  btn_up
+# ---------------------New-----------------------------------------------
+# ---------------------old-----------------------------------------------
 #    bit  7    6      5        4        3        2         1         0
 #         r    r      r    btn_cntr  btn_left  btn_up  btn_right  btn_down
+# ---------------------old-----------------------------------------------
 #
 # where r = reserved. A value of 1 indicates that the button is pressed.
 # A 0 indicates that the button is not pressed.
