@@ -1,0 +1,31 @@
+xilinx rtfpga
+WARNING: [Synth 8-3936] Found unconnected internal register 'memdat_4_reg' and it is trimmed from '10' to '8' bits. [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/LiteDRAM/litedram_core.v:15987]
+WARNING: [Synth 8-3936] Found unconnected internal register 'memdat_2_reg' and it is trimmed from '10' to '8' bits. [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/LiteDRAM/litedram_core.v:15970]
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM rf_ram/memory_reg to conserve power
+WARNING: [Synth 8-3936] Found unconnected internal register 'memdat_18_reg' and it is trimmed from '74' to '66' bits. [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/LiteDRAM/litedram_core.v:18076]
+RAM Pipeline Warning: Read Address Register Found For RAM mem_1_reg. We will not be able to pipeline it. This may degrade performance. 
+RAM Pipeline Warning: Read Address Register Found For RAM mem_1_reg. We will not be able to pipeline it. This may degrade performance. 
+RAM Pipeline Warning: Read Address Register Found For RAM mem_1_reg. We will not be able to pipeline it. This may degrade performance. 
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (serv_rf_top/\cpu/csr/timer_irq_r_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (soc_sdram_postponer_count_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (serv_rf_top/\cpu/state/irq_sync_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vns_interface1_bank_bus_dat_r_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vns_interface1_bank_bus_dat_r_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vns_interface1_bank_bus_dat_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vns_interface1_bank_bus_dat_r_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vns_interface1_bank_bus_dat_r_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vns_interface1_bank_bus_dat_r_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vns_interface1_bank_bus_dat_r_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\soc_sdram_cmd_payload_ba_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\soc_sdram_cmd_payload_ba_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\soc_sdram_cmd_payload_ba_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\soc_sdram_cmd_payload_a_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\soc_sdram_cmd_payload_a_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\soc_sdram_cmd_payload_a_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\soc_sdram_cmd_payload_a_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\soc_sdram_cmd_payload_a_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\soc_sdram_cmd_payload_a_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\soc_sdram_cmd_payload_a_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\soc_sdram_cmd_payload_a_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\soc_sdram_cmd_payload_a_reg[8] )
+INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
