@@ -1,0 +1,119 @@
+xilinx rtfpga
+INFO: [Synth 8-5546] ROM "mask" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mask" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3331] design rvdffe__parameterized0__10 has unconnected port scan_mode
+WARNING: [Synth 8-3331] design rvdffe__130 has unconnected port scan_mode
+WARNING: [Synth 8-3331] design rvdffe__parameterized0__9 has unconnected port scan_mode
+WARNING: [Synth 8-3331] design rvdffe__129 has unconnected port scan_mode
+WARNING: [Synth 8-3331] design rvdffe__parameterized0__8 has unconnected port scan_mode
+WARNING: [Synth 8-3331] design rvdffe__128 has unconnected port scan_mode
+WARNING: [Synth 8-3331] design rvdffe__parameterized0__7 has unconnected port scan_mode
+WARNING: [Synth 8-3331] design rvdffe__127 has unconnected port scan_mode
+WARNING: [Synth 8-3331] design rvdffe__126 has unconnected port scan_mode
+WARNING: [Synth 8-3331] design rvdffe__parameterized0__6 has unconnected port scan_mode
+WARNING: [Synth 8-3331] design rvdffe__125 has unconnected port scan_mode
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_awprot[2]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_awprot[1]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_awprot[0]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_awlen[7]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_awlen[6]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_awlen[5]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_awlen[4]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_awlen[3]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_awlen[2]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_awlen[1]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_awlen[0]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_awburst[1]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_awburst[0]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_wlast
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_arprot[2]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_arprot[1]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_arprot[0]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_arlen[7]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_arlen[6]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_arlen[5]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_arlen[4]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_arlen[3]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_arlen[2]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_arlen[1]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_arlen[0]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_arburst[1]
+WARNING: [Synth 8-3331] design dma_ctrl has unconnected port dma_axi_arburst[0]
+WARNING: [Synth 8-3331] design pic_ctrl has unconnected port extintsrc_req[0]
+WARNING: [Synth 8-3331] design pic_ctrl has unconnected port scan_mode
+WARNING: [Synth 8-3331] design rvdffe__parameterized10 has unconnected port scan_mode
+WARNING: [Synth 8-3331] design rvdffe__parameterized0__12 has unconnected port scan_mode
+WARNING: [Synth 8-3331] design rvdffe__parameterized0__11 has unconnected port scan_mode
+WARNING: [Synth 8-3331] design rvdffe__parameterized1__17 has unconnected port scan_mode
+WARNING: [Synth 8-3331] design rvdffe__parameterized1__16 has unconnected port scan_mode
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port ifu_axi_awready
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port ifu_axi_wready
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port ifu_axi_bvalid
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port ifu_axi_bresp[1]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port ifu_axi_bresp[0]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port ifu_axi_bid[2]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port ifu_axi_bid[1]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port ifu_axi_bid[0]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port ifu_axi_rlast
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[31]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[30]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[29]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[28]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[27]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[26]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[25]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[24]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[23]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[22]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[21]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[20]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[19]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[18]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[17]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[16]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[15]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[14]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[13]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[12]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[11]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[10]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[9]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[8]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[7]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[6]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[5]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[4]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[3]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[2]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[1]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_addr[0]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_sz[2]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_sz[1]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_sz[0]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_wdata[63]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_wdata[62]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_wdata[61]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_wdata[60]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_wdata[59]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_wdata[58]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_wdata[57]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_wdata[56]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_wdata[55]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_wdata[54]
+WARNING: [Synth 8-3331] design ifu_mem_ctl has unconnected port dma_mem_wdata[53]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (ifu/mem_ctl/\dma_ok_prev_ff/dout_reg[0] )
+INFO: [Synth 8-3886] merging instance 'ifu/ifc/fbwrite_ff/dout_reg[3]' (FDC) to 'ifu/ifc/fbwrite_ff/dout_reg[4]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (ifu/mem_ctl/\ifu_iccm_acc_ff/dout_reg[0] )
+INFO: [Synth 8-3886] merging instance 'pic_ctrl_inst/claimid_ff/dout_reg[4]' (FDC) to 'pic_ctrl_inst/claimid_ff/dout_reg[7]'
+INFO: [Synth 8-3886] merging instance 'pic_ctrl_inst/claimid_ff/dout_reg[5]' (FDC) to 'pic_ctrl_inst/claimid_ff/dout_reg[7]'
+INFO: [Synth 8-3886] merging instance 'pic_ctrl_inst/claimid_ff/dout_reg[6]' (FDC) to 'pic_ctrl_inst/claimid_ff/dout_reg[7]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pic_ctrl_inst/\claimid_ff/dout_reg[7] )
+INFO: [Synth 8-3886] merging instance 'ifu/mem_ctl/ifu_pmu_sigs_ff/dout_reg[4]' (FDC) to 'ifu/mem_ctl/act_miss_ff/dout_reg[0]'
+INFO: [Synth 8-3886] merging instance 'ifu/mem_ctl/dma_ok_prev_ff/dout_reg[0]' (FDC) to 'ifu/mem_ctl/sbiccm_err_ff/dout_reg[0]'
+INFO: [Synth 8-3886] merging instance 'ifu/mem_ctl/perr_state_ff/dffs/dout_reg[2]' (FDC) to 'ifu/mem_ctl/sbiccm_err_ff/dout_reg[0]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (ifu/mem_ctl/\sbiccm_err_ff/dout_reg[0] )
+WARNING: [Synth 8-3332] Sequential element (debug_c1_cgc/clkhdr/en_ff_reg) is unused and will be removed from module ifu_mem_ctl.
+WARNING: [Synth 8-3332] Sequential element (byp_data_first_c1_cgc/clkhdr/en_ff_reg) is unused and will be removed from module ifu_mem_ctl.
+WARNING: [Synth 8-3332] Sequential element (byp_data_second_c1_cgc/clkhdr/en_ff_reg) is unused and will be removed from module ifu_mem_ctl.
+WARNING: [Synth 8-3332] Sequential element (debug_data_c1_cgc/clkhdr/en_ff_reg) is unused and will be removed from module ifu_mem_ctl.

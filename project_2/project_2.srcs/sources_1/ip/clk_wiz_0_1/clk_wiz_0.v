@@ -72,7 +72,7 @@ module clk_wiz_0
   // Clock out ports
   output        clk_75,
   // Status and control signals
-  input         reset,
+  input         resetn,
  // Clock in ports
   input         clk_in1
  );
@@ -82,7 +82,7 @@ module clk_wiz_0
   // Clock out ports  
   .clk_75(clk_75),
   // Status and control signals               
-  .reset(reset), 
+  .resetn(resetn), 
  // Clock in ports
   .clk_in1(clk_in1)
   );

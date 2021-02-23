@@ -73,7 +73,7 @@
     // Clock out ports
     .clk_75(clk_75),     // output clk_75
     // Status and control signals
-    .reset(reset), // input reset
+    .resetn(resetn), // input resetn
    // Clock in ports
     .clk_in1(clk_in1));      // input clk_in1
 // INST_TAG_END ------ End INSTANTIATION Template ---------

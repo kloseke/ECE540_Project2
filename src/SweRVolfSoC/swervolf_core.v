@@ -85,10 +85,10 @@ module swervolf_core
 	inout wire 			io_BTND,
 	inout wire 			io_BTNL,
 	inout wire 			io_BTNR,
-	output wire [7 : 0]  io_BotCtrl,
+	output wire [7 : 0] io_BotCtrl,
 	input wire [31 : 0] io_BotInfo,
-	output wire          io_INT_ACK,
-    output wire         o_Bot_Config_reg,
+	output wire         io_INT_ACK,
+    output wire [7:0]   o_Bot_Config_reg,
 	input wire          io_BotUpdt_Sync,	 
     output wire [7:0]   AN,
     output wire         DP,
@@ -381,7 +381,8 @@ module swervolf_core
    // do similar as debounce
 	wire		[4:0]	i_dbounce_filter;   
 	wire       [15:0] bot_config_wire;
-	assign o_Bot_Config_reg = bot_config_wire[15];
+	wire               db_sw_cfg;
+	assign db_sw_cfg = bot_config_wire[15];
 
 	debounce debounce_module(
 		.clk	  (clk),
@@ -403,11 +404,11 @@ module swervolf_core
         .wb_we_i      (wb_m2s_gpio_rojobot_we), 
         .wb_stb_i     (wb_m2s_gpio_rojobot_stb), 
         .wb_dat_o     (wb_s2m_gpio_rojobot_dat),
-        .wb_ack_o     (wb_s2m_gpio_rojobot_ack), // (io_INT_ACK), 
+        .wb_ack_o     (wb_s2m_gpio_rojobot_ack),  
         .wb_err_o     (wb_s2m_gpio_rojobot_err),
         .wb_inta_o    (gpio_irq_rojobot),
         // External GPIO Interface
-        .ext_pad_i     ({28'b0,io_BotUpdt_Sync, o_Bot_Config_reg,io_INT_ACK}),   // o_Bot_Config_reg = db_sw(15),
+        .ext_pad_i     ({29'b0,io_BotUpdt_Sync,db_sw_cfg ,io_INT_ACK}),   // ,
         .ext_pad_o     (),   
         .ext_padoe_o   ());
   
@@ -423,12 +424,12 @@ module swervolf_core
         .wb_we_i      (wb_m2s_gpio_rojobot_i_we), 
         .wb_stb_i     (wb_m2s_gpio_rojobot_i_stb), 
         .wb_dat_o     (wb_s2m_gpio_rojobot_i_dat),
-        .wb_ack_o     (wb_s2m_gpio_rojobot_i_ack),  //(io_INT_ACK),
+        .wb_ack_o     (wb_s2m_gpio_rojobot_i_ack),
         .wb_err_o     (wb_s2m_gpio_rojobot_i_err),
         .wb_inta_o    (gpio_irq_i_rojobot),
         // External GPIO Interface
         .ext_pad_i     (i_gpio_rojobot), // io_BotInfo
-        .ext_pad_o     (o_gpio_rojobot), //  io_BotCtrl
+        .ext_pad_o     ({o_Bot_Config_reg, o_gpio_rojobot}),  //  io_BotCtrl
         .ext_padoe_o   ());
    
    // pushbutton GPIO interconnect

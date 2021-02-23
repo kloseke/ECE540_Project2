@@ -53,7 +53,7 @@
  *  Registers v0, v1 does not exist in RISC-V
  *      
  */
-
+/*
 # Masks for Pushbuttons
 BTN_U_MASK              = 0x1
 BTN_D_MASK              = 0x2
@@ -61,15 +61,16 @@ BTN_L_MASK              = 0x4
 BTN_R_MASK              = 0x8
 BTN_C_MASK              = 0x10
 PUSHBUTTON_MASK         = 0x1F
+*/
 
-/* # Masks for Pushbuttons -- OLD --
+ # Masks for Pushbuttons -- OLD --
 BTN_R_MASK              = 0x2
 BTN_C_MASK              = 0x10
 BTN_L_MASK              = 0x8
 BTN_D_MASK              = 0x1
 BTN_U_MASK              = 0x4
 PUSHBUTTON_MASK         = 0x1F 
-*/
+
 
 
 # Values to display specific segments on the display
@@ -111,7 +112,7 @@ PORT_GPIO_EN        = 0x80001408        # (o) enable LEDs for output
 # ========================================================================
 
 PORT_SEVENSEG_EN      = 0x80001038        # (o) 7 Segment enable
-PORT_EXTENDED         = 0X80001024        # EXTENDED BIT write to the 8th bit to be 1 or zero
+PORT_EXTENDED         = 0x80001024        # EXTENDED BIT write to the 8th bit to be 1 or zero
 PORT_SEVENSEG_SegDig  = 0x8000103C
 PORT_SEVENSEG_HGH     = 0x8000101c        # (o) 7 Segment Higher Display
 PORT_SEVENSEG_LOW     = 0x8000103c        # (o) 7 Segment Lower Display
@@ -144,7 +145,7 @@ PORT_INTACK         = 0x80001804        # (O) verified
 # =====================================
 # === Register bit mappings (masks) ===
 # =====================================
-/*
+
 #  bit masks for pushbuttons and switches for seven segment emulator
 MSK_ALLBTNS     = 0x1F      # Buttons are in bits[5:0]
 MSK_PBTNS       = 0x0F      # Mask for 4 buttons to display on LED
@@ -153,7 +154,7 @@ MSK_BTN_LEFT    = 0x08      # Pushbutton Left is bit 3
 MSK_BTN_UP      = 0x04      # Pushbutton Up is bit 2
 MSK_BTN_RIGHT   = 0x02      # Pushbutton Right is bit 25
 MSK_BTN_DOWN    = 0x01      # Pushbutton Down is bit 0
-*/
+/*
 MSK_ALLBTNS     = 0x1F      # Buttons are in bits[5:0]
 MSK_PBTNS       = 0x0F      # Mask for 4 buttons to display on LED
 MSK_BTN_CENTER  = 0x10      # Pushbutton Center is bit 4
@@ -161,7 +162,7 @@ MSK_BTN_RIGHT   = 0x08      # Pushbutton Right is bit 25
 MSK_BTN_LEFT    = 0x04      # Pushbutton Left is bit 3
 MSK_BTN_DOWN    = 0x02      # Pushbutton Down is bit 0
 MSK_BTN_UP      = 0x01      # Pushbutton Up is bit 2
-
+*/
 MSK_SW7         = 0x80      # Slide switch 7 is bit 7
 MSK_SW6         = 0x40      # Slide switch 6 is bit 6
 MSK_SW5         = 0x20      # Slide switch 5 is bit 5
@@ -330,9 +331,9 @@ SP_MVMTF    = 0x1B      # Fast right turn - display lower case R
 
 .globl _start
 _start:
-                and t1, t1, zero
-                la  t0, PORT_BOTINFO
-                lw  t1, 0(t0)
+               # add t1, zero, zero
+               # la  t0, PORT_BOTINFO
+               # lw  t1, 0(t0)
                 // enable LEDs & SWs
                 li  t0, PORT_GPIO_EN
                 li  t1, 0x0000FFFF
@@ -419,6 +420,7 @@ main_L1:
                 # sb    x22, LOCx_REG
                 la t2, LOCx_REG
                 sb x22, 0(t2)
+                lw x20, 0(t2)   # ---testing to see what is inside 
 
                 jal next_loc                    #   Dig[3:2] = nex LocX# Dig[25:0] = next LocY
                 nop
@@ -456,19 +458,48 @@ ret_next_step:
 # === Registers used x25,t3                                                   ===
 # --- Scratchpad RAM locations used SP_DIG4, SP_DIG5, SP_DIG6, SP_DIG7        ===
 # ===============================================================================
+#
+# PORT_SEVENSEG_EN      = 0x80001038        # (o) 7 Segment enable
+# PORT_EXTENDED         = 0X80001024        # EXTENDED BIT write to the 8th bit to be 1 or zero
+# PORT_SEVENSEG_SegDig  = 0x8000103C
+# PORT_SEVENSEG_HGH     = 0x8000101c        # (o) 7 Segment Higher Display
+# PORT_SEVENSEG_LOW     = 0x8000103c        # (o) 7 Segment Lower Display
+#
 
 wr_alldigits:
-                lw  x25, (SP_DIG0)              # Load the lower 7 segment displays
+/*                add t3, zero, zero
+                add x25, zero, zero
+                # lw  x25, (SP_DIG0)              # Load the lower 7 segment displays
+                li t3, PORT_EXTENDED
+                li x25, 0x0000000F
+                sw x25, 0(t3)
+                li x25, 0x01010122
                 li  t3, PORT_SEVENSEG_LOW
                 sw  x25, 0(t3)                  # Write to the lower 7 segment displays
-                lw  x25, (SP_DIG4)              # Load the higher 7 segment displays
-                li  t3, PORT_EXTENDED
-                sw  x25, 4(t3)                  # Write to the higher 7 segment displays
+                # lw  x25, (SP_DIG4)            # Load the higher 7 segment displays
+                li x25, 0x4
+                li t3, PORT_SEVENSEG_LOW
+                SW x25, 4(t3)
                 li  x25, 0x00                   # Enable all the display segments
                 li  t3, PORT_SEVENSEG_EN
                 sw  x25, 0(t3)
                 jr  ra
-                nop
+                nop */
+                # add t3, zero, zero
+                li t3, PORT_EXTENDED
+                li x25, 0x10                    # 090H 4040
+                sw x25, 0(t3)                   # 010H 0033
+                lw  x25, (SP_DIG0)              # Load the lower 7 segment displays
+                li  t3, PORT_SEVENSEG_LOW
+                sw  x25, 0(t3)                  # Write to the lower 7 segment displays
+                lw  x25, (SP_DIG4)              # Load the higher 7 segment displays
+                li  t3, PORT_SEVENSEG_LOW
+                sw  x25, 0(t3)                  # Write to the higher 7 segment displays
+                li  x25, 0x00                   # Enable all the display segments
+                li  t3, PORT_SEVENSEG_EN
+                sw  x25, 0(t3)
+                jr  ra
+                nop 
 
 # *******
 # Functions to convert pushbutton presses to Motor Control input
@@ -612,7 +643,7 @@ init_mvmttbl:   la  t3,     (SP_MVTBAS1)        # t3 gets base of movement trans
 mvmt2cc:        la  t0,     (SP_MVTBAS1)        # t0 gets base of movment conversion table
                 add t3,     x25, 0              # mask out upper nibble of movment
                 and t3, t3, MSKLOWNIB           #
-                and t0, t0, t3                  # t0 = Base + offset into table
+                add t0, t0, t3                  # t0 = Base + offset into table
                 lb  t3,     0(t0)               # and fetch the entry
                 beq zero, zero, back_mvmt2cc
                 nop
@@ -834,7 +865,7 @@ next_step_manual:
                 lb      x25,(SENSOR_REG)
                 lb      t3, (SENSOR_REG)
                 lb      t0, (SENSOR_REG)
-                and     x25,    x25,MSKPROXL
+                and     x25, x25,MSKPROXL
                 and     t3, t3,MSKPROXR
                 and     t0, t0,MSKBLKL
 
@@ -886,6 +917,40 @@ check_off_black_line:
 reorder_btns:
                 add     x25, zero, zero             # init x25 to zero
 
+                # set D to bit[0]
+                srl     x21, a1, 3              # move D to bit 0 by shift right 3 positions
+                and     x21, x21, 0x00000001    # mask out the unused bits
+                and     x25, x25, 0xFFFFFFFE    # clear the target bit
+                or      x25, x25, x21           # assign bit[0] from x21 to x25, w/o changing the other bits
+
+                # set R to bit[1]
+                sll     x21, a1, 1              # move R to bit 1 by shift left 1 position
+                and     x21, x21, 0x00000002    # mask out the unused bits
+                and     x25, x25, 0xFFFFFFFD    # clear the target bit
+                or      x25, x25, x21           # assign bit[1] from x21 to x25, w/o changing the other bits
+
+                # set U to bit[2]
+                srl     x21, a1, 2              # move U to bit 2 by shift right 2 positions
+                and     x21, x21, 0x00000004    # mask out the unused bits
+                and     x25, x25, 0xFFFFFFFB    # clear the target bit
+                or      x25, x25, x21           # assign bit[2] from x21 to x25, w/o changing the other bits
+
+                # set L to bit[3]
+                sll     x21, a1, 1              # move L to bit 3 by shift left 1 position
+                and     x21, x21, 0x00000008    # mask out the unused bits
+                and     x25, x25, 0xFFFFFFF7    # clear the target bit
+                or      x25, x25, x21           # assign bit[3] from x21 to x25, w/o changing the other bits
+
+                # set C to bit [4]..., but we don't need it after all, so skip!
+
+                # assign result to a1 and return
+                add     a1, x25, zero
+                jr      ra
+                nop
+/* 
+reorder_btns:
+                add     x25, zero, zero         # init x25 to zero
+
                 # set U to bit[0]
 U:              srl     x21, a1, 4              # move D to bit 0 by shift right 3 positions
                 and     x21, x21, 0x00000001    # mask out the unused bits
@@ -918,7 +983,7 @@ RTN:            # assign result to a1 and return
                 add     a1, x25, zero
                 jr      ra
                 nop
-
+*/
 # ---------------------
 # DEB_rdbtns() - Reads the debounced pushbuttons
 #

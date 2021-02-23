@@ -195,7 +195,7 @@ module swervolf_syscon
 	           irq_gpio_enable <= i_wb_dat[0];
 	           irq_ptc_enable <=  i_wb_dat[1];
           end
-          9: begin
+           9: begin // 0x24-0x27
 	         if (i_wb_sel[0]) Extended_Reg[7:0] <= i_wb_dat[7:0];
 	      end
       	  10 : begin //0x28-0x2B
@@ -210,21 +210,21 @@ module swervolf_syscon
       	     if (i_wb_sel[2]) mtimecmp[55:48] <= i_wb_dat[23:16];
       	     if (i_wb_sel[3]) mtimecmp[63:56] <= i_wb_dat[31:24];
       	  end
-      	  12 : begin //0x30-3f
+      	  12 : begin //0x30-33
       	     if (i_wb_sel[0]) irq_timer_cnt[7:0]   <= i_wb_dat[7:0]  ;
       	     if (i_wb_sel[1]) irq_timer_cnt[15:8]  <= i_wb_dat[15:8] ;
       	     if (i_wb_sel[2]) irq_timer_cnt[23:16] <= i_wb_dat[23:16];
       	     if (i_wb_sel[3]) irq_timer_cnt[31:24] <= i_wb_dat[31:24];
       	  end
-      	  13 : begin
+      	  13 : begin //0x34-37
       	     if (i_wb_sel[0])
       	       irq_timer_en <= i_wb_dat[0];
       	  end
-      	  14 : begin
+      	  14 : begin //0x38 - 3b Enable
       	  	 if (i_wb_sel[0]) Enables_Reg[7:0]  <= i_wb_dat[7:0];
       	  	 // if (i_wb_sel[1]) Extended_Reg[7:0] <= i_wb_dat[7:0];
       	  end
-      	  15 : begin
+      	  15 : begin //0x3c - 0x3F
                if (i_wb_sel[0]) Digits_Reg[7:0]   <= i_wb_dat[7:0];
                if (i_wb_sel[1]) Digits_Reg[15:8]  <= i_wb_dat[15:8];
                if (i_wb_sel[2]) Digits_Reg[23:16] <= i_wb_dat[23:16];

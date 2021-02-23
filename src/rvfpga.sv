@@ -284,32 +284,39 @@ module rvfpga
       .i_accel_miso   (i_accel_miso));
       
       wire 	 clk_75;
+     
 
  clk_wiz_0 clk_gen_75hz_module (   // Clock out ports
     .clk_75(clk_75),        // output clk_75
                             // Status and control signals
-    .reset(rstn),          // input reset
+    .resetn(rstn),         // input resetn
                             // Clock in ports
-    .clk_in1(clk));
-      
-    wire        [7 : 0]     MotCtl_in;			
-    wire        [13 : 0]    worldmap_addr;
-    wire        [1 : 0]     worldmap_data;
-    wire                    upd_sysregs;
-    wire        [7 : 0]     Bot_Config_reg;
-		
+    .clk_in1(clk));  
+
+    wire [7 : 0] Bot_Config_reg;       // input to the Rojobot
+    wire [7 : 0] MotCtl_in;		       // input to the Rojobot
+	wire [7 : 0] LocX_reg;             // output to the Rojobot
+	wire [7 : 0] LocY_reg; 	           // output to the Rojobot
+	wire [7 : 0] BotInfo_reg;          // output to the Rojobot
+	wire [7 : 0] Sensors_reg;          // output to the Rojobot
+    wire         upd_sysregs;          // output to the Rojobot
+
+    wire [7 : 0] IO_BotCtrl;       // IO_BotCtrl = IO_MotionCtrol_In from the rojobot		
+	wire [31:0]  io_BotInfo;       // contains registers from rojobot {LocX_reg, LocY_reg, Sensors_reg, BotInfo_reg}
+
+    // incomming and outgoing signals of Handshake Flip-Flop
 	wire         IO_INT_ACK;       // seperate GPIO
 	reg          IO_BotUpdt_Sync;  // Seperate GPIO
 	wire         IO_BotUpdt;
-	wire [31:0]  io_BotInfo;
-	wire [7 : 0] LocX_reg; 
-	wire [7 : 0] LocY_reg; 
-	wire [7 : 0] Sensors_reg; 
-	wire [7 : 0] BotInfo_reg; 
-	wire [7 : 0] IO_BotCtrl;
+
+    // incomming and outgoing signals of world map
+    wire [13 : 0]    worldmap_addr;
+    wire [1 : 0]     worldmap_data;
+
 	
 	assign io_BotInfo = {LocX_reg, LocY_reg, Sensors_reg, BotInfo_reg};
-	assign MotCtl_in = IO_BotCtrl;
+	assign MotCtl_in = IO_BotCtrl;     // IO_BotCtrl is an output from the Core and that value is assigned to MotCtl_in
+	
 	rojobot31_0 rojobot31_0_module (
       .MotCtl_in        (MotCtl_in),            
       .LocX_reg         (LocX_reg),             
@@ -328,7 +335,7 @@ module rvfpga
     .clka    (clk_75),
     .addra   (worldmap_addr),
     .douta   (worldmap_data), //(worldmap_data_part_1)
-    .clkb    (clk_75),
+    .clkb    (),     // (clk_75),
     .addrb   (),    // (vid_addr)
     .doutb   ()     // (world_pixel_part_1)
 );
@@ -337,7 +344,6 @@ module rvfpga
    end
 
    assign o_uart_tx = 1'b0 ? litedram_tx : cpu_tx;
-   // assign  IO_BotUpdt_Sync = IO_BotUpdt;
    
    always @ (posedge clk) begin
     if (IO_INT_ACK == 1'b1) begin
@@ -349,7 +355,5 @@ module rvfpga
         IO_BotUpdt_Sync <= IO_BotUpdt_Sync;
     end
   end
-  
-
 
 endmodule
