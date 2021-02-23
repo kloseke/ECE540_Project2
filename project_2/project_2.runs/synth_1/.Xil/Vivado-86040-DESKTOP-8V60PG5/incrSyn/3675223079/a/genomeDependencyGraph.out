@@ -1,0 +1,64 @@
+GENOME NON_GENOME PIN 10: GENOME NON_GENOME PIN 4
+GENOME NON_GENOME PIN 4: GENOME NON_GENOME PIN 10
+INST rvfpga__GC0 PIN 357: INST swervolf_core__GCB1 PIN 290 TYPE 5
+INST rvfpga__GC0 PIN 358: INST swervolf_core__GCB1 PIN 291 TYPE 5
+INST rvfpga__GC0 PIN 359: INST swervolf_core__GCB1 PIN 292 TYPE 5
+INST rvfpga__GC0 PIN 360: INST swervolf_core__GCB1 PIN 293 TYPE 5
+INST rvfpga__GC0 PIN 361: INST swervolf_core__GCB1 PIN 294 TYPE 5
+INST rvfpga__GC0 PIN 402: INST swervolf_core__GCB1 PIN 335 TYPE 5
+INST rvfpga__GC0 PIN 403: INST swervolf_core__GCB1 PIN 336 TYPE 5
+INST rvfpga__GC0 PIN 404: INST swervolf_core__GCB1 PIN 337 TYPE 5
+INST rvfpga__GC0 PIN 405: INST swervolf_core__GCB1 PIN 338 TYPE 5
+INST rvfpga__GC0 PIN 406: INST swervolf_core__GCB1 PIN 339 TYPE 5
+INST rvfpga__GC0 PIN 407: INST swervolf_core__GCB1 PIN 340 TYPE 5
+INST rvfpga__GC0 PIN 408: INST swervolf_core__GCB1 PIN 341 TYPE 5
+INST rvfpga__GC0 PIN 409: INST swervolf_core__GCB1 PIN 342 TYPE 5
+INST rvfpga__GC0 PIN 410: INST swervolf_core__GCB1 PIN 347 TYPE 5
+INST rvfpga__GC0 PIN 411: INST swervolf_core__GCB1 PIN 348 TYPE 5
+INST rvfpga__GC0 PIN 412: INST swervolf_core__GCB1 PIN 349 TYPE 5
+INST rvfpga__GC0 PIN 413: INST swervolf_core__GCB1 PIN 350 TYPE 5
+INST rvfpga__GC0 PIN 414: INST swervolf_core__GCB1 PIN 343 TYPE 5
+INST rvfpga__GC0 PIN 415: INST swervolf_core__GCB1 PIN 344 TYPE 5
+INST rvfpga__GC0 PIN 416: INST swervolf_core__GCB1 PIN 345 TYPE 5
+INST rvfpga__GC0 PIN 417: INST swervolf_core__GCB1 PIN 346 TYPE 5
+INST rvfpga__GC0 PIN 500: INST swervolf_core__GCB1 PIN 358 TYPE 5
+INST rvfpga__GC0 PIN 501: INST swervolf_core__GCB1 PIN 359 TYPE 5
+INST rvfpga__GC0 PIN 502: INST swervolf_core__GCB1 PIN 360 TYPE 5
+INST rvfpga__GC0 PIN 503: INST swervolf_core__GCB1 PIN 361 TYPE 5
+INST rvfpga__GC0 PIN 504: INST swervolf_core__GCB1 PIN 362 TYPE 5
+INST rvfpga__GC0 PIN 545: INST swervolf_core__GCB1 PIN 403 TYPE 5
+INST rvfpga__GC0 PIN 546: INST swervolf_core__GCB1 PIN 404 TYPE 5
+INST rvfpga__GC0 PIN 547: INST swervolf_core__GCB1 PIN 405 TYPE 5
+INST rvfpga__GC0 PIN 548: INST swervolf_core__GCB1 PIN 406 TYPE 5
+INST rvfpga__GC0 PIN 549: INST swervolf_core__GCB1 PIN 407 TYPE 5
+INST rvfpga__GC0 PIN 550: INST swervolf_core__GCB1 PIN 408 TYPE 5
+INST rvfpga__GC0 PIN 551: INST swervolf_core__GCB1 PIN 409 TYPE 5
+INST rvfpga__GC0 PIN 552: INST swervolf_core__GCB1 PIN 410 TYPE 5
+INST rvfpga__GC0 PIN 553: INST swervolf_core__GCB1 PIN 415 TYPE 5
+INST rvfpga__GC0 PIN 554: INST swervolf_core__GCB1 PIN 416 TYPE 5
+INST rvfpga__GC0 PIN 555: INST swervolf_core__GCB1 PIN 417 TYPE 5
+INST rvfpga__GC0 PIN 556: INST swervolf_core__GCB1 PIN 418 TYPE 5
+INST rvfpga__GC0 PIN 557: INST swervolf_core__GCB1 PIN 411 TYPE 5
+INST rvfpga__GC0 PIN 558: INST swervolf_core__GCB1 PIN 412 TYPE 5
+INST rvfpga__GC0 PIN 559: INST swervolf_core__GCB1 PIN 413 TYPE 5
+INST rvfpga__GC0 PIN 560: INST swervolf_core__GCB1 PIN 414 TYPE 5
+INST mem PIN 245: INST dec__GB0 PIN 1679 TYPE 5
+INST mem PIN 262: INST lsu__GB1 PIN 387 TYPE 5
+INST mem PIN 263: INST lsu__GB1 PIN 388 TYPE 5
+INST mem PIN 278: INST lsu__GB1 PIN 403 TYPE 5
+INST mem PIN 279: INST lsu__GB1 PIN 404 TYPE 5
+INST mem PIN 294: INST lsu__GB1 PIN 419 TYPE 5
+INST mem PIN 295: INST lsu__GB1 PIN 420 TYPE 5
+INST mem PIN 604: INST swerv__GCB0 PIN 817 TYPE 5
+INST mem PIN 605: INST swerv__GCB0 PIN 818 TYPE 5
+INST mem PIN 606: INST swerv__GCB0 PIN 819 TYPE 5
+INST mem PIN 607: INST swerv__GCB0 PIN 820 TYPE 5
+INST rvfpga__GC0 PIN 299: GENOME rvfpga__GC0 PIN 299
+INST rvfpga__GC0 PIN 645: GENOME rvfpga__GC0 PIN 645
+INST rvfpga__GC0 PIN 646: GENOME rvfpga__GC0 PIN 646
+INST rvfpga__GC0 PIN 716: GENOME rvfpga__GC0 PIN 716
+INST mem PIN 625: GENOME mem PIN 625
+INST litedram_top__GC0 PIN 0: GENOME litedram_top__GC0 PIN 0
+INST litedram_top__GC0 PIN 6: INST litedram_core__GC0 PIN 65 TYPE 5
+INST rvfpga__GC0 PIN 83: INST swervolf_core__GCB1 PIN 1089 TYPE 0 GENOME rvfpga__GC0 PIN 83
+INST rvfpga__GC0 PIN 84: INST swervolf_core__GCB1 PIN 1090 TYPE 0 GENOME rvfpga__GC0 PIN 84
