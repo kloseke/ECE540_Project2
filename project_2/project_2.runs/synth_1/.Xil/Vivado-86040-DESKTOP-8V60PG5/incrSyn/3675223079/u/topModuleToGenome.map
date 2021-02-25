@@ -1,7 +1,0 @@
-swervolf_core: swervolf_core__GCB1, swervolf_core__GCB0, swerv_wrapper, 
-swerv_wrapper: mem, swerv, 
-mem: mem, 
-swerv: swerv__GCB0, lsu, exu, dec, 
-lsu: lsu__GB1, lsu__GB0, 
-exu: exu, 
-dec: dec__GB1, dec__GB0, 

@@ -1,0 +1,2 @@
+Bot_Icon.v,verilog,xil_defaultlib,../../../../project_2.srcs/sources_1/ip/Bot_Icon/sim/Bot_Icon.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

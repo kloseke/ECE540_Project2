@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="Bot_Icon_synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1614248837">
+  <File Type="PA-TCL" Name="Bot_Icon.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="Bot_Icon_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="Bot_Icon_reports.tcl"/>
+  <File Type="RDS-RDS" Name="Bot_Icon.vds"/>
+  <File Type="RDS-UTIL" Name="Bot_Icon_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="Bot_Icon_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="Bot_Icon.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="Bot_Icon_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="Bot_Icon_timing_summary_synth.pb"/>
+  <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Bot_Icon">
+    <File Path="$PSRCDIR/sources_1/ip/Bot_Icon/Bot_Icon.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="Bot_Icon"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Bot_Icon">
+    <File Path="$PSRCDIR/sources_1/ip/Bot_Icon/Bot_Icon.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="Bot_Icon"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

@@ -82,8 +82,6 @@ set_property -dict {PACKAGE_PIN P18 IOSTANDARD LVCMOS33} [get_ports BTND]
 set_property -dict {PACKAGE_PIN P17 IOSTANDARD LVCMOS33} [get_ports BTNL]
 set_property -dict {PACKAGE_PIN M17 IOSTANDARD LVCMOS33} [get_ports BTNR]
 
-
-
 ##Accelerometer
 set_property -dict {PACKAGE_PIN E15 IOSTANDARD LVCMOS33} [get_ports i_accel_miso]
 set_property -dict {PACKAGE_PIN F14 IOSTANDARD LVCMOS33} [get_ports o_accel_mosi]
@@ -91,3 +89,26 @@ set_property -dict {PACKAGE_PIN F15 IOSTANDARD LVCMOS33} [get_ports accel_sclk]
 set_property -dict {PACKAGE_PIN D15 IOSTANDARD LVCMOS33} [get_ports o_accel_cs_n]
 
 set_property DRIVE 12 [get_ports BTNL]
+
+### VGA Controller pins ###
+# Red
+set_property -dict {PACKAGE_PIN A3 IOSTANDARD LVCMOS33} [get_ports {red_vga[0]}]
+set_property -dict {PACKAGE_PIN B4 IOSTANDARD LVCMOS33} [get_ports {red_vga[1]}]
+set_property -dict {PACKAGE_PIN C5 IOSTANDARD LVCMOS33} [get_ports {red_vga[2]}]
+set_property -dict {PACKAGE_PIN A4 IOSTANDARD LVCMOS33} [get_ports {red_vga[3]}]
+
+# Green
+set_property -dict {PACKAGE_PIN C6 IOSTANDARD LVCMOS33} [get_ports {green_vga[0]}]
+set_property -dict {PACKAGE_PIN A5 IOSTANDARD LVCMOS33} [get_ports {green_vga[1]}]
+set_property -dict {PACKAGE_PIN B6 IOSTANDARD LVCMOS33} [get_ports {green_vga[2]}]
+set_property -dict {PACKAGE_PIN A6 IOSTANDARD LVCMOS33} [get_ports {green_vga[3]}]
+
+# Blue
+set_property -dict {PACKAGE_PIN B7 IOSTANDARD LVCMOS33} [get_ports {blue_vga[0]}]
+set_property -dict {PACKAGE_PIN C7 IOSTANDARD LVCMOS33} [get_ports {blue_vga[1]}]
+set_property -dict {PACKAGE_PIN D7 IOSTANDARD LVCMOS33} [get_ports {blue_vga[2]}]
+set_property -dict {PACKAGE_PIN D8 IOSTANDARD LVCMOS33} [get_ports {blue_vga[3]}]
+
+# Sync
+set_property -dict {PACKAGE_PIN B11 IOSTANDARD LVCMOS33} [get_ports hsync_pin]
+set_property -dict {PACKAGE_PIN B12 IOSTANDARD LVCMOS33} [get_ports vsync_pin]
