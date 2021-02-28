@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1614142968">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1614496966">
   <File Type="PA-TCL" Name="rvfpga.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="rvfpga_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="rvfpga_reports.tcl"/>
@@ -46,6 +46,13 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/BootROM/dpram64.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../src/Additional Files/dtg.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -442,6 +449,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/colorizer.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/counter.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -568,6 +582,13 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/graycode.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/icon.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -734,6 +755,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/scale.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/spill_register.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -777,6 +805,86 @@
     </File>
     <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.sv">
       <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/ifu/ifu_iccm_mem.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/lfsr.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/lzc.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/mv_filter.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/plru_tree.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/deprecated/rrarbiter.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/stream_arbiter.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/sub_per_hash.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/sync_wedge.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/dmi/rvjtag_tap.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -1212,22 +1320,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/ifu/ifu_iccm_mem.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/lfsr.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/lfsr_16bit.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
@@ -1244,14 +1336,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/lzc.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/max_counter.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
@@ -1260,23 +1344,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/mv_filter.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/onehot_to_bin.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/plru_tree.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -1316,14 +1384,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/deprecated/rrarbiter.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/rstgen.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
@@ -1340,14 +1400,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/dmi/rvjtag_tap.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/serial_deglitch.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
@@ -1357,14 +1409,6 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/shift_reg.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/stream_arbiter.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -1420,22 +1464,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/sub_per_hash.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/sync_wedge.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/unread.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
@@ -1484,6 +1512,44 @@
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/dtg.sv">
+      <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/Additional Files/Rojobot_icon/16x16_rojobot_icon_up.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/bot_icon_up.sv">
+      <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/icon_east.sv">
+      <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/icon_north.sv">
+      <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>

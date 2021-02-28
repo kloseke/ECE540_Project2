@@ -45,12 +45,12 @@ module world_map(
   doutb
 );
 
-input clka;
-input [13 : 0] addra;
-output [1 : 0] douta;
-input clkb;
-input [13 : 0] addrb;
-output [1 : 0] doutb;
+input  wire             clka;
+input  wire [13 : 0]    addra;
+output wire [1 : 0]     douta;
+input  wire             clkb;
+input  wire [13 : 0]    addrb;
+output wire [1 : 0]     doutb;
 
 // synthesis translate_off
 

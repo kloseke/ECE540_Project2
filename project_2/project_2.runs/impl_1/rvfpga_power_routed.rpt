@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date             : Tue Feb 23 21:26:56 2021
+| Date             : Sat Feb 27 23:46:58 2021
 | Host             : DESKTOP-8V60PG5 running 64-bit major release  (build 9200)
 | Command          : report_power -file rvfpga_power_routed.rpt -pb rvfpga_power_summary_routed.pb -rpx rvfpga_power_routed.rpx
 | Design           : rvfpga
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.225        |
+| Total On-Chip Power (W)  | 1.328        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.114        |
+| Dynamic (W)              | 1.216        |
 | Device Static (W)        | 0.111        |
 | Effective TJA (C/W)      | 4.6          |
-| Max Ambient (C)          | 79.4         |
-| Junction Temperature (C) | 30.6         |
+| Max Ambient (C)          | 78.9         |
+| Junction Temperature (C) | 31.1         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,23 +52,23 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.052 |       17 |       --- |             --- |
-| Slice Logic              |     0.021 |    63161 |       --- |             --- |
-|   LUT as Logic           |     0.019 |    34608 |     63400 |           54.59 |
+| Clocks                   |     0.056 |       17 |       --- |             --- |
+| Slice Logic              |     0.063 |    75065 |       --- |             --- |
+|   LUT as Logic           |     0.059 |    43435 |     63400 |           68.51 |
+|   CARRY4                 |     0.002 |     3654 |     15850 |           23.05 |
 |   LUT as Distributed RAM |    <0.001 |      228 |     19000 |            1.20 |
-|   CARRY4                 |    <0.001 |      852 |     15850 |            5.38 |
-|   Register               |    <0.001 |    20338 |    126800 |           16.04 |
+|   Register               |    <0.001 |    20414 |    126800 |           16.10 |
 |   F7/F8 Muxes            |    <0.001 |      630 |     63400 |            0.99 |
 |   LUT as Shift Register  |    <0.001 |        3 |     19000 |            0.02 |
-|   Others                 |     0.000 |     1347 |       --- |             --- |
-| Signals                  |     0.036 |    51293 |       --- |             --- |
-| Block RAM                |     0.066 |     44.5 |       135 |           32.96 |
+|   Others                 |     0.000 |     1393 |       --- |             --- |
+| Signals                  |     0.089 |    56476 |       --- |             --- |
+| Block RAM                |     0.067 |     44.5 |       135 |           32.96 |
 | MMCM                     |     0.122 |        1 |         6 |           16.67 |
 | PLL                      |     0.428 |        3 |         6 |           50.00 |
 | DSPs                     |    <0.001 |        4 |       240 |            1.67 |
-| I/O                      |     0.388 |      110 |       210 |           52.38 |
+| I/O                      |     0.390 |      124 |       210 |           59.05 |
 | Static Power             |     0.111 |          |           |                 |
-| Total                    |     1.225 |          |           |                 |
+| Total                    |     1.328 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -78,7 +78,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.241 |       0.221 |      0.020 |
+| Vccint    |       1.000 |     0.342 |       0.322 |      0.020 |
 | Vccaux    |       1.800 |     0.335 |       0.317 |      0.018 |
 | Vcco33    |       3.300 |     0.006 |       0.002 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -87,7 +87,7 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.006 |       0.005 |      0.001 |
+| Vccbram   |       1.000 |     0.007 |       0.005 |      0.002 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
@@ -161,15 +161,17 @@ Table of Contents
 +-------------------------+-----------+
 | Name                    | Power (W) |
 +-------------------------+-----------+
-| rvfpga                  |     1.114 |
+| rvfpga                  |     1.216 |
 |   cdc                   |     0.006 |
 |     i_axi_cdc           |     0.006 |
 |       i_cdc_fifo_gray_r |     0.004 |
-|   clk_gen               |     0.147 |
+|       i_cdc_fifo_gray_w |     0.001 |
+|   clk_gen               |     0.146 |
 |   clk_gen_75hz_module   |     0.122 |
 |     inst                |     0.122 |
-|   ddr2                  |     0.542 |
-|     ldc                 |     0.542 |
+|   colorizer_module      |     0.003 |
+|   ddr2                  |     0.543 |
+|     ldc                 |     0.543 |
 |       IOBUF             |     0.007 |
 |       IOBUFDS           |     0.005 |
 |       IOBUFDS_1         |     0.005 |
@@ -190,21 +192,34 @@ Table of Contents
 |       IOBUF_9           |     0.009 |
 |       OBUFDS            |     0.008 |
 |       serv_rf_top       |     0.004 |
-|   rojobot31_0_module    |     0.007 |
-|     inst                |     0.007 |
+|   dtg_module            |     0.027 |
+|   icon_module           |     0.060 |
+|     east_0              |     0.008 |
+|     north_0             |     0.008 |
+|     north_east_0        |     0.008 |
+|     north_west_0        |     0.009 |
+|     south_0             |     0.006 |
+|     south_east_0        |     0.011 |
+|     south_west_0        |     0.009 |
+|   rojobot31_0_module    |     0.009 |
+|     inst                |     0.009 |
 |       BOTCPU            |     0.003 |
-|       BOTREGIF          |     0.004 |
-|   swervolf              |     0.107 |
+|       BOTREGIF          |     0.006 |
+|   swervolf              |     0.111 |
 |     axi2wb              |     0.002 |
 |     axi_intercon        |     0.004 |
 |       axi_xbar          |     0.004 |
 |     bootrom             |     0.002 |
 |       ram               |     0.002 |
 |     gpio_rojobot        |     0.001 |
-|     swerv_eh1           |     0.093 |
-|       mem               |     0.048 |
-|       swerv             |     0.045 |
+|     swerv_eh1           |     0.094 |
+|       mem               |     0.047 |
+|       swerv             |     0.047 |
 |     syscon              |     0.001 |
+|     timer_ptc           |     0.001 |
+|     wb_intercon0        |     0.001 |
+|       wb_mux_io         |     0.001 |
+|   world_map_module      |     0.002 |
 +-------------------------+-----------+
 
 

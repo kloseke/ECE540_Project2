@@ -29,54 +29,59 @@
 `default_nettype none
 module rvfpga
   #(parameter bootrom_file  = "")
-   (input wire 	       clk,
-    input wire 	       rstn,
-    output wire [12:0] ddram_a,
-    output wire [2:0]  ddram_ba,
-    output wire        ddram_ras_n,
-    output wire        ddram_cas_n,
-    output wire        ddram_we_n,
-    output wire        ddram_cs_n,
-    output wire [1:0]  ddram_dm,
-    inout wire [15:0]  ddram_dq,
-    inout wire [1:0]  ddram_dqs_p,
-    inout wire [1:0]  ddram_dqs_n,
-    output wire        ddram_clk_p,
-    output wire        ddram_clk_n,
-    output wire        ddram_cke,
-    output wire        ddram_odt,
-    output wire        o_flash_cs_n,
-    output wire        o_flash_mosi,
-    input wire 	       i_flash_miso,
-    input wire 	       i_uart_rx,
-    output wire        o_uart_tx,
-    inout wire [15:0]  i_sw,
-	inout wire		   BTNU,	//input
-	inout wire		   BTNC,	//input
-	inout wire		   BTND,    //input		
-	inout wire		   BTNL,	//input
-	inout wire		   BTNR,	//input
-    output reg [15:0]  o_led,
-    output reg [7:0]   AN,
-    output reg         DP,
-    output reg         CA, CB, CC, CD, CE, CF, CG,
-    output wire        o_accel_cs_n,
-    output wire        o_accel_mosi,
-    input wire         i_accel_miso,
-    output wire        accel_sclk);
+   (input   wire 	    clk,
+    input   wire 	    rstn,
+    output  wire [12:0] ddram_a,
+    output  wire [2:0]  ddram_ba,
+    output  wire        ddram_ras_n,
+    output  wire        ddram_cas_n,
+    output  wire        ddram_we_n,
+    output  wire        ddram_cs_n,
+    output  wire [1:0]  ddram_dm,
+    inout   wire [15:0] ddram_dq,
+    inout   wire [1:0]  ddram_dqs_p,
+    inout   wire [1:0]  ddram_dqs_n,
+    output  wire        ddram_clk_p,
+    output  wire        ddram_clk_n,
+    output  wire        ddram_cke,
+    output  wire        ddram_odt,
+    output  wire        o_flash_cs_n,
+    output  wire        o_flash_mosi,
+    input   wire 	    i_flash_miso,
+    input   wire 	    i_uart_rx,
+    output  wire        o_uart_tx,
+    inout   wire [15:0] i_sw,
+	inout   wire		BTNU,	//input
+	inout   wire		BTNC,	//input
+	inout   wire		BTND,    //input		
+	inout   wire		BTNL,	//input
+	inout   wire		BTNR,	//input
+    output  reg [15:0]  o_led,
+    output  reg [7:0]   AN,
+    output  reg         DP,
+    output  reg         CA, CB, CC, CD, CE, CF, CG,
+    output reg  [3:0]   red_vga,
+    output reg  [3:0]   green_vga,
+    output reg  [3:0]   blue_vga,
+    output reg          vsync_pin,
+    output reg          hsync_pin,    
+    output  wire        o_accel_cs_n,
+    output  wire        o_accel_mosi,
+    input   wire        i_accel_miso,
+    output  wire        accel_sclk);
 
-   wire [15:0] 	       gpio_out;
-   wire 	           cpu_tx,litedram_tx;
-   wire 	           litedram_init_done;
-   wire 	           litedram_init_error;
+   wire [15:0]  gpio_out;
+   wire 	    cpu_tx,litedram_tx;
+   wire 	    litedram_init_done;
+   wire 	    litedram_init_error;
 
 
    localparam RAM_SIZE     = 32'h10000;
 
-   wire 	 clk_core;
-   wire 	 rst_core;
-   wire 	 user_clk;
-   wire 	 user_rst;
+   wire 	    clk_core;
+   wire 	    rst_core;
+   wire 	    user_clk;
+   wire 	    user_rst;
 
    clk_gen_nexys clk_gen
      (.i_clk (user_clk),
@@ -176,8 +181,7 @@ module rvfpga
    wire        flash_sclk;
 
    STARTUPE2 STARTUPE2
-     (
-      .CFGCLK    (),
+     (.CFGCLK    (),
       .CFGMCLK   (),
       .EOS       (),
       .PREQ      (),
@@ -310,35 +314,83 @@ module rvfpga
 	wire         IO_BotUpdt;
 
     // incomming and outgoing signals of world map
-    wire [13 : 0]    worldmap_addr;
-    wire [1 : 0]     worldmap_data;
+
 
 	
 	assign io_BotInfo = {LocX_reg, LocY_reg, Sensors_reg, BotInfo_reg};
 	assign MotCtl_in = IO_BotCtrl;     // IO_BotCtrl is an output from the Core and that value is assigned to MotCtl_in
 	
 	rojobot31_0 rojobot31_0_module (
-      .MotCtl_in        (MotCtl_in),            
-      .LocX_reg         (LocX_reg),             
-      .LocY_reg         (LocY_reg),              
-      .Sensors_reg      (Sensors_reg),         
-      .BotInfo_reg      (BotInfo_reg),        
-      .worldmap_addr    (worldmap_addr),     
-      .worldmap_data    (worldmap_data),     
-      .clk_in           (clk_75),            
-      .reset            (~rstn),             
-      .upd_sysregs      (IO_BotUpdt),   // IO_BOtUpdt    
-      .Bot_Config_reg   (Bot_Config_reg) // db_sw  
+    .MotCtl_in        (MotCtl_in),            
+    .LocX_reg         (LocX_reg),             
+    .LocY_reg         (LocY_reg),              
+    .Sensors_reg      (Sensors_reg),         
+    .BotInfo_reg      (BotInfo_reg),        
+    .worldmap_addr    (worldmap_addr),     
+    .worldmap_data    (worldmap_data),     
+    .clk_in           (clk_75),            
+    .reset            (~rstn),             
+    .upd_sysregs      (IO_BotUpdt),   // IO_BOtUpdt    
+    .Bot_Config_reg   (Bot_Config_reg) // db_sw  
     );
     
+    wire [11:0] pixel_row;
+    wire [11:0] pixel_column;
+    wire [1:0] icon_out;
+    
+    icon icon_module (
+    .pixel_column (pixel_column),    // input wire [11:0] pixel_column,
+	.pixel_row (pixel_row),	// input wire [11:0] pixel_row,
+	.LocX_reg (LocX_reg),	// input wire [7:0] LocX_reg,
+	.LocY_reg (LocY_reg),	// input wire [7:0] LocY_reg,
+	.BotInfo_reg (BotInfo_reg),	// input reg [7:0] BotInfo_reg,
+	.icon_out (icon_out)	// output reg [1:0] icon_out
+	);
+	
+	
+	dtg dtg_module (
+	.clock (clk_75),	// input	wire	    clock, 
+	.rst (~rstn),	// input  wire          rst,
+	.horiz_sync (hsync_pin),	// output	reg			horiz_sync, vert_sync, video_on,	
+	.vert_sync (vsync_pin),
+	.video_on (video_on),
+	.pixel_row (pixel_row),	// output	reg	[11:0]	pixel_row, pixel_column
+	.pixel_column (pixel_column)
+	);
+
+
+
+
+    wire [13:0]    worldmap_addr;
+    wire [1:0]     worldmap_data;
+    wire [13:0]    vid_addr;
+    wire [1:0]      world_pixel_out;
+    wire video_on;
+    
+colorizer colorizer_module(
+	.icon_out (icon_out),          // input [1:0] icon_out,
+	.world_pixel_out (world_pixel_out),   //input [1:0] world_pixel_out,
+	.video_on (video_on),          //input video_on,
+	.red (red_vga),               //output [3:0] red,
+	.green (green_vga),             //output [3:0] green,
+	.blue (blue_vga)              //output [3:0] blue
+);
+
     world_map world_map_module(
     .clka    (clk_75),
     .addra   (worldmap_addr),
-    .douta   (worldmap_data), //(worldmap_data_part_1)
-    .clkb    (),     // (clk_75),
-    .addrb   (),    // (vid_addr)
-    .doutb   ()     // (world_pixel_part_1)
+    .douta   (worldmap_data),   //(worldmap_data_part_1)
+    .clkb    (clk_75),          // (clk_75),
+    .addrb   (vid_addr),        // (vid_addr)
+    .doutb   (world_pixel_out)      // (world_pixel_part_1)
 );
+
+  scale scale_module(
+  .pixel_row(pixel_row),      // input   wire   [11:0]  pixel_row, 
+  .pixel_column (pixel_column), // input   wire   [11:0]  pixel_column,    // input pixel coordinates
+  .vid_addr (vid_addr)     // output  wire  [13:0]  vid_addr,                   // concatenation of {world row, world column}
+  );
+
    always @(posedge clk_core) begin
       o_led[15:0] <= gpio_out[15:0];
    end

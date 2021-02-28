@@ -38,6 +38,7 @@ set_property ip_repo_paths {{c:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVf
 update_ip_catalog
 set_property ip_output_repo c:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
+add_files {{c:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/Additional Files/Rojobot_icon/16x16_rojobot_icon_up.coe}}
 read_verilog {
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/OtherSources/swervolf-swerv_default_config_0.7/configs/snapshots/default/common_defines.vh
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/gpio/gpio_defines.v
@@ -78,6 +79,7 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/lib/beh_lib.sv
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/bscanTAP/bscan_tap.sv
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/cdc_fifo_gray.sv
+  C:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.srcs/sources_1/new/colorizer.sv
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/counter.sv
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/dbg/dbg.sv
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/include/swerv_types.sv
@@ -96,6 +98,7 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/deprecated/fifo_v2.sv
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/fifo_v3.sv
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/graycode.sv
+  C:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.srcs/sources_1/new/icon.sv
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/ifu/ifu.sv
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/ifu/ifu_aln_ctl.sv
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/ifu/ifu_bp_ctl.sv
@@ -118,6 +121,7 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/lib/mem_lib.sv
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/pic_ctrl.sv
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/rr_arb_tree.sv
+  C:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.srcs/sources_1/new/scale.sv
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/spill_register.sv
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/PulpPlatform/pulp-platform.org__common_cells_1.16.4/src/stream_register.sv
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/SweRVEh1CoreComplex/swerv.sv
@@ -130,6 +134,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/OtherSources/clk_gen_nexys.v
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/debounce.v
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/BootROM/dpram64.v
+  {C:/Users/sonal/Documents/GitHub/ECE540_Project2/src/Additional Files/dtg.v}
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/spi/fifo4.v
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/gpio/gpio_top.v
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/LiteDRAM/litedram_core.v
