@@ -53,7 +53,7 @@
  *  Registers v0, v1 does not exist in RISC-V
  *      
  */
-/*
+
 # Masks for Pushbuttons
 BTN_U_MASK              = 0x1
 BTN_D_MASK              = 0x2
@@ -61,8 +61,8 @@ BTN_L_MASK              = 0x4
 BTN_R_MASK              = 0x8
 BTN_C_MASK              = 0x10
 PUSHBUTTON_MASK         = 0x1F
-*/
 
+/*
  # Masks for Pushbuttons -- OLD --
 BTN_R_MASK              = 0x2
 BTN_C_MASK              = 0x10
@@ -70,7 +70,7 @@ BTN_L_MASK              = 0x8
 BTN_D_MASK              = 0x1
 BTN_U_MASK              = 0x4
 PUSHBUTTON_MASK         = 0x1F 
-
+*/
 
 
 # Values to display specific segments on the display
@@ -123,11 +123,11 @@ PORT_SEVENSEG_LOW     = 0x8000103c        # (o) 7 Segment Lower Display
    gpio_rojobot = .ext_pad_o = io_BotCtrl = h00001600
 */
 
-PORT_BOTINFO        = 0x80001600        # (i) Bot Info port - read in, contains sensor info
-PORT_BOTCTRL        = 0x80001604        # (o) Bot Control port - write out, tell bot how to move
+PORT_BOTINFO        = 0x80001800        # (i) Bot Info port - read in, contains sensor info
+PORT_BOTCTRL        = 0x80001804        # (o) Bot Control port - write out, tell bot how to move
 # Still need new address for last two ports 
-PORT_BOTUPDT        = 0x80001800        # (i) Bot Update port (Poll)
-PORT_INTACK         = 0x80001804        # (O) verified
+PORT_BOTUPDT        = 0x80001600        # (i) Bot Update port (Poll)
+PORT_INTACK         = 0x80001604        # (O) verified
 # PORT_INTACK       = 0x80001818        # (o) Bot Int Ack
 
 # ##Old locations###
@@ -145,7 +145,7 @@ PORT_INTACK         = 0x80001804        # (O) verified
 # =====================================
 # === Register bit mappings (masks) ===
 # =====================================
-
+/*
 #  bit masks for pushbuttons and switches for seven segment emulator
 MSK_ALLBTNS     = 0x1F      # Buttons are in bits[5:0]
 MSK_PBTNS       = 0x0F      # Mask for 4 buttons to display on LED
@@ -154,7 +154,7 @@ MSK_BTN_LEFT    = 0x08      # Pushbutton Left is bit 3
 MSK_BTN_UP      = 0x04      # Pushbutton Up is bit 2
 MSK_BTN_RIGHT   = 0x02      # Pushbutton Right is bit 25
 MSK_BTN_DOWN    = 0x01      # Pushbutton Down is bit 0
-/*
+*/
 MSK_ALLBTNS     = 0x1F      # Buttons are in bits[5:0]
 MSK_PBTNS       = 0x0F      # Mask for 4 buttons to display on LED
 MSK_BTN_CENTER  = 0x10      # Pushbutton Center is bit 4
@@ -162,7 +162,7 @@ MSK_BTN_RIGHT   = 0x08      # Pushbutton Right is bit 25
 MSK_BTN_LEFT    = 0x04      # Pushbutton Left is bit 3
 MSK_BTN_DOWN    = 0x02      # Pushbutton Down is bit 0
 MSK_BTN_UP      = 0x01      # Pushbutton Up is bit 2
-*/
+
 MSK_SW7         = 0x80      # Slide switch 7 is bit 7
 MSK_SW6         = 0x40      # Slide switch 6 is bit 6
 MSK_SW5         = 0x20      # Slide switch 5 is bit 5
@@ -210,11 +210,14 @@ MSKMVMT_R   = 0xE0      # Mask out all but Right movement bits
 MSKMVMT_H   = 0x00      # Mask out all but Hold movement bits
 MSKMVMT_L   = 0xC0      # Mask out all but Left movement bits
 
-# Bot Information Masks
-MSKLOCx     = 0xFF000000
-MSKLOCy     = 0x00FF0000
-MSKSENSOR   = 0x0000FF00
-MSKBOTINFO  = 0x000000FF
+ # Bot Information Masks
+ MSKLOCx     = 0xFF000000
+ MSKLOCy     = 0x00FF0000
+ MSKSENSOR   = 0x0000FF00
+ MSKBOTINFO  = 0x000000FF
+
+
+
 
 # Bot Update Masks
 MSKBOTUPDT  = 0x01
@@ -331,9 +334,9 @@ SP_MVMTF    = 0x1B      # Fast right turn - display lower case R
 
 .globl _start
 _start:
-               # add t1, zero, zero
-               # la  t0, PORT_BOTINFO
-               # lw  t1, 0(t0)
+                add t1, zero, zero
+                la  t0, PORT_BOTINFO
+                lw  t1, 0(t0)
                 // enable LEDs & SWs
                 li  t0, PORT_GPIO_EN
                 li  t1, 0x0000FFFF
@@ -346,7 +349,7 @@ _start:
                 # sb  t3,     SP_SEM              #
                 la t2, SP_SEM
                 sb t3, 0(t2)
-                li  t3,     0xCB                # turn off decimal points 3-0.  Decimal point 0 (rightmost
+                li t3, 0xCB                # turn off decimal points 3-0.  Decimal point 0 (rightmost
                 # sb  t3,     SP_OLDDP            # and save the value
                 la t2, SP_OLDDP
                 sb t3, 0(t2)
@@ -486,6 +489,8 @@ wr_alldigits:
                 jr  ra
                 nop */
                 # add t3, zero, zero
+            #  ===== our second edit =======
+            /*
                 li t3, PORT_EXTENDED
                 li x25, 0x10                    # 090H 4040
                 sw x25, 0(t3)                   # 010H 0033
@@ -500,6 +505,28 @@ wr_alldigits:
                 sw  x25, 0(t3)
                 jr  ra
                 nop 
+            */
+# ################################################
+
+wr_alldigits:
+             #  add t3, zero, zero
+             #  li t3, PORT_EXTENDED
+             #  li x25, 0x10                    # 090H 4040
+             #  sw x25, 0(t3) 
+
+
+                li x24, PORT_EXTENDED			# set extended bit
+	            li x25, 0x10
+	            sw x25, 0(x24)        
+                li  t3, PORT_SEVENSEG_LOW
+                sw  x27, 0(t3)                  # x27 has the whole digit string
+                li  x25, 0x00                   # Enable all the display segments
+                li  t3, PORT_SEVENSEG_EN
+                sw  x25, 0(t3)
+                jr  ra
+                nop
+# ################################################
+
 
 # *******
 # Functions to convert pushbutton presses to Motor Control input
@@ -639,7 +666,8 @@ init_mvmttbl:   la  t3,     (SP_MVTBAS1)        # t3 gets base of movement trans
 # === x25 contains the movment value to convert.                            ===
 # === Result (character code to display) is returned in t3                  ===
 # === x25 (movement) is not changed                                         ===
-# =============================================================================
+# ==========================Original============================================
+/*
 mvmt2cc:        la  t0,     (SP_MVTBAS1)        # t0 gets base of movment conversion table
                 add t3,     x25, 0              # mask out upper nibble of movment
                 and t3, t3, MSKLOWNIB           #
@@ -647,8 +675,106 @@ mvmt2cc:        la  t0,     (SP_MVTBAS1)        # t0 gets base of movment conver
                 lb  t3,     0(t0)               # and fetch the entry
                 beq zero, zero, back_mvmt2cc
                 nop
+*/
+# #####################################################################	
 
+mvmt2cc:        li    x13, PORT_BOTINFO         #   Load the BotInfo port address
+                lw    x21, 0(x13)  
+		srl x21, x21, 4
+		andi x21, x21, 0x0F		# mask
+		li x22, 0xFFF0FFFF
+		and x27, x27, x22		# clear 5th byte
+				
+write_stopped:
+	and x23, x23, zero
+	bne x21, x23, write_forward
 
+    li x24, PORT_EXTENDED			# set extended bit
+	li x25, 0x10
+	sw x25, 0(x24) 
+
+	li x23, 0x00070000
+	or x27, x27, x23
+	beq zero, zero, exit_write
+
+write_forward:
+	and x23, x23, zero
+	ori x23, x23, 0x04
+	bne x21, x23, write_reverse
+
+    li x24, PORT_EXTENDED			# set extended bit
+	li x25, 0x10
+	sw x25, 0(x24) 
+
+	li x23, 0x000F0000
+	or x27, x27, x23
+	beq zero, zero, exit_write
+
+write_reverse:
+	and x23, x23, zero
+	ori x23, x23, 0x08
+	bne x21, x23, write_slow_l
+
+    li x24, PORT_EXTENDED			# set extended bit
+	li x25, 0x10
+	sw x25, 0(x24) 
+
+	li x23, 0x000B0000
+	or x27, x27, x23
+	beq zero, zero, exit_write
+
+write_slow_l:
+	and x23, x23, zero
+	ori x23, x23, 0x0C
+	bne x21, x23, write_fast_l
+
+    li x24, PORT_EXTENDED			# set extended bit
+	li x25, 0x10
+	sw x25, 0(x24) 
+
+	li x23, 0x00080000
+	or x27, x27, x23
+	beq zero, zero, exit_write
+
+write_fast_l:
+	and x23, x23, zero
+	ori x23, x23, 0x0D
+	bne x21, x23, write_slow_r
+
+    li x24, PORT_EXTENDED			# set extended bit
+	li x25, 0x10
+	sw x25, 0(x24) 
+
+	li x23, 0x000A0000
+	or x27, x27, x23
+	beq zero, zero, exit_write
+
+write_slow_r:
+	and x23, x23, zero
+	ori x23, x23, 0x0E
+	bne x21, x23, write_fast_r
+
+    li x24, PORT_EXTENDED			# set extended bit
+	li x25, 0x10
+	sw x25, 0(x24) 
+
+	li x23, 0x00090000
+	or x27, x27, x23
+	beq zero, zero, exit_write
+
+write_fast_r: # base case, no check needed
+    li x24, PORT_EXTENDED			# set extended bit
+	li x25, 0x10
+	sw x25, 0(x24) 
+
+	li x23, 0x000B0000
+	or x27, x27, x23
+
+exit_write:
+    beq zero, zero, back_mvmt2cc
+    nop
+
+# #####################################################################	
 # #########################################
 # Modify this function for Project 2 #####
 # #########################################
@@ -677,7 +803,8 @@ back_mvmt2cc:
 # === Registers affected: x11, x14, x13, x25, t3, x5, x6, x7          ===
 # === Uses BOTINF_REG (Bot Info register) to get orientation.  Calculates    ===
 # === digits with a case statement based on orientation.                     ===
-# ==============================================================================
+# ============================Original=============================================
+/*
 next_hdg:       lb  x25,    (BOTINF_REG)        # x25[2:0] = BOTINF_REG[2:0] = orientation
                 and x25,    x25,    MSKORIENT   #
                 # sb  x25,    SP_OLDHDG
@@ -778,13 +905,105 @@ nh_endcase:
                 sb x7, 0(t3)
                 jr  ra
                 nop
+*/
+# #####################################################################	
 
+next_hdg:       li    x13, PORT_BOTINFO         #   Load the BotInfo port address
+                lw    x21, 0(x13)   
+		andi x25, x21, 0x07		# mask out bottom 3 bits
+		li x22, 0x000FFFFF
+		and x27, x27, x22		# clear top 3 bytes
 
+                # sb  x25,    SP_OLDHDG		
+                la t3, SP_OLDHDG
+                sb x25, 0(t3)			# may be problematic, but will test first
+                                                # switch(orientation)  {
+nh_caseORN:     
+                # bne x25,    OR_N, nh_caseORNE   #   case(OR_N):
+                la t3, OR_N
+                bne x25, t3, nh_caseORNE
+                nop                             #
+		ori x27, x27, 0x00000000	# new change
+                beq zero,zero,  nh_endcase          #       break
+                nop
+                                                #
+nh_caseORNE:    
+                # bne x25,    OR_NE, nh_caseORE   #   case (OR_NE):
+                la t3, OR_NE
+                bne x25, t3, nh_caseORE
+                nop                             #
+		li x23, 0x04500000
+		or x27, x27, x23
+                beq zero,zero,  nh_endcase          #       break
+                nop
+
+nh_caseORE:     
+                # bne x25,    OR_E, nh_caseORSE   #   case (OR_E):
+                la t3, OR_E
+                bne x25, t3, nh_caseORSE
+                nop                             #
+		li x23, 0x09000000
+		or x27, x27, x23
+                beq zero,zero,  nh_endcase          #       break
+                nop
+
+nh_caseORSE:    
+                # bne x25,    OR_SE, nh_caseORS   #   case (OR_SE):
+                la t3, OR_SE
+                bne x25, t3, nh_caseORS
+                nop                             #
+		li x23, 0x13500000
+		or x27, x27, x23
+                beq zero,zero,  nh_endcase          #       break
+                nop
+
+nh_caseORS:     
+                # bne x25,    OR_S, nh_caseORSW   #   case (OR_S):
+                la t3, OR_S
+                bne x25, t3, nh_caseORSW
+                nop                             #
+		li x23, 0x18000000
+		or x27, x27, x23
+                beq zero,zero,  nh_endcase          #       break
+                nop
+
+nh_caseORSW:    
+                # bne x25,    OR_SW, nh_caseORW   #   case (OR_SW):
+                la t3, OR_SW
+                bne x25, t3, nh_caseORW
+                nop                             #
+		li x23, 0x27500000
+		or x27, x27, x23
+                beq zero,zero,  nh_endcase          #       break
+                nop
+
+nh_caseORW:     
+                # bne x25,    OR_W, nh_caseORNW   #   case (OR_W):
+                la t3, OR_W
+                bne x25, t3, nh_caseORNW
+                nop                             #
+		li x23, 0x27000000
+		or x27, x27, x23
+                beq zero,zero,  nh_endcase          #       break
+                nop
+
+                                                #   case (OR_NW):  // only remaining case
+nh_caseORNW: 
+		li x23, 0x31500000
+		or x27, x27, x23
+                                                # } // end of switch statement
+nh_endcase:    
+
+                jr  ra
+                nop
+
+# ################################################
 # ==============================================================================
 # === next_loc() - Calculate digits for Rojobot location                     ===
 # === Registers affected: x12, x11, x14, x13, x25                            ===
 # === Uses LocX and LocY to get location.                                    ===
-# ==============================================================================
+# ==========================Original============================================
+/*
 next_loc:       lb      x25,    (LOCx_REG)              # Dig[3:2] gets X-coordinate
                 add     x11,    x25, 0                  # Digit 2 gets lower nibble
                 and     x11,    x11,   MSK_HEXDIGIT     #
@@ -810,7 +1029,34 @@ next_loc:       lb      x25,    (LOCx_REG)              # Dig[3:2] gets X-coordi
                 sb x14, 0(t2)
                 jr  ra
                 nop
+                # ==== end of original === */
 
+# =============================================================
+	# 3(BOTINFO) => seg [1:0]
+	# 2(BOTINFO) => seg [3:2]
+	# 0(BOTINFO) (Decode to movement) => seg [4] 
+	# 0(BOTINFO) (Decode to orientation) => seg [7:5]
+next_loc:       
+		and x27, x27, zero		# clear
+
+		li x13, PORT_BOTINFO
+		lw x21, 3(x13)		
+		andi x21, x21, 0x000000FF	# mask	
+		
+		or x27, x27, x21		# seg [1:0]
+		
+		lw x21, 2(x13)
+		andi x21, x21, 0x000000FF
+		sll x21, x21, 8
+
+		or x27, x27, x21		# seg [3:2]
+
+        jr  ra
+        nop
+
+
+
+# #####################################################################	
 
 # #########################################
 # Modify this function for Project 2 #####
@@ -914,6 +1160,7 @@ check_off_black_line:
 #         r    r      r    btn_cntr  btn_left  btn_up  btn_right  btn_down
 # ---------------------old-----------------------------------------------
 # ---------------------
+/*
 reorder_btns:
                 add     x25, zero, zero             # init x25 to zero
 
@@ -947,8 +1194,58 @@ reorder_btns:
                 add     a1, x25, zero
                 jr      ra
                 nop
-/* 
+*/ 
+
+# ---------------------
+# reorder_btns() - Rearrange read bits of the push buttons
+#
+# Original order is stored in x25
+# old way: Reorder from xxxU-DLCR --> xxxC-LURD
+# New way: Reorder from xxU-DLCR --> XXC-RLDU
+# Registers affected: x25, x21, a1
+# ---------------------New-----------------------------------------------
+#    bit  7    6      5        4        3        2         1         0
+#         r    r      r    btn_cntr  btn_right  btn_left  btn_down  btn_up
+# ---------------------New-----------------------------------------------
+# ---------------------old-----------------------------------------------
+#    bit  7    6      5        4        3        2         1         0
+#         r    r      r    btn_cntr  btn_left  btn_up  btn_right  btn_down
+# ---------------------old-----------------------------------------------
+# ---------------------
+
 reorder_btns:
+                add     x25, zero, zero             # init x25 to zero
+D:	srl x21, a1, 1
+	and x21, x21, 0x00000001
+	and x25, x25, 0xFFFFFFFD
+	or x25, x25, x21
+	
+R:	srl x21, a1, 2
+	and x21, x21, 0x00000002
+	and x25, x25, 0xFFFFFFF7
+	or x25, x25, x21
+	
+U:	sll x21, a1, 2
+	and x21, x21, 0x00000004
+	and x25, x25, 0xFFFFFFFE
+	or x25, x25, x21
+
+L:	sll x21, a1, 1
+	and x21, x21, 0x00000008
+	and x25, x25, 0xFFFFFFFB
+	or x25, x25, x21
+
+# Skip C, we don't need it	
+#C:	lw x21, a1
+#	and x21, x21, 0x0000010
+#	and x25, x25, 0xFFFFFFEF
+#	or x25, x25, x21
+
+	add a1, x25, zero
+	jr ra
+	nop
+
+/* reorder_btns:
                 add     x25, zero, zero         # init x25 to zero
 
                 # set U to bit[0]
@@ -984,6 +1281,7 @@ RTN:            # assign result to a1 and return
                 jr      ra
                 nop
 */
+
 # ---------------------
 # DEB_rdbtns() - Reads the debounced pushbuttons
 #
@@ -1004,24 +1302,24 @@ RTN:            # assign result to a1 and return
 #
 # Registers used x25
 # ---------------------
-DEB_rdbtns:     li      x25,        PORT_PBTNS    # read the buttons
-                lw      a1,     0(x25)            # 0x0002 BTN_D, 0x0004 BTN_L, 0x0008 BTN_R, 0x0001 BTN_U
+DEB_rdbtns:     li      x25, PORT_PBTNS    # read the buttons
+                lw      a1, 0(x25)         # 0x0002 BTN_D, 0x0004 BTN_L, 0x0008 BTN_R, 0x0001 BTN_U
 
                 # reorder the button positions, according to the Nexys4 DDR
                 /*
-                addi    sp, sp, -4                # push ra to stack
+                addi    sp, sp, -4         # push ra to stack
                 sw      ra, 0(sp)
                 */
                 move    t1, ra
-                jal     reorder_btns                # call function
+                jal     reorder_btns       # call function
                 nop
                 move    ra, t1
                 /*
-                lw      ra, 0(sp)                 # pop ra from stack
+                lw      ra, 0(sp)          # pop ra from stack
                 addi    sp, sp, 4
                 */
-                and     a0, a1, MSK_ALLBTNS         # mask out unused bits
-                jr  ra                             # and return
+                and     a0, a1, MSK_ALLBTNS # mask out unused bits
+                jr  ra                      # and return
                 nop
 
 
