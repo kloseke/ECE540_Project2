@@ -31,10 +31,10 @@ module colorizer
 										green = 4'b0000;
 										blue = 4'b0000;
 									end
-							default: begin   //defaults to black
-										red = 4'b0000;
-										green = 4'b0000;
-										blue = 4'b0000;
+                     default: begin   //defaults to yellow now
+                                        red = 4'b1111;
+                                        green = 4'b1111;
+                                        blue = 4'b0000;
 									end
 						endcase
 					end
@@ -49,9 +49,9 @@ module colorizer
 						blue = 4'b1111;
 					end
 			2'b11:	begin //icon colour 2 (white)
-						red = 4'b0000;
-						green = 4'b0000;
-						blue = 4'b0000;
+						red = 4'b1111;
+						green = 4'b1111;
+						blue = 4'b1111;
 					end
 			default:	begin //make yellow to mark any weird errors hitting default (yellow isn't used any where else)
 						red = 4'b1111;

@@ -1,0 +1,9 @@
+WARNING: [Synth 8-3321] set_false_path : Empty from list for constraint at line 8 of C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.xdc. [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.xdc:8]
+xilinx rtfpga
+ERROR: synthesis optimization failed, fatal lut mapping error.
+WORKER_RUN_ENDED
+WORKER_RUN_STARTED
+this genome's name is lsu__GB0
+this genome's rtd file is C:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.runs/synth_1/.Xil/Vivado-16164-DESKTOP-8V60PG5/realtime/tmp/14774B2E7D0.rtd
+The application has run out of memory
+WORKER_RUN_ENDED

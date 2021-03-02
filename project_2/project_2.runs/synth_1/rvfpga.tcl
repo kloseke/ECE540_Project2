@@ -17,11 +17,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param chipscope.maxJobs 2
-set_param synth.incrementalSynthesisCache C:/Users/sonal/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-65072-DESKTOP-8V60PG5/incrSyn
-set_msg_config -id {Common 17-41} -limit 10000000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -38,7 +33,7 @@ set_property ip_repo_paths {{c:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVf
 update_ip_catalog
 set_property ip_output_repo c:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-add_files {{c:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/Additional Files/Rojobot_icon/16x16_rojobot_icon_up.coe}}
+add_files {{C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/Additional Files/Rojobot_icon/16x16_rojobot_icon_up.coe}}
 read_verilog {
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/OtherSources/swervolf-swerv_default_config_0.7/configs/snapshots/default/common_defines.vh
   C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/SweRVolfSoC/Peripherals/gpio/gpio_defines.v
@@ -177,7 +172,7 @@ set_property used_in_implementation false [get_files -all c:/Users/sonal/Documen
 set_property used_in_implementation false [get_files -all c:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0_ooc.xdc]
 
-read_edif {{C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/Additional Files/world_maps_partA/world_map.ngc}}
+read_edif {{C:/Users/sonal/Documents/GitHub/ECE540_Project2/src/Additional Files/world_map_lr/world_map.ngc}}
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
 # design are intentionally left as such for best results. Dcp files will be

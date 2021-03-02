@@ -368,6 +368,10 @@ _start:
                 # sw  t0, (SP_NSA_STATE)
                 la t2, SP_NSA_STATE
                 sw t0, 0(t2)
+				
+				# For auto mode
+				and s2, s2, zero  	# make sure its clear
+				and s1, s1, zero	# clear reg
 
 # ==================
 # === Main  Loop ===
@@ -515,8 +519,8 @@ wr_alldigits:
              #  sw x25, 0(t3) 
 
 
-                li x24, PORT_EXTENDED			# set extended bit
-	            li x25, 0x10
+#               li x24, PORT_EXTENDED			# set extended bit
+#	            li x25, 0x10
 	            sw x25, 0(x24)        
                 li  t3, PORT_SEVENSEG_LOW
                 sw  x27, 0(t3)                  # x27 has the whole digit string
@@ -702,8 +706,8 @@ write_forward:
 	ori x23, x23, 0x04
 	bne x21, x23, write_reverse
 
-    li x24, PORT_EXTENDED			# set extended bit
-	li x25, 0x10
+    li x24, PORT_EXTENDED			# clear extended bit
+	li x25, 0x00
 	sw x25, 0(x24) 
 
 	li x23, 0x000F0000
@@ -716,7 +720,7 @@ write_reverse:
 	bne x21, x23, write_slow_l
 
     li x24, PORT_EXTENDED			# set extended bit
-	li x25, 0x10
+	li x25, 0x00
 	sw x25, 0(x24) 
 
 	li x23, 0x000B0000
@@ -1074,25 +1078,89 @@ next_step:
                 lb      t0, (SP_ROBOT_MODE)
                 beq     t0, zero, next_step_manual
 # ############################################################################################################# 
-next_step_auto: # ## It is just given for your reference.
+next_step_auto:	# Switch has been set, bot decides where to go
 				# will be using s1 to save a 0 if we just reversed and need to now turn right (will be set when turn is set)
+				li x30, 16
+				bne s1, x30, decide_motion		# See if we completed a motion cycle
+				and s1, s1, zero				# If motion cycle complete, reset
+decide_motion:
+				beq s1, zero, forwards
+				li x30, 1
+				beq s1, x30, backwards
+				li x30, 2
+				beq s1, x30, right_1
+				li x30, 3
+				beq s1, x30, forwards
+				li x30, 4
+				beq s1, x30, backwards
+				li x30, 5
+				beq s1, x30, right_1
+				li x30, 6
+				beq s1, x30, forwards
+				li x30, 7
+				beq s1, x30, backwards
+				li x30, 8
+				beq s1, x30, left_2
+				li x30, 9
+				beq s1, x30, left_1
+				li x30, 10
+				beq s1, x30, forwards
+				li x30, 11
+				beq s1, x30, backwards
+				li x30, 12
+				beq s1, x30, left_1
+				li x30, 13
+				beq s1, x30, forwards
+				li x30, 14
+				beq s1, x30, backwards
+				li x30, 15					# At dead end, turn arround
+				beq s1, x30, left_2
+				
+				
+				
+				
+				
 				beq s1, zero, need_to_turn_now			# we already reversed, need to turn to finish this motion (part 2 of a 2 step motion)
 				jal check_off_black_line				# read sensor to see if we are off of black line, returns a0 = 1 if we are off and 0 if on
 				nop
 				beq a0, zero, on_the_line				# jump down here if we are on the line
 				
-off_the_line:		# if off the line, reverse then turn right 1X
-				li t3, SP_LRRR							# motion for reverse
-				li s1, 1								# flag as having reversed
-				beq zero, zero, set_rojo_motion_auto
+forwards:		
 				
-need_to_turn_now:	# we already reversed, need to turn now
-				li t3, SP_LORR							# motion for right 1x
-				li s1, 0								# motion complete, clear flag
-				beq zero, zero, set_rojo_motion_auto
+				# Only check if we are on the black line after moving forwards
+				li x31, PORT_BOTINFO			# sensors
+				lw x21, 0(x31)  
+				srl x21, x21, 8					
+				andi x21, x21, 0x07				# Grab just black line sensor info to read
+				beq x21, zero, on_the_line
+				addi s1, s1, 1					# We are still off, increment motion
+				beq zero, zero, set_forwards_motion
 				
-on_the_line:		# if on the line, move forward
-				li t3, SP_LFRF							# motion for forward
+on_the_line:
+				and s1, s1, zero				# Clear motion increment
+	
+set_forwards_motion:
+				li t3, SP_LFRF					# motion for forward
+				beq zero, zero, set_rojo_motion_auto
+backwards:
+				addi s1, s1, 1
+				li t3, SP_LRRR					# motion to reverse
+				beq zero, zero, set_rojo_motion_auto
+right_1:
+				addi s1, s1, 1
+				li t3, SP_LFRS					# motion for slow right
+				beq zero, zero, set_rojo_motion_auto
+right_2:
+				addi s1, s1, 1
+				li t3, SP_LFRR					# motion for fast right
+				beq zero, zero, set_rojo_motion_auto
+left_1:
+				addi s1, s1, 1
+				li t3, SP_LSRF					# motion for slow left
+				beq zero, zero, set_rojo_motion_auto
+left_2:
+				addi s1, s1, 1
+				li t3, SP_LRRF					# motion for fast left
 				
 set_rojo_motion_auto:
 				li x25, PORT_BOTCTRL					# grab location of rojo control register
@@ -1303,7 +1371,7 @@ RTN:            # assign result to a1 and return
 # Registers used x25
 # ---------------------
 DEB_rdbtns:     li      x25, PORT_PBTNS    # read the buttons
-                lw      a1, 0(x25)         # 0x0002 BTN_D, 0x0004 BTN_L, 0x0008 BTN_R, 0x0001 BTN_U
+                lw      a1, 0(x25)         # 0x0002 BTN_D, 0x0004 BTN_L, 0x0008 BTN_R, 0x0001 BTN_U
 
                 # reorder the button positions, according to the Nexys4 DDR
                 /*
