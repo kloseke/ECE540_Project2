@@ -1,3 +1,7 @@
+set_property PACKAGE_PIN V2 [get_ports {ddram_dqs_n[1]}]
+set_property PACKAGE_PIN U9 [get_ports {ddram_dqs_p[0]}]
+set_property PACKAGE_PIN V9 [get_ports {ddram_dqs_n[0]}]
+set_property PACKAGE_PIN U2 [get_ports {ddram_dqs_p[1]}]
 ## ddram:0.a
 set_property PACKAGE_PIN M4 [get_ports {ddram_a[0]}]
 set_property SLEW FAST [get_ports {ddram_a[0]}]
@@ -169,13 +173,9 @@ set_property IOSTANDARD DIFF_SSTL18_II [get_ports {ddram_dqs_p[0]}]
 set_property SLEW FAST [get_ports {ddram_dqs_p[1]}]
 set_property IOSTANDARD DIFF_SSTL18_II [get_ports {ddram_dqs_p[1]}]
 ## ddram:0.dqs_n
-set_property PACKAGE_PIN U9 [get_ports {ddram_dqs_p[0]}]
-set_property PACKAGE_PIN V9 [get_ports {ddram_dqs_n[0]}]
 set_property SLEW FAST [get_ports {ddram_dqs_n[0]}]
 set_property IOSTANDARD DIFF_SSTL18_II [get_ports {ddram_dqs_n[0]}]
 ## ddram:0.dqs_n
-set_property PACKAGE_PIN U2 [get_ports {ddram_dqs_p[1]}]
-set_property PACKAGE_PIN V2 [get_ports {ddram_dqs_n[1]}]
 set_property SLEW FAST [get_ports {ddram_dqs_n[1]}]
 set_property IOSTANDARD DIFF_SSTL18_II [get_ports {ddram_dqs_n[1]}]
 ## ddram:0.clk_p
@@ -202,6 +202,7 @@ set_property IOSTANDARD SSTL18_II [get_ports ddram_cs_n]
 set_property INTERNAL_VREF 0.75 [get_iobanks 34]
 
 #create_clock -name clk100 -period 10.0 [get_nets clk100]
+
 
 
 

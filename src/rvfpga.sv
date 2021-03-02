@@ -395,17 +395,18 @@ colorizer colorizer_module(
       o_led[15:0] <= gpio_out[15:0];
    end
 
-   assign o_uart_tx = 1'b0 ? litedram_tx : cpu_tx;
-   
-   always @ (posedge clk) begin
-    if (IO_INT_ACK == 1'b1) begin
-        IO_BotUpdt_Sync <= 1'b0;
-    end
-    else if (IO_BotUpdt == 1'b1) begin
+   assign o_uart_tx = 1'b0 ? litedram_tx : cpu_tx;  
+ 
+  always @ (posedge clk) begin
+    if (IO_BotUpdt == 1'b1) begin
         IO_BotUpdt_Sync <= 1'b1;
-    end else begin
+    end
+    else if (IO_INT_ACK == 1'b1) begin
+        IO_BotUpdt_Sync <= 1'b0;
+    end 
+    else begin
         IO_BotUpdt_Sync <= IO_BotUpdt_Sync;
     end
   end
-
+  
 endmodule

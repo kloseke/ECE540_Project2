@@ -1,4 +1,0 @@
-xilinx rtfpga
-WARNING: [Synth 8-3917] design icon__GB0 has port O10[2] driven by constant 1
-WARNING: [Synth 8-3917] design icon__GB0 has port O10[1] driven by constant 0
-WARNING: [Synth 8-3917] design icon__GB0 has port O10[0] driven by constant 0

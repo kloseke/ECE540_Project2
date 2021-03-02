@@ -1,4 +1,0 @@
-WARNING: [Synth 8-3321] set_false_path : Empty from list for constraint at line 8 of C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.xdc. [C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.xdc:8]
-xilinx rtfpga
-ERROR: synthesis optimization failed, fatal lut mapping error.
-WORKER_RUN_ENDED

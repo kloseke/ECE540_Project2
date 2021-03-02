@@ -65,7 +65,7 @@ set_property -dict {PACKAGE_PIN K13 IOSTANDARD LVCMOS33} [get_ports CD]
 set_property -dict {PACKAGE_PIN P15 IOSTANDARD LVCMOS33} [get_ports CE]
 set_property -dict {PACKAGE_PIN T11 IOSTANDARD LVCMOS33} [get_ports CF]
 set_property -dict {PACKAGE_PIN L18 IOSTANDARD LVCMOS33} [get_ports CG]
-set_property -dict { PACKAGE_PIN H15   IOSTANDARD LVCMOS33 } [get_ports { DP }]; #IO_L19N_T3_A21_VREF_15 Sch=dp
+set_property -dict {PACKAGE_PIN H15 IOSTANDARD LVCMOS33} [get_ports DP]
 set_property -dict {PACKAGE_PIN J17 IOSTANDARD LVCMOS33} [get_ports {AN[0]}]
 set_property -dict {PACKAGE_PIN J18 IOSTANDARD LVCMOS33} [get_ports {AN[1]}]
 set_property -dict {PACKAGE_PIN T9 IOSTANDARD LVCMOS33} [get_ports {AN[2]}]
@@ -112,3 +112,4 @@ set_property -dict {PACKAGE_PIN D8 IOSTANDARD LVCMOS33} [get_ports {blue_vga[3]}
 # Sync
 set_property -dict {PACKAGE_PIN B11 IOSTANDARD LVCMOS33} [get_ports hsync_pin]
 set_property -dict {PACKAGE_PIN B12 IOSTANDARD LVCMOS33} [get_ports vsync_pin]
+

@@ -17,6 +17,9 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param chipscope.maxJobs 2
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -172,7 +175,7 @@ set_property used_in_implementation false [get_files -all c:/Users/sonal/Documen
 set_property used_in_implementation false [get_files -all c:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0_ooc.xdc]
 
-read_edif {{C:/Users/sonal/Documents/GitHub/ECE540_Project2/src/Additional Files/world_map_lr/world_map.ngc}}
+read_edif {{C:/Users/sonal/Documents/GitHub/ECE540_Project2/src/Additional Files/world_map_loop/world_map.ngc}}
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
 # design are intentionally left as such for best results. Dcp files will be
@@ -187,6 +190,9 @@ set_property used_in_implementation false [get_files C:/Users/sonal/OneDrive/Doc
 read_xdc C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.xdc
 set_property used_in_implementation false [get_files C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.xdc]
 
+read_xdc C:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.srcs/constrs_1/new/optimized_project2.xdc
+set_property used_in_implementation false [get_files C:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.srcs/constrs_1/new/optimized_project2.xdc]
+
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 
@@ -197,5 +203,6 @@ synth_design -top rvfpga -part xc7a100tcsg324-1
 set_param constraints.enableBinaryConstraints false
 write_checkpoint -force -noxdef rvfpga.dcp
 create_report "synth_1_synth_report_utilization_0" "report_utilization -file rvfpga_utilization_synth.rpt -pb rvfpga_utilization_synth.pb"
+create_report "synth_1_synth_report_utilization_1" "report_utilization -file rvfpga_utilization_synth_1.rpt -pb rvfpga_utilization_synth_1.pb"
 file delete __synthesis_is_running__
 close [open __synthesis_is_complete__ w]

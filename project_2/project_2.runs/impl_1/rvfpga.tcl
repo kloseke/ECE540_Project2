@@ -60,6 +60,8 @@ proc step_failed { step } {
   close $ch
 }
 
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 
 start_step init_design
 set ACTIVE_STEP init_design
@@ -80,9 +82,10 @@ set rc [catch {
   add_files -quiet C:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.runs/synth_1/rvfpga.dcp
   read_ip -quiet C:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.srcs/sources_1/ip/rojobot31_0/rojobot31_0.xci
   read_ip -quiet C:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0.xci
-  read_edif {{C:/Users/sonal/Documents/GitHub/ECE540_Project2/src/Additional Files/world_map_lr/world_map.ngc}}
+  read_edif {{C:/Users/sonal/Documents/GitHub/ECE540_Project2/src/Additional Files/world_map_loop/world_map.ngc}}
   read_xdc C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/liteDRAM.xdc
   read_xdc C:/Users/sonal/OneDrive/Documents/ECE540_Winter/RVfpgaR1_0-main/src/rvfpga.xdc
+  read_xdc C:/Users/sonal/Documents/GitHub/ECE540_Project2/project_2/project_2.srcs/constrs_1/new/optimized_project2.xdc
   link_design -top rvfpga -part xc7a100tcsg324-1
   close_msg_db -file init_design.pb
 } RESULT]

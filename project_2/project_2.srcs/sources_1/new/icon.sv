@@ -22,14 +22,16 @@ module icon
 	
 	wire [11:0] LocY_reg_base;
 	wire [11:0] LocX_reg_base;
+	wire [11:0] row_fix;
 	
+	assign row_fix = (pixel_row*2);
 	assign LocY_reg_base = ((LocY_reg * 6) - 5);
 	assign LocX_reg_base = ((LocX_reg * 8) - 4);
 	
 	north north_0
 	(
 		.pixel_column (pixel_column),
-		.pixel_row (pixel_row),
+		.pixel_row (row_fix),
 		.LocY_reg_base (LocY_reg_base),
 		.LocX_reg_base (LocX_reg_base),
 		.icon_out_n (icon_out_n)
@@ -38,7 +40,7 @@ module icon
 	north_east north_east_0
 	(
 		.pixel_column (pixel_column),
-		.pixel_row (pixel_row),
+		.pixel_row (row_fix),
 		.LocY_reg_base (LocY_reg_base),
 		.LocX_reg_base (LocX_reg_base),
 		.icon_out_ne (icon_out_ne)
@@ -47,7 +49,7 @@ module icon
 	north_west north_west_0
 	(
 		.pixel_column (pixel_column),
-		.pixel_row (pixel_row),
+		.pixel_row (row_fix),
 		.LocY_reg_base (LocY_reg_base),
 		.LocX_reg_base (LocX_reg_base),
 		.icon_out_nw (icon_out_nw)
@@ -56,7 +58,7 @@ module icon
 	south south_0
 	(
 		.pixel_column (pixel_column),
-		.pixel_row (pixel_row),
+		.pixel_row (row_fix),
 		.LocY_reg_base (LocY_reg_base),
 		.LocX_reg_base (LocX_reg_base),
 		.icon_out_s (icon_out_s)
@@ -65,7 +67,7 @@ module icon
 	south_east south_east_0
 	(
 		.pixel_column (pixel_column),
-		.pixel_row (pixel_row),
+		.pixel_row (row_fix),
 		.LocY_reg_base (LocY_reg_base),
 		.LocX_reg_base (LocX_reg_base),
 		.icon_out_se (icon_out_se)
@@ -74,7 +76,7 @@ module icon
 	south_west south_west_0
 	(
 		.pixel_column (pixel_column),
-		.pixel_row (pixel_row),
+		.pixel_row (row_fix),
 		.LocY_reg_base (LocY_reg_base),
 		.LocX_reg_base (LocX_reg_base),
 		.icon_out_sw (icon_out_sw)
@@ -83,7 +85,7 @@ module icon
 	east east_0
 	(
 		.pixel_column (pixel_column),
-		.pixel_row (pixel_row),
+		.pixel_row (row_fix),
 		.LocY_reg_base (LocY_reg_base),
 		.LocX_reg_base (LocX_reg_base),
 		.icon_out_e (icon_out_e)
@@ -92,7 +94,7 @@ module icon
 	west west_0
 	(
 		.pixel_column (pixel_column),
-		.pixel_row (pixel_row),
+		.pixel_row (row_fix),
 		.LocY_reg_base (LocY_reg_base),
 		.LocX_reg_base (LocX_reg_base),
 		.icon_out_w (icon_out_w)

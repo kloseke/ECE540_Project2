@@ -372,6 +372,10 @@ _start:
 				# For auto mode
 				and s2, s2, zero  	# make sure its clear
 				and s1, s1, zero	# clear reg
+                and x30, x30, zero
+		        li x13, PORT_BOTINFO
+		        lw s2, 0(x13)		
+		        andi s2, s2, 0x07	# we grab the original oriantation of rojobot to compare later on	
 
 # ==================
 # === Main  Loop ===
@@ -390,13 +394,15 @@ main_L0:
                 # sb      t0, (SP_ROBOT_MODE)
                 la t2, SP_ROBOT_MODE
                 sb t0, 0(t2)
-/*
+
                 # polling for the robot interrupt
                 li    x13, PORT_BOTUPDT         #   while(25) {  // main loop is an infinite loop
                 lw    x21, 0(x13)               #   while (upd_sysreg == 0)  {}   // loop until isr updates rojobot registers
-                beq   x21, zero, main_L0
+                and   x21, x21, 0x02            # mask out updt bit
+                li    x15, 0x00
+                beq   x21, x15, main_L0
                 nop
-*/
+
                 li    x13, PORT_INTACK          #   Load the Acknowledgement port address
                 li    x21, INT_ACK              #   Set the Acknowledgement bit
                 sw    x21, 0(x13)               #   Write the Acknowledgement bit
@@ -473,44 +479,6 @@ ret_next_step:
 # PORT_SEVENSEG_LOW     = 0x8000103c        # (o) 7 Segment Lower Display
 #
 
-wr_alldigits:
-/*                add t3, zero, zero
-                add x25, zero, zero
-                # lw  x25, (SP_DIG0)              # Load the lower 7 segment displays
-                li t3, PORT_EXTENDED
-                li x25, 0x0000000F
-                sw x25, 0(t3)
-                li x25, 0x01010122
-                li  t3, PORT_SEVENSEG_LOW
-                sw  x25, 0(t3)                  # Write to the lower 7 segment displays
-                # lw  x25, (SP_DIG4)            # Load the higher 7 segment displays
-                li x25, 0x4
-                li t3, PORT_SEVENSEG_LOW
-                SW x25, 4(t3)
-                li  x25, 0x00                   # Enable all the display segments
-                li  t3, PORT_SEVENSEG_EN
-                sw  x25, 0(t3)
-                jr  ra
-                nop */
-                # add t3, zero, zero
-            #  ===== our second edit =======
-            /*
-                li t3, PORT_EXTENDED
-                li x25, 0x10                    # 090H 4040
-                sw x25, 0(t3)                   # 010H 0033
-                lw  x25, (SP_DIG0)              # Load the lower 7 segment displays
-                li  t3, PORT_SEVENSEG_LOW
-                sw  x25, 0(t3)                  # Write to the lower 7 segment displays
-                lw  x25, (SP_DIG4)              # Load the higher 7 segment displays
-                li  t3, PORT_SEVENSEG_LOW
-                sw  x25, 0(t3)                  # Write to the higher 7 segment displays
-                li  x25, 0x00                   # Enable all the display segments
-                li  t3, PORT_SEVENSEG_EN
-                sw  x25, 0(t3)
-                jr  ra
-                nop 
-            */
-# ################################################
 
 wr_alldigits:
              #  add t3, zero, zero
@@ -521,7 +489,7 @@ wr_alldigits:
 
 #               li x24, PORT_EXTENDED			# set extended bit
 #	            li x25, 0x10
-	            sw x25, 0(x24)        
+#	            sw x25, 0(x24)        
                 li  t3, PORT_SEVENSEG_LOW
                 sw  x27, 0(t3)                  # x27 has the whole digit string
                 li  x25, 0x00                   # Enable all the display segments
@@ -688,12 +656,14 @@ mvmt2cc:        li    x13, PORT_BOTINFO         #   Load the BotInfo port addres
 		andi x21, x21, 0x0F		# mask
 		li x22, 0xFFF0FFFF
 		and x27, x27, x22		# clear 5th byte
-				
-write_stopped:
+        and x25, x25, zero      # clear 
+
+# Set the appropriate character on the 7 seg for current motion				
+write_stopped:                 
 	and x23, x23, zero
 	bne x21, x23, write_forward
 
-    li x24, PORT_EXTENDED			# set extended bit
+    la x24, PORT_EXTENDED			# set extended bit
 	li x25, 0x10
 	sw x25, 0(x24) 
 
@@ -701,12 +671,12 @@ write_stopped:
 	or x27, x27, x23
 	beq zero, zero, exit_write
 
-write_forward:
+write_forward:                 
 	and x23, x23, zero
 	ori x23, x23, 0x04
 	bne x21, x23, write_reverse
 
-    li x24, PORT_EXTENDED			# clear extended bit
+    la x24, PORT_EXTENDED			# clear extended bit
 	li x25, 0x00
 	sw x25, 0(x24) 
 
@@ -719,7 +689,7 @@ write_reverse:
 	ori x23, x23, 0x08
 	bne x21, x23, write_slow_l
 
-    li x24, PORT_EXTENDED			# set extended bit
+    la x24, PORT_EXTENDED			# set extended bit
 	li x25, 0x00
 	sw x25, 0(x24) 
 
@@ -732,7 +702,7 @@ write_slow_l:
 	ori x23, x23, 0x0C
 	bne x21, x23, write_fast_l
 
-    li x24, PORT_EXTENDED			# set extended bit
+    la x24, PORT_EXTENDED			# set extended bit
 	li x25, 0x10
 	sw x25, 0(x24) 
 
@@ -745,7 +715,7 @@ write_fast_l:
 	ori x23, x23, 0x0D
 	bne x21, x23, write_slow_r
 
-    li x24, PORT_EXTENDED			# set extended bit
+    la x24, PORT_EXTENDED			# set extended bit
 	li x25, 0x10
 	sw x25, 0(x24) 
 
@@ -758,7 +728,7 @@ write_slow_r:
 	ori x23, x23, 0x0E
 	bne x21, x23, write_fast_r
 
-    li x24, PORT_EXTENDED			# set extended bit
+    la x24, PORT_EXTENDED			# set extended bit
 	li x25, 0x10
 	sw x25, 0(x24) 
 
@@ -767,7 +737,7 @@ write_slow_r:
 	beq zero, zero, exit_write
 
 write_fast_r: # base case, no check needed
-    li x24, PORT_EXTENDED			# set extended bit
+    la x24, PORT_EXTENDED			# set extended bit
 	li x25, 0x10
 	sw x25, 0(x24) 
 
@@ -808,108 +778,6 @@ back_mvmt2cc:
 # === Uses BOTINF_REG (Bot Info register) to get orientation.  Calculates    ===
 # === digits with a case statement based on orientation.                     ===
 # ============================Original=============================================
-/*
-next_hdg:       lb  x25,    (BOTINF_REG)        # x25[2:0] = BOTINF_REG[2:0] = orientation
-                and x25,    x25,    MSKORIENT   #
-                # sb  x25,    SP_OLDHDG
-                la t3, SP_OLDHDG
-                sb x25, 0(t3)
-                                                # switch(orientation)  {
-nh_caseORN:     
-                # bne x25,    OR_N, nh_caseORNE   #   case(OR_N):
-                la t3, OR_N
-                bne x25, t3, nh_caseORNE
-                nop                             #
-                li  x5,     00                  #       Dig[2:0] = 000
-                li  x6,     00                  #
-                li  x7,     00                  #
-                beq zero,zero,  nh_endcase          #       break
-                nop
-                                                #
-nh_caseORNE:    
-                # bne x25,    OR_NE, nh_caseORE   #   case (OR_NE):
-                la t3, OR_NE
-                bne x25, t3, nh_caseORE
-                nop                             #
-                li  x5,     00                  #       Dig[2:0] = 045
-                li  x6,     04                  #
-                li  x7,     05                  #
-                beq zero,zero,  nh_endcase          #       break
-                nop
-
-nh_caseORE:     
-                # bne x25,    OR_E, nh_caseORSE   #   case (OR_E):
-                la t3, OR_E
-                bne x25, t3, nh_caseORSE
-                nop                             #
-                li  x5,     0x00                #       Dig[2:0] = 090
-                li  x6,     0x09                #
-                li  x7,     0x00                #
-                beq zero,zero,  nh_endcase          #       break
-                nop
-
-nh_caseORSE:    
-                # bne x25,    OR_SE, nh_caseORS   #   case (OR_SE):
-                la t3, OR_SE
-                bne x25, t3, nh_caseORS
-                nop                             #
-                li  x5,     0x01                #       Dig[2:0] = 135
-                li  x6,     0x03                #
-                li  x7,     0x05                #
-                beq zero,zero,  nh_endcase          #       break
-                nop
-
-nh_caseORS:     
-                # bne x25,    OR_S, nh_caseORSW   #   case (OR_S):
-                la t3, OR_S
-                bne x25, t3, nh_caseORSW
-                nop                             #
-                li  x5,     0x01                #       Dig[2:0] = 180
-                li  x6,     0x08                #
-                li  x7,     00                  #
-                beq zero,zero,  nh_endcase          #       break
-                nop
-
-nh_caseORSW:    
-                # bne x25,    OR_SW, nh_caseORW   #   case (OR_SW):
-                la t3, OR_SW
-                bne x25, t3, nh_caseORW
-                nop                             #
-                li  x5,     02                  #       Dig[2:0] = 225
-                li  x6,     02                  #
-                li  x7,     05                  #
-                beq zero,zero,  nh_endcase          #       break
-                nop
-
-nh_caseORW:     
-                # bne x25,    OR_W, nh_caseORNW   #   case (OR_W):
-                la t3, OR_W
-                bne x25, t3, nh_caseORNW
-                nop                             #
-                li  x5,     02                  #       Dig[2:0] = 270
-                li  x6,     07                  #
-                li  x7,     00                  #
-                beq zero,zero,  nh_endcase          #       break
-                nop
-
-                                                #   case (OR_NW):  // only remaining case
-nh_caseORNW:    li  x5,     03                  #       Dig[2:0] = 315
-                li  x6,     01                  #
-                li  x7,     05                  #
-                                                # } // end of switch statement
-nh_endcase:     
-                # sb  x5,     SP_DIG7             # update the heading display digits
-                la t3, SP_DIG7
-                sb x5, 0(t3)
-                # sb  x6,     SP_DIG6             # these are stored in the Scratchpad RAM
-                la t3, SP_DIG6
-                sb x6, 0(t3)
-                # sb  x7,     SP_DIG5             #
-                la t3, SP_DIG5
-                sb x7, 0(t3)
-                jr  ra
-                nop
-*/
 # #####################################################################	
 
 next_hdg:       li    x13, PORT_BOTINFO         #   Load the BotInfo port address
@@ -1006,41 +874,12 @@ nh_endcase:
 # === next_loc() - Calculate digits for Rojobot location                     ===
 # === Registers affected: x12, x11, x14, x13, x25                            ===
 # === Uses LocX and LocY to get location.                                    ===
-# ==========================Original============================================
-/*
-next_loc:       lb      x25,    (LOCx_REG)              # Dig[3:2] gets X-coordinate
-                add     x11,    x25, 0                  # Digit 2 gets lower nibble
-                and     x11,    x11,   MSK_HEXDIGIT     #
-                srl     x25,    x25, 4                  #
-                add     x12,    x25, 0                  #
-
-                lb      x25,    (LOCy_REG)              # Dig[1:0] gets Y-coordinate
-                add     x13,    x25, 0                  # Digit 0 gets lower nibble
-                and     x13,    x13,   MSK_HEXDIGIT     #
-                srl     x25,    x25, 4                  #
-                add     x14,    x25, 0                  #
-                # sb      x11,    SP_DIG2
-                la t2, SP_DIG2
-                sb x11, 0(t2)
-                # sb      x12,    SP_DIG3
-                la t2, SP_DIG3
-                sb x12, 0(t2)
-                # sb      x13,    SP_DIG0
-                la t2, SP_DIG0
-                sb x13, 0(t2)
-                # sb      x14,    SP_DIG1
-                la t2, SP_DIG1
-                sb x14, 0(t2)
-                jr  ra
-                nop
-                # ==== end of original === */
-
 # =============================================================
 	# 3(BOTINFO) => seg [1:0]
 	# 2(BOTINFO) => seg [3:2]
 	# 0(BOTINFO) (Decode to movement) => seg [4] 
 	# 0(BOTINFO) (Decode to orientation) => seg [7:5]
-next_loc:       
+next_loc:       # Set current x,y location in 7 seg
 		and x27, x27, zero		# clear
 
 		li x13, PORT_BOTINFO
@@ -1080,87 +919,84 @@ next_step:
 # ############################################################################################################# 
 next_step_auto:	# Switch has been set, bot decides where to go
 				# will be using s1 to save a 0 if we just reversed and need to now turn right (will be set when turn is set)
-				li x30, 16
-				bne s1, x30, decide_motion		# See if we completed a motion cycle
-				and s1, s1, zero				# If motion cycle complete, reset
-decide_motion:
-				beq s1, zero, forwards
-				li x30, 1
-				beq s1, x30, backwards
-				li x30, 2
-				beq s1, x30, right_1
-				li x30, 3
-				beq s1, x30, forwards
-				li x30, 4
-				beq s1, x30, backwards
-				li x30, 5
-				beq s1, x30, right_1
-				li x30, 6
-				beq s1, x30, forwards
-				li x30, 7
-				beq s1, x30, backwards
-				li x30, 8
-				beq s1, x30, left_2
-				li x30, 9
-				beq s1, x30, left_1
-				li x30, 10
-				beq s1, x30, forwards
-				li x30, 11
-				beq s1, x30, backwards
-				li x30, 12
-				beq s1, x30, left_1
-				li x30, 13
-				beq s1, x30, forwards
-				li x30, 14
-				beq s1, x30, backwards
-				li x30, 15					# At dead end, turn arround
-				beq s1, x30, left_2
-				
-				
-				
-				
-				
-				beq s1, zero, need_to_turn_now			# we already reversed, need to turn to finish this motion (part 2 of a 2 step motion)
-				jal check_off_black_line				# read sensor to see if we are off of black line, returns a0 = 1 if we are off and 0 if on
-				nop
-				beq a0, zero, on_the_line				# jump down here if we are on the line
-				
-forwards:		
-				
-				# Only check if we are on the black line after moving forwards
+                
+orientation_check:
+
+		        li x13, PORT_BOTINFO
+		        lw x21, 0(x13)		
+		        andi x21, x21, 0x07	# mask	
+                beq s2, x21, not_turned         # still turning
+				addi s1, s1, 1                  # have turned, increment motion
+                lw s2, 0(x13)                   # save new orientation
+
+not_turned:     # haven't turned yet
+
 				li x31, PORT_BOTINFO			# sensors
 				lw x21, 0(x31)  
 				srl x21, x21, 8					
 				andi x21, x21, 0x07				# Grab just black line sensor info to read
-				beq x21, zero, on_the_line
-				addi s1, s1, 1					# We are still off, increment motion
-				beq zero, zero, set_forwards_motion
+                li x30, 0x07
+				beq x21, x30, off_the_line
+				beq zero, zero, on_the_line
 				
-on_the_line:
+on_the_line:    # rojo bot is on the line
+				beq zero, zero, decide_motion
+off_the_line:   # rojo bot is off the line
 				and s1, s1, zero				# Clear motion increment
-	
-set_forwards_motion:
+				beq zero, zero, backwards
+
+
+check_wrap:     # see if the turn steps wrapped around/ hit the end
+				li x30, 16
+				bne s1, x30, decide_motion		# See if we completed a motion cycle
+				and s1, s1, zero				# If motion cycle complete, reset
+                li s1, 5
+
+decide_motion:  # Decide which motion step we are on
+				li x30, 1
+				beq s1, x30, forwards
+				li x30, 2
+				beq s1, x30, left_1 # I accidentally swapped the left and right turns
+                                    # so this is actually right_1 and vise versa
+				li x30, 3
+				beq s1, x30, left_1
+				li x30, 4
+				beq s1, x30, right_2
+				li x30, 5
+				beq s1, x30, right_1
+				li x30, 6
+				beq s1, x30, right_1
+				li x30, 7
+                beq s1, x30, left_2
+				
+forwards:		
+				addi s1, s1, 1
 				li t3, SP_LFRF					# motion for forward
 				beq zero, zero, set_rojo_motion_auto
 backwards:
-				addi s1, s1, 1
+#				addi s1, s1, 1
 				li t3, SP_LRRR					# motion to reverse
 				beq zero, zero, set_rojo_motion_auto
 right_1:
-				addi s1, s1, 1
+#				addi s1, s1, 1
 				li t3, SP_LFRS					# motion for slow right
 				beq zero, zero, set_rojo_motion_auto
 right_2:
-				addi s1, s1, 1
+#				addi s1, s1, 1
 				li t3, SP_LFRR					# motion for fast right
 				beq zero, zero, set_rojo_motion_auto
 left_1:
-				addi s1, s1, 1
+#				addi s1, s1, 1
 				li t3, SP_LSRF					# motion for slow left
 				beq zero, zero, set_rojo_motion_auto
 left_2:
-				addi s1, s1, 1
+#				addi s1, s1, 1
 				li t3, SP_LRRF					# motion for fast left
+				beq zero, zero, set_rojo_motion_auto
+
+stopping:
+#				addi s1, s1, 1
+				li t3, 0x00					# motion for stopped
 				
 set_rojo_motion_auto:
 				li x25, PORT_BOTCTRL					# grab location of rojo control register

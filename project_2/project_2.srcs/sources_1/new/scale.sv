@@ -30,8 +30,8 @@ module scale(
 reg [6:0] pix_column_scaled;
 reg [6:0] pix_row_scaled;
 
-// assign pix_column_scaled = pixel_column/8;
-assign pix_row_scaled = ((pixel_row/8) + 32);
+assign pix_column_scaled = pixel_column/8;
+ //assign pix_row_scaled = ((pixel_row/8) + 32);
 assign pix_row_scaled = pixel_row/6;
 assign vid_addr = {pix_row_scaled [6:0], pix_column_scaled [6:0]};
 
